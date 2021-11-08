@@ -1,5 +1,5 @@
 {
-  "name": "roll-up-test",
+  "name": "@semanticjs/krakyn",
   "description": "Webcomponent roll-up-test following open-wc recommendations",
   "license": "MIT",
   "author": "roll-up-test",
@@ -39,7 +39,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-postcss": "^4.0.1", 
+    "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-postcss-modules": "^2.0.2",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-styles": "^3.14.1",
