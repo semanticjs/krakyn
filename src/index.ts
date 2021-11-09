@@ -11,6 +11,7 @@ import { VariablesUtils } from './utils/variables.utils.js';
 import { RollUpTest } from './RollUpTest.js';
 import { DragMenuItems } from './templates/DragMenu.template.js';
 import { CanvasControl } from './controls/Canvas.control.js';
+import { TestControl } from './controls/TestControl.js';
 
-export { CanvasControl, DragDropUtils, DragMenuItems, RollUpTest, FlowTool, MenuTemplatesUtils, VariablesUtils, EventsUtils, ConstantUtils, NodeTemplates, DragItemsTemplates, PositionUtils }
+export { TestControl, CanvasControl, DragDropUtils, DragMenuItems, RollUpTest, FlowTool, MenuTemplatesUtils, VariablesUtils, EventsUtils, ConstantUtils, NodeTemplates, DragItemsTemplates, PositionUtils }
 
