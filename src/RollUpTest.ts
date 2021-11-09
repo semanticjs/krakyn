@@ -1,12 +1,15 @@
 import { FlowTool } from './controls/FlowTool';
 import { VariablesUtils } from './utils/variables.utils';
 import { html, LitElement } from 'lit';
-import { property, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { DataFlowDataModel } from './models/dataflow-data.model';
 import { DragDropUtils } from './utils/drag-drop.utils';
 import {query} from 'lit/decorators/query.js';
 import { PositionUtils } from './utils/position.utils';
 import { NodeTemplates } from './templates/node-templates';
+
+@customElement('rollup-test-control')
+
 export class RollUpTest extends LitElement {
   
   @property({ type: Number }) 
