@@ -25,7 +25,7 @@ export class CanvasControl extends LitElement {
      * 
      * @returns this control
      */
-    public createRenderRoot(): CanvasControl {
-        return this;
-    }
+    // public createRenderRoot(): CanvasControl {
+    //     return this;
+    // }
 }
