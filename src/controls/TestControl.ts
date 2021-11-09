@@ -15,6 +15,7 @@ export class TestControl extends LitElement {
         `
         <div style="height: 400px; width: 400px; background-color: red">
             Test Control
+            <slot></slot>
         </div>
         `
     }
