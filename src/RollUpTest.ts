@@ -442,7 +442,7 @@ export class RollUpTest extends LitElement {
   render() {
     return html `
 
-      <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
+      <link rel="stylesheet" href="./assetssssss/styles/global-scss.min.css">
 
       <template id="request">
         <div class="node-drop-shadow">
