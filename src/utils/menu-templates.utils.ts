@@ -5,8 +5,7 @@ export class MenuTemplatesUtils {
 
     public static Render(el: HTMLElement, menuTemplates: Array<MenuTemplateModel>): void {
         
-        for (let item of menuTemplates) {
-
+        menuTemplates.forEach((item: MenuTemplateModel) => {
             const container: HTMLElement = document.createElement('div'); 
             container.setAttribute('draggable', String(item.Draggable));
             container.setAttribute('data-node', item.DataNode);
@@ -23,7 +22,27 @@ export class MenuTemplatesUtils {
             img.appendChild(span);
     
             el.appendChild(container);
-        }
+        })
+
+        // for (let item of menuTemplates) {
+
+        //     const container: HTMLElement = document.createElement('div'); 
+        //     container.setAttribute('draggable', String(item.Draggable));
+        //     container.setAttribute('data-node', item.DataNode);
+        //     container.addEventListener('dragstart', item.DragAction);
+        //     container.classList.add(...item.ClassList);
+
+        //     const img: HTMLElement = document.createElement('i');
+        //     img.classList.add(...item.IconClassList);
+
+        //     const span: HTMLElement = document.createElement('span');
+        //     span.innerHTML = item.Label;
+
+        //     container.appendChild(img);
+        //     img.appendChild(span);
+    
+        //     el.appendChild(container);
+        // }
     }
 }
 
