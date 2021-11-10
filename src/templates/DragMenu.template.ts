@@ -65,7 +65,7 @@ export class DragMenuItems extends LitElement {
      * 
      * @returns this control
      */
-    //  public createRenderRoot(): DragMenuItems {
-    //     return this;
-    // }
+     public createRenderRoot(): DragMenuItems {
+        return this;
+    }
 }

@@ -575,9 +575,9 @@ export class RollUpTest extends LitElement {
      * 
      * @returns this control
      */
-  //  public createRenderRoot(): RollUpTest {
-  //   return this;
-  // }
+   public createRenderRoot(): RollUpTest {
+    return this;
+  }
 
 
 }
