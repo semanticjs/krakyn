@@ -51,7 +51,9 @@ export class TabMenuControl extends LitElement {
     public render(): TemplateResult {
         return html 
         `
-        <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
+        <!--
+            <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
+        -->
 
         <div class="tab-menu">
             <ul>
