@@ -1,6 +1,6 @@
 export class NodeTemplates {
 
-    public static RequestTemplate: string = 
+    public static Request: string = 
         `
             <div class="node-drop-shadow">
                 <div class="request">
@@ -9,20 +9,16 @@ export class NodeTemplates {
             </div>
         `;
 
-    public static ProjectTemplate: string = 
+    public static Project: string = 
         `
-            <div id="request">
-                <div class="node-drop-shadow">
-                    <div class="gap flexbox-column request">
-                        <span df-Name></span>
-                        <input type="text" df-Host>
-                        <a href="#" df-Host></a>
-                    </div>
+            <div class="node-drop-shadow">
+                <div class="project">
+                    <span>Project</span>
                 </div>
             </div>
         `;
 
-    public static RouteTemplate: string = 
+    public static Filter: string = 
         `
             <div class="node-drop-shadow">
                 <div class="filter">
@@ -31,18 +27,16 @@ export class NodeTemplates {
             </div>
         `;
 
-    public static ApplicationTemplate: string = 
+    public static Application: string = 
         `
             <div class="node-drop-shadow">
-                <div class="gap flexbox-column application">
-                    <span df-Name></span>
-                    <span df-Package></span>
-                    <span df-Version></span>
+                <div class="application">
+                    <span>Application</span>
                 </div>
             </div>
         `;
 
-    public static ModifierTemplate: string = 
+    public static Modifier: string = 
         `
             <div class="node-drop-shadow">
                 <div class="modifier">
@@ -51,7 +45,7 @@ export class NodeTemplates {
             </div>
         `;
 
-    public static JoinTemplate: string = 
+    public static Join: string = 
     
         `   
             <div class="node-drop-shadow">
@@ -61,7 +55,7 @@ export class NodeTemplates {
             </div>
         `;
 
-    public static SplitTemplate: string = 
+    public static Split: string = 
         `
             <div class="node-drop-shadow">
                 <div class="split">
@@ -70,7 +64,7 @@ export class NodeTemplates {
             </div>
         `;
 
-    public static DecisionTemplate: string = 
+    public static Decision: string = 
         `
             <div class="node-drop-shadow">
                 <div class="decision">  
@@ -79,7 +73,7 @@ export class NodeTemplates {
             </div>
         `;
 
-    public static EventTemplate: string = 
+    public static Event: string = 
         `
             <div class="node-drop-shadow">
                 <div class="event">
@@ -88,7 +82,7 @@ export class NodeTemplates {
             </div>
         `;
 
-    public static FacebookTemplate: string = 
+    public static Facebook: string = 
         `
             <div>
                 <div class="title-box"><i class="fab fa-facebook"></i> Facebook Messages</div>
@@ -96,7 +90,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static SlackTemplate: string = 
+    public static Slack: string = 
         `
             <div>
                 <div class="title-box"><i class="fab fa-slack"></i> Slack chat message</div>
@@ -104,7 +98,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static GithubTemplate: string = 
+    public static Github: string = 
         `
             <div>
             <div class="title-box"><i class="fab fa-github "></i> Github Stars</div>
@@ -116,7 +110,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static TelegramTemplate: string = 
+    public static Telegram: string = 
         `
             <div>
                 <div class="title-box"><i class="fab fa-telegram-plane"></i> Telegram</div>
@@ -134,7 +128,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static AWSTemplate: string = 
+    public static AWS = 
         `
             <div>
                 <div class="title-box"><i class="fab fa-aws"></i> Aws Save </div>
@@ -148,7 +142,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static LogTemplate: string = 
+    public static Log = 
         `
             <div>
                 <div class="title-box"><i class="fas fa-file-signature"></i> Save log file </div>
@@ -156,7 +150,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static GoogleTemplate: string = 
+    public static Google = 
         `
             <div>
                 <div class="title-box"><i class="fab fa-google-drive"></i> Google Drive save </div>
@@ -164,7 +158,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static EmailTemplate: string = 
+    public static Email = 
         `
             <div>
                 <div class="title-box"><i class="fas fa-at"></i> Send Email </div>
@@ -172,7 +166,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static TemplateTemplate: string = 
+    public static Template = 
         `
         <div>
             <div class="title-box"><i class="fas fa-code"></i> Template</div>
@@ -185,7 +179,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static MultipleTemplate: string = 
+    public static Multiple = 
         `
         <div>
             <div class="box">
@@ -195,7 +189,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static PersonalizedTemplate: string = 
+    public static Personalized = 
         `
         <div>
             Personalized
@@ -203,7 +197,7 @@ export class NodeTemplates {
         `
     ;
 
-    public static DBLClickTemplate: string = 
+    public static DBLClick = 
         `
             <div>
                 <div class="title-box"><i class="fas fa-mouse"></i> Db Click</div>

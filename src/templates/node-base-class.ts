@@ -312,7 +312,7 @@ export class NodeBaseClass extends BaseFunctions {
      * @param val Node model
      * @returns node id
      */
-       public AddNode(dataNode: NodeModel): string {
+       public AddNode(val: NodeModel): string {
 
         let newNodeId: string;
 
@@ -327,8 +327,8 @@ export class NodeBaseClass extends BaseFunctions {
          */
         const setups: LocalNodesModel = this.setupNodes(newNodeId, ['inputs'], ['outputs']);
 
-        if (dataNode.ClassList) {
-          setups.Node.classList.add(...dataNode.ClassList);
+        if (val.ClassList) {
+          setups.Node.classList.add(...val.ClassList);
         }
     
         // const inputs: HTMLElement = document.createElement('div');
@@ -338,7 +338,7 @@ export class NodeBaseClass extends BaseFunctions {
         // outputs.classList.add('outputs');
     
         const json_inputs: any = {}
-        for(var x = 0; x < dataNode.NumOfInputs; x++) {
+        for(var x = 0; x < val.NumOfInputs; x++) {
           const input = document.createElement('div');
           input.classList.add('input');
           input.classList.add('input_'+(x+1));
@@ -347,7 +347,7 @@ export class NodeBaseClass extends BaseFunctions {
         }
     
         const json_outputs: any = {}
-        for(var x = 0; x < dataNode.NumOfOutputs; x++) {
+        for(var x = 0; x < val.NumOfOutputs; x++) {
           const output = document.createElement('div');
           output.classList.add('output');
           output.classList.add('output_'+(x+1));
@@ -356,26 +356,20 @@ export class NodeBaseClass extends BaseFunctions {
         }
     
         const content = document.createElement('div');
+
         content.classList.add('drawflow_content_node');
 
         /**
          * Add template for node that was dragged onto the canvas
          */
-        // if(dataNode.TypeNode === false) {
+        if(val.TypeNode === false) {
           
-        //   if (typeof dataNode.HTML === 'string') {
-        //     content.innerHTML = dataNode.HTML;
-        //   } else {
-        //     content.appendChild(dataNode.HTML);
-        //   }
-        if (dataNode.TypeNode === false) {
-          content.innerHTML = dataNode.HTML.toString();
-
-        } else if (dataNode.TypeNode === true) {
-            // content.appendChild(VariablesUtils.NodeRegister[dataNode.HTML].html.cloneNode(true));
-            content.appendChild(<Node>dataNode.HTML);
-
-        } else {
+          if (typeof val.HTML === 'string') {
+            content.innerHTML = val.HTML;
+          } else {
+            content.appendChild(val.HTML);
+          }
+        
         // } else if (val.TypeNode === true) {
 
         //   content.appendChild(VariablesUtils.NodeRegister[val.HTML].html.cloneNode(true));
@@ -401,32 +395,20 @@ export class NodeBaseClass extends BaseFunctions {
           // }
         }
     
-        Object.entries(dataNode.Data).forEach(function (key, value) {
+        Object.entries(val.Data).forEach(function (key, value) {
           if(typeof key[1] === 'object') {
             insertObjectkeys(null, key[0], key[0]);
-
           } else {
-
-            const elems: any = content.querySelectorAll('[df-'+key[0]+']');
-
-              for(let i = 0; i < elems.length; i++) {
+            var elems: any = content.querySelectorAll('[df-'+key[0]+']');
+              for(var i = 0; i < elems.length; i++) {
                 elems[i].value = key[1];
-
-                if (elems[i].closest('a')) {
-                  elems[i].href = key[1];
-                  elems[i].innerHTML = key[1];
-              }
-
-              if (elems[i].closest('span')) {
-                  elems[i].innerHTML = key[1];
-              }
               }
           }
         })
     
         function insertObjectkeys(object: any, name: any, completname: any) {
           if(object === null) {
-            var object = dataNode.Data[name];
+            var object = val.Data[name];
           } else {
             var object = object[name]
           }
@@ -448,9 +430,8 @@ export class NodeBaseClass extends BaseFunctions {
         setups.Node.appendChild(setups.Inputs);
         setups.Node.appendChild(content);
         setups.Node.appendChild(setups.Outputs);
-        
-        setups.Node.style.top = dataNode.PosY + 'px';
-        setups.Node.style.left = dataNode.PosX + 'px';
+        setups.Node.style.top = val.PosY + 'px';
+        setups.Node.style.left = val.PosX + 'px';
         setups.Parent.appendChild(setups.Node);
         VariablesUtils.PreCanvas.appendChild(setups.Parent);
 
@@ -458,20 +439,20 @@ export class NodeBaseClass extends BaseFunctions {
         const nodeModel: NodeModel = new NodeModel
         (
           {
-            AllowedInputTypes: dataNode.AllowedInputTypes,
-            Name: dataNode.Name, 
+            AllowedInputTypes: val.AllowedInputTypes,
+            Name: val.Name, 
             ID: newNodeId,
-            Data: dataNode.Data,
-            ClassList: dataNode.ClassList,
-            HTML: dataNode.HTML,
-            TypeNode: dataNode.TypeNode,
-            Type: dataNode.Type,
+            Data: val.Data,
+            ClassList: val.ClassList,
+            HTML: val.HTML,
+            TypeNode: val.TypeNode,
+            Type: val.Type,
             Inputs: json_inputs,
             Outputs: json_outputs,
-            PosX: dataNode.PosX,
-            PosY: dataNode.PosY,
-            NumOfInputs: dataNode.NumOfInputs,
-            NumOfOutputs: dataNode.NumOfOutputs
+            PosX: val.PosX,
+            PosY: val.PosY,
+            NumOfInputs: val.NumOfInputs,
+            NumOfOutputs: val.NumOfOutputs
           }
         );
 
