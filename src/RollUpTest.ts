@@ -1,6 +1,6 @@
 import { EventsUtils } from './utils/events.utils';
 import { html, LitElement } from 'lit';
-import { property, queryAsync, state } from 'lit/decorators.js';
+import { customElement, property, queryAsync, state } from 'lit/decorators.js';
 import { query } from 'lit/decorators/query.js';
 import { DataFlowDataModel } from './models/dataflow-data.model.js';
 import { FlowTool } from './base-classes/FlowTool.js';
@@ -9,6 +9,9 @@ import { DragDropUtils } from './utils/drag-drop.utils.js';
 import { PositionUtils } from './utils/position.utils.js';
 import { NodeTemplates } from './templates/node-templates.js';
 import { ModuleMenuModel } from './models/menu/module-menu.model.js';
+
+@customElement('roll-up-test')
+
 export class RollUpTest extends LitElement {
 
   /**
