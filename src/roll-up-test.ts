@@ -14,4 +14,4 @@ import '../../assets/styles/node-structure.scss';
 /**
  * Can add this to RollUpTest.ts, if we wanted - omit 'window'
  */
-// window.customElements.define('roll-up-test', RollUpTest);
+window.customElements.define('roll-up-test', RollUpTest);
