@@ -8,9 +8,7 @@ export class ThemeUtils extends LitElement {
     public render(): any {
         return html 
         `
-        <!--
-            <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
-        -->
+        <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
         `
     }
 }

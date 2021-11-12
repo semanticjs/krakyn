@@ -527,9 +527,7 @@ export class RollUpTest extends LitElement {
   render() {
     return html `
 
-    <!--
-      <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
-    -->
+    <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
 
     <header>
       <h2>${ this.HeaderTitle }</h2>
@@ -567,16 +565,6 @@ export class RollUpTest extends LitElement {
     </div>
   </div>
     `
-  }
-
-  /**
-     * Overrides the shadow DOM (turns it off) - one reason for this is to use 
-     * global styles 
-     * 
-     * @returns this control
-     */
-   public createRenderRoot(): RollUpTest {
-    return this;
   }
 
 

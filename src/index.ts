@@ -13,7 +13,6 @@ import { RollUpTest } from './RollUpTest.js';
 import { DragMenuItems } from './templates/DragMenu.template.js';
 import { CanvasControl } from './controls/Canvas.control.js';
 import { ModuleMenuModel } from './models/menu/module-menu.model.js';
-import { TestControl } from './controls/TestControl.js';
 
-export { TestControl, ModuleMenuModel, TabMenuControl, CanvasControl, DragDropUtils, DragMenuItems, RollUpTest, FlowTool, MenuTemplatesUtils, VariablesUtils, EventsUtils, ConstantUtils, NodeTemplates, DragItemsTemplates, PositionUtils }
+export { ModuleMenuModel, TabMenuControl, CanvasControl, DragDropUtils, DragMenuItems, RollUpTest, FlowTool, MenuTemplatesUtils, VariablesUtils, EventsUtils, ConstantUtils, NodeTemplates, DragItemsTemplates, PositionUtils }
 

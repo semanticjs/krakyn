@@ -9,7 +9,7 @@ export class DragItemsTemplates {
                DragAction: callback,
                Id: 'request',
                Label: ' Request',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['far', 'fa-thumbs-up']
            },
            {
                ClassList: ['drag-item'],

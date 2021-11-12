@@ -51,9 +51,7 @@ export class TabMenuControl extends LitElement {
     public render(): TemplateResult {
         return html 
         `
-        <!--
-            <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
-        -->
+        <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
 
         <div class="tab-menu">
             <ul>
@@ -70,15 +68,5 @@ export class TabMenuControl extends LitElement {
             </ul>
         </div>
         `
-    }
-
-    /**
-     * Overrides the shadow DOM (turns it off) - one reason for this is to use 
-     * global styles 
-     * 
-     * @returns this control
-     */
-     public createRenderRoot(): TabMenuControl {
-        return this;
     }
 }
