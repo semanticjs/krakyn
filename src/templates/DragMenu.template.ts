@@ -58,4 +58,8 @@ export class DragMenuItems extends LitElement {
         </div>
         `
     }
+
+    public createRenderRoot(): DragMenuItems {
+        return this;
+}
 }
