@@ -69,4 +69,8 @@ export class TabMenuControl extends LitElement {
         </div>
         `
     }
+
+    public createRenderRoot(): TabMenuControl {
+        return this;
+}
 }
