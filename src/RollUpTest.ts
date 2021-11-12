@@ -566,6 +566,7 @@ export class RollUpTest extends LitElement {
   </div>
     `
   }
-
-
+  public createRenderRoot(): RollUpTest {
+          return this;
+  }
 }
