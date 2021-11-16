@@ -569,8 +569,14 @@ export class KrakynFlowTool extends LitElement {
   </div>
     `
   }
-  
-  // public createRenderRoot(): KrakynFlowTool {
-  //         return this;
-  // }
+
+   /**
+     * Overrides the shadow DOM (turns it off) - one reason for this is to use 
+     * global styles 
+     * 
+     * @returns this control
+     */
+  public createRenderRoot(): KrakynFlowTool {
+          return this;
+  }
 }

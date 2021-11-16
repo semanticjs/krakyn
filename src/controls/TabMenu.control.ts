@@ -70,7 +70,13 @@ export class TabMenuControl extends LitElement {
         `
     }
 
-    // public createRenderRoot(): TabMenuControl {
-    //     return this;
-    // }
+     /**
+     * Overrides the shadow DOM (turns it off) - one reason for this is to use 
+     * global styles 
+     * 
+     * @returns this control
+     */
+    public createRenderRoot(): TabMenuControl {
+        return this;
+    }
 }
