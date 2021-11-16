@@ -10,9 +10,9 @@ import { PositionUtils } from './utils/position.utils.js';
 import { NodeTemplates } from './templates/node-templates.js';
 import { ModuleMenuModel } from './models/menu/module-menu.model.js';
 
-@customElement('roll-up-test')
+@customElement('krakyn-flow-tool')
 
-export class RollUpTest extends LitElement {
+export class KrakynFlowTool extends LitElement {
 
   /**
    * Get the canvas element
@@ -48,7 +48,7 @@ export class RollUpTest extends LitElement {
   @property({ type: String })
   public HeaderTitle: string;
 
-  protected get root(): ShadowRoot | RollUpTest {
+  protected get root(): ShadowRoot | KrakynFlowTool {
     return this.shadowRoot || this;
   }
 
@@ -569,7 +569,7 @@ export class RollUpTest extends LitElement {
   </div>
     `
   }
-  public createRenderRoot(): RollUpTest {
+  public createRenderRoot(): KrakynFlowTool {
           return this;
   }
 }

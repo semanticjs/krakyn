@@ -9,10 +9,10 @@ import { DragItemsTemplates } from './templates/drag-items-templates.js';
 import { PositionUtils } from './utils/position.utils.js';
 import { MenuTemplatesUtils } from './utils/menu-templates.utils.js';
 import { VariablesUtils } from './utils/variables.utils.js';
-import { RollUpTest } from './RollUpTest.js';
+import { KrakynFlowTool } from './KrakynFlowTool.js';
 import { DragMenuItems } from './templates/DragMenu.template.js';
 import { CanvasControl } from './controls/Canvas.control.js';
 import { ModuleMenuModel } from './models/menu/module-menu.model.js';
 
-export { ModuleMenuModel, TabMenuControl, CanvasControl, DragDropUtils, DragMenuItems, RollUpTest, FlowTool, MenuTemplatesUtils, VariablesUtils, EventsUtils, ConstantUtils, NodeTemplates, DragItemsTemplates, PositionUtils }
+export { ModuleMenuModel, TabMenuControl, CanvasControl, DragDropUtils, DragMenuItems, KrakynFlowTool, FlowTool, MenuTemplatesUtils, VariablesUtils, EventsUtils, ConstantUtils, NodeTemplates, DragItemsTemplates, PositionUtils }
 

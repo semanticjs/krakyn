@@ -24,7 +24,7 @@
       DragItemsTemplates,
       PositionUtils,
       DragDropUtils } from '../dist/src/index.js';
-    import '../dist/src/roll-up-test.js';
+    import '../dist/src/krakyn-flow-tool.js';
 
     /**
      * Array for storing module data
@@ -51,13 +51,13 @@
 
     render(
       html`
-        <roll-up-test 
+        <krakyn-flow-tool 
           .HeaderTitle = ${ title }
           .FlowData = ${ VariablesUtils.DataFlowModuleData[0] } 
           .SideMenuItems = ${ DragItemsTemplates.FLOW_DRAG_ITEMS(DragDropUtils.Drag) }
           .TabMenuItems = ${ TabMenuItems }>
           some light-dom
-        </roll-up-test>
+        </krakyn-flow-tool>
       `,
       document.querySelector('#demo')
     );

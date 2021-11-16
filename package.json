@@ -1,8 +1,8 @@
 {
   "name": "@semanticjs/krakyn",
-  "description": "Webcomponent roll-up-test following open-wc recommendations",
+  "description": "Webcomponent Krakyn Flow Tool following open-wc recommendations",
   "license": "MIT",
-  "author": "roll-up-test",
+  "author": "Krakyn",
   "version": "0.0.0",
   "entryfile": "./demo/index.html",
   "sasscompressed": true,
