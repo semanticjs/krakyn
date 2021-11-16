@@ -569,7 +569,8 @@ export class KrakynFlowTool extends LitElement {
   </div>
     `
   }
-  public createRenderRoot(): KrakynFlowTool {
-          return this;
-  }
+  
+  // public createRenderRoot(): KrakynFlowTool {
+  //         return this;
+  // }
 }

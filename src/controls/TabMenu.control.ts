@@ -70,7 +70,7 @@ export class TabMenuControl extends LitElement {
         `
     }
 
-    public createRenderRoot(): TabMenuControl {
-        return this;
-}
+    // public createRenderRoot(): TabMenuControl {
+    //     return this;
+    // }
 }
