@@ -9,6 +9,8 @@ import { DragDropUtils } from './utils/drag-drop.utils.js';
 import { PositionUtils } from './utils/position.utils.js';
 import { NodeTemplates } from './templates/node-templates.js';
 import { ModuleMenuModel } from './models/menu/module-menu.model.js';
+import { EaCNapkinIDEFlowImporter } from '@semanticjs/napkin-ide';
+import { EnterpriseAsCode } from '@semanticjs/common';
 
 @customElement('krakyn-flow-tool')
 
@@ -61,7 +63,7 @@ export class KrakynFlowTool extends LitElement {
   @query("#tab-menu")
   public TabMenu: HTMLElement;
 
-  constructor() {
+  constructor(protected eaCNapkinIDEFlowImporter: EaCNapkinIDEFlowImporter) {
     super();
 
     /**
@@ -91,7 +93,8 @@ export class KrakynFlowTool extends LitElement {
     this.updateComplete.then((val: boolean) => {
       
       this.flowTool = new FlowTool(this.Canvas);
-      this.flowTool.Init(this.FlowData);
+      // this.flowTool.Init(this.eaCNapkinIDEFlowImporter.Import())
+      this.flowTool.Init(this.FlowData); 
     })
 
   }

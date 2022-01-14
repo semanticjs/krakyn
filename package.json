@@ -23,6 +23,8 @@
     "prepublish": "tsc && npm run analyze -- --exclude dist"
   },
   "dependencies": {
+    "@semanticjs/common": "^0.48.0",
+    "@semanticjs/napkin-ide": "0.10.0",
     "lit": "^2.0.2"
   },
   "devDependencies": {

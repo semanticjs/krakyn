@@ -2,6 +2,7 @@ import { DispatchedEventsModel } from './../models/events/dispatched-events.mode
 import { DataFlowDataModel } from '../models/dataflow-data.model.js';
 import { NodeTemplates } from '../templates/node-templates.js';
 import { NodeModel } from '../models/nodes/node.model.js';
+import { EnterpriseAsCode } from '@semanticjs/common';
 // import {
 //   TestNapkinIDEConfig,
 //   TestNapkinIDEFlow,
@@ -147,6 +148,19 @@ export class ConstantUtils {
 
   protected static getProperty<T, K extends keyof T>(o: T, propertyName: K): T[K] {
     return o[propertyName];
+  }
+
+/**
+ * My test - shannon
+ * @returns 
+ */
+  public static DataToImport(): EnterpriseAsCode {
+    let code: EnterpriseAsCode;
+    code.Enterprise.Name = 'NapkinIDE';
+    code.EnterpriseLookup = '1';
+    
+
+    return code;
   }
 
   public static NAPKIN_IDE_MODULE_DATA: DataFlowDataModel = {
