@@ -40,6 +40,15 @@ export class KrakynFlowTool extends LitElement {
     return this._flowData;
   }
 
+  private _flowDataTest: DataFlowDataModel;
+
+  @property({ type: DataFlowDataModel })
+  public set FlowDataTest(val: DataFlowDataModel) {
+    this._flowData = val;
+
+    this.flowTool.Init(val);
+  }
+
   /**
    * Internal reactive state refers to properties that aren't
    * part of the component's API. Typically marked protected or private
