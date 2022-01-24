@@ -604,9 +604,11 @@ export class FlowTool extends DataFlowBaseClass {
        * If no data, then ignore functionality
        */
 
-        const incomingData: any = data.Data || data.Edges;
+      if (data && data.Edges) {
+        data.Data = data.Edges;
+      } 
 
-        if (!data || Object.keys(incomingData).length === 0) {
+        if (!data || Object.keys(data.Data).length === 0) {
           return;
         }
 
@@ -615,7 +617,7 @@ export class FlowTool extends DataFlowBaseClass {
   
          const flowData: DataFlowDataModel = new DataFlowDataModel(
             {
-                Data: JSON.parse(JSON.stringify(incomingData)), 
+                Data: JSON.parse(JSON.stringify(data)).Data, 
                 Module: data.Module
             }
          );

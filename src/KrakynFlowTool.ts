@@ -542,7 +542,7 @@ export class KrakynFlowTool extends LitElement {
   render() {
     return html `
 
-    <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
+    
 
     <header>
       <h2>${ this.HeaderTitle }</h2>
