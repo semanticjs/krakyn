@@ -604,9 +604,9 @@ export class FlowTool extends DataFlowBaseClass {
        * If no data, then ignore functionality
        */
 
-      if (data && data.Nodes) {
-        data.Data = data.Nodes;
-      } 
+      // if (data && data.Nodes) {
+      //   data.Data = data.Nodes;
+      // } 
 
         if (!data || Object.keys(data.Data).length === 0) {
           return;

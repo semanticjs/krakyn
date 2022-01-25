@@ -20,6 +20,11 @@ export class TabMenuControl extends LitElement {
 
     constructor() {
         super();
+
+        /**
+         * Initialize array
+         */
+        this.TabItems = [];
     }
 
     /**
