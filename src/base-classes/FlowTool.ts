@@ -600,24 +600,36 @@ export class FlowTool extends DataFlowBaseClass {
     */
      public Init (data: DataFlowDataModel, notify: boolean = true): void {
 
+      let newData: any;
+
       /**
        * If no data, then ignore functionality
        */
+      if (!data) {
+        return;
+      }
 
-      // if (data && data.Nodes) {
-      //   data.Data = data.Nodes;
-      // } 
+      if (data.Data && Object.keys(data.Data).length === 0) {
+        return;
+      }
 
-        if (!data || Object.keys(data.Data).length === 0) {
-          return;
-        }
+      if (data && !data.Data) {
+        newData = data;
+      } else if (data.Data) {
+        newData = data.Data;
+      }
+
+        // if (!data || Object.keys(data.Data).length === 0) {
+        //   return;
+        // }
 
          this.clear();
          this.start();
   
          const flowData: DataFlowDataModel = new DataFlowDataModel(
             {
-                Data: JSON.parse(JSON.stringify(data)).Data, 
+                // Data: JSON.parse(JSON.stringify(data)).Data, 
+                Data: JSON.parse(JSON.stringify(newData)), 
                 Module: data.Module
             }
          );
