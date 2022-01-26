@@ -160,21 +160,29 @@ export class FlowTool extends DataFlowBaseClass {
       */
      protected load(): void {
  
-      for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
+      let data: any;
+
+      if (this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
+        data = this.activeModule(VariablesUtils.ActiveModule).Data.Nodes;
+      } else {
+        data = this.activeModule(VariablesUtils.ActiveModule).Data;
+      }
+
+      for (var key in data) {
 
         /**
          * Load nodes from config values
          */
-        this.nodeBaseClass.LoadNodesFromConfig(this.activeModule(VariablesUtils.ActiveModule).Data.Nodes[key], VariablesUtils.PreCanvas);
+        this.nodeBaseClass.LoadNodesFromConfig(data[key], VariablesUtils.PreCanvas);
       }
 
        if(VariablesUtils.Reroute) {
-         for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
-           this.addRerouteImport(this.activeModule(VariablesUtils.ActiveModule).Data.Nodes[key]);
+         for (var key in data) {
+           this.addRerouteImport(data[key]);
          }
        }
    
-       for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
+       for (var key in data) {
          this.updateConnectionNodes('node-'+key);
        }
    
