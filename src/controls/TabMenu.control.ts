@@ -53,10 +53,11 @@ export class TabMenuControl extends LitElement {
         this.menuTabSelected(e);
     }
 
+    //  <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
     public render(): TemplateResult {
         return html 
         `
-        <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
+       
 
         <div class="tab-menu">
             <ul>

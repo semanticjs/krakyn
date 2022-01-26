@@ -4,11 +4,11 @@ import { html, LitElement } from 'lit';
 
 export class ThemeUtils extends LitElement {
     // static styles = [commonStyles];
-
+//  <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
     public render(): any {
         return html 
         `
-        <link rel="stylesheet" href="./assets/styles/global-scss.min.css">
+       
         `
     }
 }
