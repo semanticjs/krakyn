@@ -159,39 +159,7 @@ export class FlowTool extends DataFlowBaseClass {
       * load platform data
       */
      protected load(): void {
- 
-      for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
 
-        /**
-         * Load nodes from config values
-         */
-        this.nodeBaseClass.LoadNodesFromConfig(this.activeModule(VariablesUtils.ActiveModule).Data[key], VariablesUtils.PreCanvas);
-      }
-
-       if(VariablesUtils.Reroute) {
-         for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
-           this.addRerouteImport(this.activeModule(VariablesUtils.ActiveModule).Data[key]);
-         }
-       }
-   
-       for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
-         this.updateConnectionNodes('node-'+key);
-       }
-   
-       const flowTool: any = this.activeModule(VariablesUtils.ActiveModule);
-
-       let number = 1;
-
-       Object.keys(flowTool).map(function(key, index) {
-         Object.keys(flowTool[key]).map(function(id, index2) {
-
-           if(parseInt(id) >= number) {
-             number = parseInt(id) + 1;
-           }
-         });
-       });
-
-       VariablesUtils.NodeId = number;
      }
    
     //  registerNode(name: any, html: any, props = null, options = null) {
