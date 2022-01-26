@@ -150,12 +150,13 @@ export class FlowTool extends DataFlowBaseClass {
       }
 
        if(VariablesUtils.Reroute) {
-         for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
-           this.addRerouteImport(this.activeModule(VariablesUtils.ActiveModule).Data[key]);
+        //  for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
+        for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) { // testing 1-26-22 - shannon
+           this.addRerouteImport(this.activeModule(VariablesUtils.ActiveModule).Data.Nodes[key]);
          }
        }
    
-       for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
+       for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
          this.updateConnectionNodes('node-'+key);
        }
    
