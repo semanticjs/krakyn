@@ -141,12 +141,13 @@ export class FlowTool extends DataFlowBaseClass {
       */
      protected load(): void {
  
-      for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
+      //  for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
+      for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
 
         /**
          * Load nodes from config values
          */
-        this.nodeBaseClass.LoadNodesFromConfig(this.activeModule(VariablesUtils.ActiveModule).Data[key], VariablesUtils.PreCanvas);
+        this.nodeBaseClass.LoadNodesFromConfig(this.activeModule(VariablesUtils.ActiveModule).Data.Nodes[key], VariablesUtils.PreCanvas);
       }
 
        if(VariablesUtils.Reroute) {
