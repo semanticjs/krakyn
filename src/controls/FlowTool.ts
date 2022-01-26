@@ -143,6 +143,9 @@ export class FlowTool extends DataFlowBaseClass {
  
       //  for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
       const stringTest: string = 'Hello World!';
+
+      console.log('HELLOWORLD', stringTest);
+
       for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
 
         /**
