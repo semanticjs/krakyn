@@ -214,8 +214,9 @@ export class ConstantUtils {
    * 
    * @returns data object
    */
-  public static EXTERNAL_MODULE_DATA(): any {
-    return {
+  public static EXTERNAL_MODULE_DATA: any = {
+    Module: 'ExternalData',
+    Data: {
       "Name": "shannon.bruns@fathym.com Enterprise",
       "ID": "6e8f3051-6b07-430a-b987-c68692530131",
       "Nodes": [

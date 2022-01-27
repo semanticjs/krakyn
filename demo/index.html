@@ -4,14 +4,14 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <!-- <link rel="stylesheet" href="../assets/styles/global-scss.min.css"> -->
+  <link rel="stylesheet" href="../assets/styles/global-scss.min.css">
   <link rel="stylesheet" href="../assets/styles/css/app.css">
   <script src="https://kit.fontawesome.com/0b7385f8de.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
   <!-- <i class="fab fa-facebook"></i> -->
-  <!-- <div id="demo"></div>
+  <div id="demo"></div>
   <script type="module">
     import { html, render } from 'lit';
     import { 
@@ -30,27 +30,31 @@
      * Array for storing module data
     */
 
+    const dataIndex = 0;
+
     VariablesUtils.DataFlowModuleData =
     [
       ConstantUtils.NAPKIN_IDE_MODULE_DATA,
-      ConstantUtils.HOME_MODULE_DATA
+      ConstantUtils.HOME_MODULE_DATA,
+      ConstantUtils.EXTERNAL_MODULE_DATA
     ];
 
     const TabMenuItems = [
       { Label: 'Napkin IDE', Target: 'NapkinIDE', Class: 'selected' },
-      { Label: 'Home', Target: 'Home' }
+      { Label: 'Home', Target: 'Home' },
+      { Label: 'External Data', Target: 'ExternalData' }
     ];
 
     const title = 'Flow Tool';
 
     VariablesUtils.NodeClass = 'fathym-node';
-    VariablesUtils.ActiveModule = ConstantUtils.NAPKIN_IDE_MODULE_DATA.Module;
+    VariablesUtils.ActiveModule = VariablesUtils.DataFlowModuleData[dataIndex].Module;
 
     render(
       html`
         <krakyn-flow-tool 
           .HeaderTitle = ${ title }
-          .FlowData = ${ VariablesUtils.DataFlowModuleData[0] } 
+          .FlowData = ${ VariablesUtils.DataFlowModuleData[dataIndex] } 
           .SideMenuItems = ${ DragItemsTemplates.FLOW_DRAG_ITEMS(DragDropUtils.Drag) }
           .TabMenuItems = ${ TabMenuItems }>
           some light-dom
@@ -58,6 +62,6 @@
       `,
       document.querySelector('#demo')
     );
-  </script> -->
+  </script>
 </body>
 </html>

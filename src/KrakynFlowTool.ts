@@ -35,7 +35,7 @@ export class KrakynFlowTool extends LitElement {
   public set FlowData(val: DataFlowDataModel) {
     this._flowData = val;
 
-    this.flowTool.Init(val);
+    // this.flowTool.Init(val);
   }
 
   public get FlowData(): DataFlowDataModel {
