@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en-GB">
- 
+
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
@@ -14,7 +14,7 @@
   <div id="demo"></div>
   <script type="module">
     import { html, render } from 'lit';
-    import { 
+    import {
       FlowTool,
       MenuTemplatesUtils,
       VariablesUtils,
@@ -30,7 +30,7 @@
      * Array for storing module data
     */
 
-    const dataIndex = 0;
+    const dataIndex = 2;
 
     VariablesUtils.DataFlowModuleData =
     [
@@ -52,9 +52,9 @@
 
     render(
       html`
-        <krakyn-flow-tool 
+        <krakyn-flow-tool
           .HeaderTitle = ${ title }
-          .FlowData = ${ VariablesUtils.DataFlowModuleData[dataIndex] } 
+          .FlowData = ${ VariablesUtils.DataFlowModuleData[dataIndex] }
           .SideMenuItems = ${ DragItemsTemplates.FLOW_DRAG_ITEMS(DragDropUtils.Drag) }
           .TabMenuItems = ${ TabMenuItems }>
           some light-dom

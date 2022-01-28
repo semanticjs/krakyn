@@ -366,7 +366,7 @@ export class ConstantUtils {
 
   /**
    * My test - shannon
-   * @returns 
+   * @returns
    */
   public static DataToImport(): EnterpriseAsCode {
     let code: EnterpriseAsCode;
@@ -425,7 +425,7 @@ export class ConstantUtils {
 
   /**
    * Testing new data structure for external data
-   * 
+   *
    * @returns data object
    */
   public static EXTERNAL_MODULE_DATA: any = {
@@ -436,16 +436,38 @@ export class ConstantUtils {
       const inputs = ExternalDataConfig.Edges?.filter(
         (edge: any) => edge.NodeOutID === node.ID
       ).map((edge: any) => {
-        alert('asdsdf');
+
+        edge.Inputs = {
+            input_1: {
+              Connections: [
+                {
+                  node: edge.ID,
+                  input: edge.NodeOutID,
+                },
+              ],
+            }
+        }
+
         const newEdge: any = 'New Edge';
         let timer: string = 'timer';
-
+        console.log('EDGE INPUT', edge.Inputs);
         return edge.Inputs;
       });
 
       const outputs = ExternalDataConfig.Edges?.filter(
         (edge: any) => edge.NodeOutID === node.ID
       ).map((edge: any) => {
+
+        edge.Outputs = {
+            output_1: {
+              Connections: [
+                {
+                  node: edge.ID,
+                  output: edge.NodeInID,
+                },
+              ],
+            }
+        }
 
         return edge.Outputs
       });
@@ -456,12 +478,12 @@ export class ConstantUtils {
 
   /**
    * Return a new model
-   * 
-   * @param config 
-   * @param node 
-   * @param inputs 
-   * @param outputs 
-   * @returns 
+   *
+   * @param config
+   * @param node
+   * @param inputs
+   * @param outputs
+   * @returns
    */
   protected static newModel(config: any, node: any, inputs: any, outputs: any): NodeModel {
 
