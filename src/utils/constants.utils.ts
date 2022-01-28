@@ -10,6 +10,217 @@ import { EnterpriseAsCode } from '@semanticjs/common';
 //   NapkinIDEEdge,
 // } from '@semanticjs/napkin-ide';
 
+export const ExternalDataConfig: any = {
+    "Name": "shannon.bruns@fathym.com Enterprise",
+    "ID": "6e8f3051-6b07-430a-b987-c68692530131",
+    "Nodes": [
+      {
+        "ID": "sys-1",
+        "Type": "request",
+        "ClassList": [],
+        "Data": {}
+      },
+      {
+        "Type": "project",
+        "ID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc",
+        "Data": {
+          "Name": "Docusaurus - Documentation - Open Source",
+          "Hosts": [
+            "b206e58771d7-shared.lowcodeunit.com"
+          ]
+        }
+      },
+      {
+        "Type": "application",
+        "ID": "application-a741de99-c800-4a53-8078-da6ba0b4dcae",
+        "Data": {
+          "Details": {
+            "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
+            "Name": "Docusaurus - Documentation - Open Source",
+            "Priority": 5000,
+            "PriorityShift": 0
+          },
+          "Processor": {
+            "CacheControl": null,
+            "ModifierLookups": null,
+            "Priority": 0,
+            "Type": "DFS",
+            "BaseHref": "/",
+            "DefaultFile": "index.html",
+            "ID": "5d91e82e-b506-4bb6-9ca0-b2cd425ef4cc",
+            "Label": "DFSProcessor",
+            "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
+            "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
+          }
+        }
+      },
+      {
+        "Type": "project",
+        "ID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7",
+        "Data": {
+          "Name": "Docusaurus - Documentation - Open Source",
+          "Hosts": [
+            "114e5118f77b-shared.lowcodeunit.com"
+          ]
+        }
+      },
+      {
+        "Type": "application",
+        "ID": "application-0f69f553-337f-43cd-9a2e-8d552b38c242",
+        "Data": {
+          "Details": {
+            "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
+            "Name": "Docusaurus - Documentation - Open Source",
+            "Priority": 5000,
+            "PriorityShift": 0
+          },
+          "Processor": {
+            "CacheControl": null,
+            "ModifierLookups": null,
+            "Priority": 0,
+            "Type": "DFS",
+            "BaseHref": "/",
+            "DefaultFile": "index.html",
+            "ID": "fae07c14-39b9-4388-8160-3023d72a9b98",
+            "Label": "DFSProcessor",
+            "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
+            "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
+          }
+        }
+      },
+      {
+        "Type": "project",
+        "ID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0",
+        "Data": {
+          "Name": "Docusaurus - Documentation - Open Source",
+          "Hosts": [
+            "e04ad1e695e9-shared.lowcodeunit.com"
+          ]
+        }
+      },
+      {
+        "Type": "application",
+        "ID": "application-b53ba6ed-1c7e-4483-aedc-4fdc05179c33",
+        "Data": {
+          "Details": {
+            "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
+            "Name": "Docusaurus - Documentation - Open Source",
+            "Priority": 5000,
+            "PriorityShift": 0
+          },
+          "Processor": {
+            "CacheControl": null,
+            "ModifierLookups": null,
+            "Priority": 0,
+            "Type": "DFS",
+            "BaseHref": "/",
+            "DefaultFile": "index.html",
+            "ID": "bf7797b7-ac1e-4836-a449-f3ffb21c3cbb",
+            "Label": "DFSProcessor",
+            "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
+            "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
+          }
+        }
+      },
+      {
+        "Type": "project",
+        "ID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4",
+        "Data": {
+          "Name": "Docusaurus - Documentation - Open Source",
+          "Hosts": [
+            "9f2199a5afce-shared.lowcodeunit.com"
+          ]
+        }
+      },
+      {
+        "Type": "application",
+        "ID": "application-6a00c64d-701c-400e-8c6d-1337b11974dd",
+        "Data": {
+          "Details": {
+            "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
+            "Name": "Docusaurus - Documentation - Open Source",
+            "Priority": 5000,
+            "PriorityShift": 0
+          },
+          "Processor": {
+            "CacheControl": null,
+            "ModifierLookups": null,
+            "Priority": 0,
+            "Type": "DFS",
+            "BaseHref": "/",
+            "DefaultFile": "index.html",
+            "ID": "e5b8be68-91c6-4927-9cda-8264f018a3d2",
+            "Label": "DFSProcessor",
+            "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
+            "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
+          }
+        }
+      }
+    ],
+    "Edges": [
+      {
+        "ID": "sys-edge-2",
+        "NodeInID": "sys-1",
+        "NodeOutID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc"
+      },
+      {
+        "ID": "sys-edge-3",
+        "NodeInID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc",
+        "NodeOutID": "route-filter-path-/.*-0"
+      },
+      {
+        "ID": "sys-edge-4",
+        "NodeInID": "route-filter-path-/.*-0",
+        "NodeOutID": "application-a741de99-c800-4a53-8078-da6ba0b4dcae"
+      },
+      {
+        "ID": "sys-edge-5",
+        "NodeInID": "sys-1",
+        "NodeOutID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7"
+      },
+      {
+        "ID": "sys-edge-6",
+        "NodeInID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7",
+        "NodeOutID": "route-filter-path-/.*-0"
+      },
+      {
+        "ID": "sys-edge-7",
+        "NodeInID": "route-filter-path-/.*-0",
+        "NodeOutID": "application-0f69f553-337f-43cd-9a2e-8d552b38c242"
+      },
+      {
+        "ID": "sys-edge-8",
+        "NodeInID": "sys-1",
+        "NodeOutID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0"
+      },
+      {
+        "ID": "sys-edge-9",
+        "NodeInID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0",
+        "NodeOutID": "route-filter-path-/.*-0"
+      },
+      {
+        "ID": "sys-edge-10",
+        "NodeInID": "route-filter-path-/.*-0",
+        "NodeOutID": "application-b53ba6ed-1c7e-4483-aedc-4fdc05179c33"
+      },
+      {
+        "ID": "sys-edge-11",
+        "NodeInID": "sys-1",
+        "NodeOutID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4"
+      },
+      {
+        "ID": "sys-edge-12",
+        "NodeInID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4",
+        "NodeOutID": "route-filter-path-/.*-0"
+      },
+      {
+        "ID": "sys-edge-13",
+        "NodeInID": "route-filter-path-/.*-0",
+        "NodeOutID": "application-6a00c64d-701c-400e-8c6d-1337b11974dd"
+      }
+    ]
+}
+
 export const TestNapkinIDEConfig: any = {
   'NodeTypes': {
     request: {
@@ -111,6 +322,9 @@ export const TestNapkinIDEFlow: any = {
               input: 'output_1',
             },
           ],
+        },
+        input_2: {
+          Connections: [],
         }
       },
       Outputs: {
@@ -216,216 +430,28 @@ export class ConstantUtils {
    */
   public static EXTERNAL_MODULE_DATA: any = {
     Module: 'ExternalData',
-    Data: {
-      "Name": "shannon.bruns@fathym.com Enterprise",
-      "ID": "6e8f3051-6b07-430a-b987-c68692530131",
-      "Nodes": [
-        {
-          "ID": "sys-1",
-          "Type": "request",
-          "ClassList": [],
-          "Data": {}
-        },
-        {
-          "Type": "project",
-          "ID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc",
-          "Data": {
-            "Name": "Docusaurus - Documentation - Open Source",
-            "Hosts": [
-              "b206e58771d7-shared.lowcodeunit.com"
-            ]
-          }
-        },
-        {
-          "Type": "application",
-          "ID": "application-a741de99-c800-4a53-8078-da6ba0b4dcae",
-          "Data": {
-            "Details": {
-              "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
-              "Name": "Docusaurus - Documentation - Open Source",
-              "Priority": 5000,
-              "PriorityShift": 0
-            },
-            "Processor": {
-              "CacheControl": null,
-              "ModifierLookups": null,
-              "Priority": 0,
-              "Type": "DFS",
-              "BaseHref": "/",
-              "DefaultFile": "index.html",
-              "ID": "5d91e82e-b506-4bb6-9ca0-b2cd425ef4cc",
-              "Label": "DFSProcessor",
-              "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
-              "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
-            }
-          }
-        },
-        {
-          "Type": "project",
-          "ID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7",
-          "Data": {
-            "Name": "Docusaurus - Documentation - Open Source",
-            "Hosts": [
-              "114e5118f77b-shared.lowcodeunit.com"
-            ]
-          }
-        },
-        {
-          "Type": "application",
-          "ID": "application-0f69f553-337f-43cd-9a2e-8d552b38c242",
-          "Data": {
-            "Details": {
-              "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
-              "Name": "Docusaurus - Documentation - Open Source",
-              "Priority": 5000,
-              "PriorityShift": 0
-            },
-            "Processor": {
-              "CacheControl": null,
-              "ModifierLookups": null,
-              "Priority": 0,
-              "Type": "DFS",
-              "BaseHref": "/",
-              "DefaultFile": "index.html",
-              "ID": "fae07c14-39b9-4388-8160-3023d72a9b98",
-              "Label": "DFSProcessor",
-              "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
-              "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
-            }
-          }
-        },
-        {
-          "Type": "project",
-          "ID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0",
-          "Data": {
-            "Name": "Docusaurus - Documentation - Open Source",
-            "Hosts": [
-              "e04ad1e695e9-shared.lowcodeunit.com"
-            ]
-          }
-        },
-        {
-          "Type": "application",
-          "ID": "application-b53ba6ed-1c7e-4483-aedc-4fdc05179c33",
-          "Data": {
-            "Details": {
-              "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
-              "Name": "Docusaurus - Documentation - Open Source",
-              "Priority": 5000,
-              "PriorityShift": 0
-            },
-            "Processor": {
-              "CacheControl": null,
-              "ModifierLookups": null,
-              "Priority": 0,
-              "Type": "DFS",
-              "BaseHref": "/",
-              "DefaultFile": "index.html",
-              "ID": "bf7797b7-ac1e-4836-a449-f3ffb21c3cbb",
-              "Label": "DFSProcessor",
-              "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
-              "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
-            }
-          }
-        },
-        {
-          "Type": "project",
-          "ID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4",
-          "Data": {
-            "Name": "Docusaurus - Documentation - Open Source",
-            "Hosts": [
-              "9f2199a5afce-shared.lowcodeunit.com"
-            ]
-          }
-        },
-        {
-          "Type": "application",
-          "ID": "application-6a00c64d-701c-400e-8c6d-1337b11974dd",
-          "Data": {
-            "Details": {
-              "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
-              "Name": "Docusaurus - Documentation - Open Source",
-              "Priority": 5000,
-              "PriorityShift": 0
-            },
-            "Processor": {
-              "CacheControl": null,
-              "ModifierLookups": null,
-              "Priority": 0,
-              "Type": "DFS",
-              "BaseHref": "/",
-              "DefaultFile": "index.html",
-              "ID": "e5b8be68-91c6-4927-9cda-8264f018a3d2",
-              "Label": "DFSProcessor",
-              "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
-              "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
-            }
-          }
-        }
-      ],
-      "Edges": [
-        {
-          "ID": "sys-edge-2",
-          "NodeInID": "sys-1",
-          "NodeOutID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc"
-        },
-        {
-          "ID": "sys-edge-3",
-          "NodeInID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc",
-          "NodeOutID": "route-filter-path-/.*-0"
-        },
-        {
-          "ID": "sys-edge-4",
-          "NodeInID": "route-filter-path-/.*-0",
-          "NodeOutID": "application-a741de99-c800-4a53-8078-da6ba0b4dcae"
-        },
-        {
-          "ID": "sys-edge-5",
-          "NodeInID": "sys-1",
-          "NodeOutID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7"
-        },
-        {
-          "ID": "sys-edge-6",
-          "NodeInID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7",
-          "NodeOutID": "route-filter-path-/.*-0"
-        },
-        {
-          "ID": "sys-edge-7",
-          "NodeInID": "route-filter-path-/.*-0",
-          "NodeOutID": "application-0f69f553-337f-43cd-9a2e-8d552b38c242"
-        },
-        {
-          "ID": "sys-edge-8",
-          "NodeInID": "sys-1",
-          "NodeOutID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0"
-        },
-        {
-          "ID": "sys-edge-9",
-          "NodeInID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0",
-          "NodeOutID": "route-filter-path-/.*-0"
-        },
-        {
-          "ID": "sys-edge-10",
-          "NodeInID": "route-filter-path-/.*-0",
-          "NodeOutID": "application-b53ba6ed-1c7e-4483-aedc-4fdc05179c33"
-        },
-        {
-          "ID": "sys-edge-11",
-          "NodeInID": "sys-1",
-          "NodeOutID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4"
-        },
-        {
-          "ID": "sys-edge-12",
-          "NodeInID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4",
-          "NodeOutID": "route-filter-path-/.*-0"
-        },
-        {
-          "ID": "sys-edge-13",
-          "NodeInID": "route-filter-path-/.*-0",
-          "NodeOutID": "application-6a00c64d-701c-400e-8c6d-1337b11974dd"
-        }
-      ]
-    }
+    Data: ExternalDataConfig.Nodes!.map((node: any) => {
+      const config = TestNapkinIDEConfig.NodeTypes![<string>node.Type];
+
+      const inputs = ExternalDataConfig.Edges?.filter(
+        (edge: any) => edge.NodeOutID === node.ID
+      ).map((edge: any) => {
+        alert('asdsdf');
+        const newEdge: any = 'New Edge';
+        let timer: string = 'timer';
+
+        return edge.Inputs;
+      });
+
+      const outputs = ExternalDataConfig.Edges?.filter(
+        (edge: any) => edge.NodeOutID === node.ID
+      ).map((edge: any) => {
+
+        return edge.Outputs
+      });
+
+      return ConstantUtils.newModel(config, node, inputs, outputs);
+    }),
   }
 
   /**
