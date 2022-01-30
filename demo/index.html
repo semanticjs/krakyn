@@ -34,15 +34,17 @@
 
     VariablesUtils.DataFlowModuleData =
     [
+      ConstantUtils.EXTERNAL_MODULE_DATA,
+      ConstantUtils.EXTERNAL_TEST_DATA,
       ConstantUtils.NAPKIN_IDE_MODULE_DATA,
-      ConstantUtils.HOME_MODULE_DATA,
-      ConstantUtils.EXTERNAL_MODULE_DATA
+      ConstantUtils.HOME_MODULE_DATA
     ];
 
     const TabMenuItems = [
-      { Label: 'Napkin IDE', Target: 'NapkinIDE', Class: 'selected' },
+      { Label: 'External Data', Target: 'ExternalData', Class: 'selected' },
+      { Label: 'External Test Data', Target: 'ExternalTestData' },
+      { Label: 'Napkin IDE', Target: 'NapkinIDE' },
       { Label: 'Home', Target: 'Home' },
-      { Label: 'External Data', Target: 'ExternalData' }
     ];
 
     const title = 'Flow Tool';
