@@ -11,6 +11,7 @@ import { EnterpriseAsCode } from '@semanticjs/common';
 // } from '@semanticjs/napkin-ide';
 
 export const ExternalDataTest: any = {
+  
   Nodes: [
     {
       ID: '1AA', // ids that aren't just numbers don't work - also, the position
