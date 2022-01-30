@@ -337,18 +337,13 @@ export class ConstantUtils {
         (edge: any) => edge.ID === node.ID
       ).map((edge: any) => {
 
-<<<<<<< HEAD
         if (!edge.Inputs) {
 
           edge.Inputs = {
-=======
-        edge.Inputs = {
->>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
             input_1: {
               Connections: [
                 {
                   node: edge.ID,
-<<<<<<< HEAD
                   input: 'output_1'
                 }
               ]
@@ -356,17 +351,6 @@ export class ConstantUtils {
           }
         }
 
-=======
-                  input: edge.NodeOutID,
-                },
-              ],
-            }
-        }
-
-        const newEdge: any = 'New Edge';
-        let timer: string = 'timer';
-        console.log('EDGE INPUT', edge.Inputs);
->>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
         return edge.Inputs;
       });
 
@@ -374,29 +358,18 @@ export class ConstantUtils {
         (edge: any) => edge.ID === node.ID
       ).map((edge: any) => {
 
-<<<<<<< HEAD
         if (!edge.Outputs) {
           
           edge.Outputs = {
-=======
-        edge.Outputs = {
->>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
             output_1: {
               Connections: [
                 {
                   node: edge.ID,
-<<<<<<< HEAD
                   output: 'input_1'
                 }
               ]
             }
           }
-=======
-                  output: edge.NodeInID,
-                },
-              ],
-            }
->>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
         }
 
         return edge.Outputs
