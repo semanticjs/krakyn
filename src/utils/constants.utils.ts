@@ -3,6 +3,7 @@ import { DataFlowDataModel } from '../models/dataflow-data.model.js';
 import { NodeTemplates } from '../templates/node-templates.js';
 import { NodeModel } from '../models/nodes/node.model.js';
 import { EnterpriseAsCode } from '@semanticjs/common';
+
 // import {
 //   TestNapkinIDEConfig,
 //   TestNapkinIDEFlow,
@@ -260,8 +261,12 @@ export class ConstantUtils {
 
   /**
    * My test - shannon
+<<<<<<< HEAD
    * 
    * @returns 
+=======
+   * @returns
+>>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
    */
   public static DataToImport(): EnterpriseAsCode {
     let code: EnterpriseAsCode;
@@ -320,7 +325,7 @@ export class ConstantUtils {
 
   /**
    * Testing new data structure for external data
-   * 
+   *
    * @returns data object
    */
   public static EXTERNAL_MODULE_DATA: any = {
@@ -332,13 +337,18 @@ export class ConstantUtils {
         (edge: any) => edge.ID === node.ID
       ).map((edge: any) => {
 
+<<<<<<< HEAD
         if (!edge.Inputs) {
 
           edge.Inputs = {
+=======
+        edge.Inputs = {
+>>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
             input_1: {
               Connections: [
                 {
                   node: edge.ID,
+<<<<<<< HEAD
                   input: 'output_1'
                 }
               ]
@@ -346,6 +356,17 @@ export class ConstantUtils {
           }
         }
 
+=======
+                  input: edge.NodeOutID,
+                },
+              ],
+            }
+        }
+
+        const newEdge: any = 'New Edge';
+        let timer: string = 'timer';
+        console.log('EDGE INPUT', edge.Inputs);
+>>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
         return edge.Inputs;
       });
 
@@ -353,18 +374,29 @@ export class ConstantUtils {
         (edge: any) => edge.ID === node.ID
       ).map((edge: any) => {
 
+<<<<<<< HEAD
         if (!edge.Outputs) {
           
           edge.Outputs = {
+=======
+        edge.Outputs = {
+>>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
             output_1: {
               Connections: [
                 {
                   node: edge.ID,
+<<<<<<< HEAD
                   output: 'input_1'
                 }
               ]
             }
           }
+=======
+                  output: edge.NodeInID,
+                },
+              ],
+            }
+>>>>>>> f5fa06b3992f6283d8dd5bda1c44264605467da9
         }
 
         return edge.Outputs
@@ -399,12 +431,12 @@ export class ConstantUtils {
 
   /**
    * Return a new model
-   * 
-   * @param config 
-   * @param node 
-   * @param inputs 
-   * @param outputs 
-   * @returns 
+   *
+   * @param config
+   * @param node
+   * @param inputs
+   * @param outputs
+   * @returns
    */
   protected static newModel(config: any, node: any, inputs: any, outputs: any): NodeModel {
 
