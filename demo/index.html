@@ -12,7 +12,7 @@
 <body>
   <!-- <i class="fab fa-facebook"></i> -->
   <div id="demo"></div>
-  <script type="module">
+  <!-- <script type="module">
     import { html, render } from 'lit';
     import {
       FlowTool,
@@ -30,21 +30,20 @@
      * Array for storing module data
     */
 
-    const dataIndex = 2;
+    const dataIndex = 0;
 
     VariablesUtils.DataFlowModuleData =
     [
-      ConstantUtils.EXTERNAL_MODULE_DATA,
-      ConstantUtils.EXTERNAL_TEST_DATA,
-      ConstantUtils.NAPKIN_IDE_MODULE_DATA,
-      ConstantUtils.HOME_MODULE_DATA
+      // ConstantUtils.MapData('OriginalData', ConstantUtils.ORIGINAL_TEST_DATA),
+      // ConstantUtils.MapData('ExternalTestData', ConstantUtils.EXTERNAL_DATA_TEST),
+      ConstantUtils.MapData('DataTest', ConstantUtils.DATA_TEST)
     ];
 
-    const TabMenuItems = [
-      { Label: 'External Data', Target: 'ExternalData', Class: 'selected' },
-      { Label: 'External Test Data', Target: 'ExternalTestData' },
-      { Label: 'Napkin IDE', Target: 'NapkinIDE' },
-      { Label: 'Home', Target: 'Home' },
+    const TabMenuItems = 
+    [
+      // { Label: 'Original Data', Target: 'OriginalData', Class: 'selected' },
+      // { Label: 'External Data', Target: 'ExternalTestData' },
+     { Label: 'Data Test', Target: 'DataTest' }
     ];
 
     const title = 'Flow Tool';
@@ -64,6 +63,6 @@
       `,
       document.querySelector('#demo')
     );
-  </script>
+  </script> -->
 </body>
 </html>
