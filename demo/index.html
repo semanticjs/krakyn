@@ -12,7 +12,7 @@
 <body>
   <!-- <i class="fab fa-facebook"></i> -->
   <div id="demo"></div>
-  <!-- <script type="module">
+  <script type="module">
     import { html, render } from 'lit';
     import {
       FlowTool,
@@ -36,14 +36,16 @@
     [
       // ConstantUtils.MapData('OriginalData', ConstantUtils.ORIGINAL_TEST_DATA),
       // ConstantUtils.MapData('ExternalTestData', ConstantUtils.EXTERNAL_DATA_TEST),
-      ConstantUtils.MapData('DataTest', ConstantUtils.DATA_TEST)
+      // ConstantUtils.MapData('DataTest', ConstantUtils.DATA_TEST),
+      ConstantUtils.MapData('FullExternalDataTest', ConstantUtils.FULL_EXTERNAL_DATA)
     ];
 
     const TabMenuItems = 
     [
-      // { Label: 'Original Data', Target: 'OriginalData', Class: 'selected' },
-      // { Label: 'External Data', Target: 'ExternalTestData' },
-     { Label: 'Data Test', Target: 'DataTest' }
+      { Label: 'Original Data', Target: 'OriginalData', Class: 'selected' },
+      { Label: 'Simple External Data Without Inputs', Target: 'ExternalTestData' },
+      { Label: 'Simple External Data With Inputs', Target: 'DataTest' },
+      { Label: 'Hardcoded Full External Data', Target: 'FullExternalDataTest' }
     ];
 
     const title = 'Flow Tool';
@@ -63,6 +65,6 @@
       `,
       document.querySelector('#demo')
     );
-  </script> -->
+  </script>
 </body>
 </html>
