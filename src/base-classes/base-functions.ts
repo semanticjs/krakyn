@@ -377,49 +377,6 @@ export abstract class BaseFunctions {
         return nameModule;
     }
 
-    // protected addConnection(id_output: any, id_input: any, output_class: any, input_class: any): void {
-       
-    //     var nodeOneModule: any = this.getModuleFromNodeId(id_output);
-    //     var nodeTwoModule: any = this.getModuleFromNodeId(id_input);
-    //     if (nodeOneModule === nodeTwoModule) {
-
-    //         var dataNode = this.getNodeFromId(id_output);
-    //         var exist = false;
-    //         for (var checkOutput in dataNode.outputs[output_class].connections) {
-    //             var connectionSearch = dataNode.outputs[output_class].connections[checkOutput]
-    //             if (connectionSearch.node == id_input && connectionSearch.output == input_class) {
-    //                 exist = true;
-    //             }
-    //         }
-    //         // Check connection exist
-    //         if (exist === false) {
-    //             //Create Connection
-    //             this.activeModule(nodeOneModule).data[id_output].outputs[output_class].connections.push({ "node": id_input.toString(), "output": input_class });
-    //             this.activeModule(nodeOneModule).data[id_input].inputs[input_class].connections.push({ "node": id_output.toString(), "input": output_class });
-
-    //             if (VariablesUtils.ActiveModule === nodeOneModule) {
-    //                 //Draw connection
-    //                 var connection = document.createElementNS('http://www.w3.org/2000/svg', "svg");
-    //                 var path = document.createElementNS('http://www.w3.org/2000/svg', "path");
-    //                 path.classList.add("main-path");
-    //                 path.setAttributeNS(null, 'd', '');
-    //                 // path.innerHTML = 'a';
-    //                 connection.classList.add("connection");
-    //                 connection.classList.add("node_in_node-" + id_input);
-    //                 connection.classList.add("node_out_node-" + id_output);
-    //                 connection.classList.add(output_class);
-    //                 connection.classList.add(input_class);
-    //                 connection.appendChild(path);
-    //                 VariablesUtils.PreCanvas.appendChild(connection);
-    //                 this.updateConnectionNodes('node-' + id_output);
-    //                 this.updateConnectionNodes('node-' + id_input);
-    //             }
-
-    //             this.Dispatch('connectionCreated', { output_id: id_output, input_id: id_input, output_class: output_class, input_class: input_class });
-    //         }
-    //     }
-    // }
-
     protected removeConnection(): void {
         if (VariablesUtils.SelectedConnection != null) {
             var listclass = VariablesUtils.SelectedConnection.parentElement.classList;

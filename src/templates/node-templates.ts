@@ -4,6 +4,7 @@ export class NodeTemplates {
         `
             <div class="node-drop-shadow">
                 <div class="request">
+                    <span df-ID></span>
                     <span>Request</span>
                 </div>
             </div>
@@ -14,6 +15,7 @@ export class NodeTemplates {
             <div id="request">
                 <div class="node-drop-shadow">
                     <div class="gap flexbox-column request">
+                        <span df-ID></span>
                         <span df-Name></span>
                         <input type="text" df-Host>
                         <a href="#" df-Host></a>
