@@ -36,7 +36,8 @@ export class NodeTemplates {
             <div class="node-drop-shadow">
                 <div class="gap flexbox-column application">
                     <span df-Name></span>
-                    <span df-Package></span>
+                    <span df-Details.Description></span>
+                    <span df-Processor></span>
                     <span df-Version></span>
                 </div>
             </div>
