@@ -35,7 +35,11 @@ export class KrakynFlowTool extends LitElement {
   public set FlowData(val: DataFlowDataModel) {
     this._flowData = val;
 
-    // this.flowTool.Init(val);
+    // when testing locally comment this out
+    
+    // when deployed to use in another project
+    // we need this
+    this.flowTool.Init(val);
   }
 
   public get FlowData(): DataFlowDataModel {
@@ -536,10 +540,11 @@ export class KrakynFlowTool extends LitElement {
     return html `
 
     
-
-    <header>
-      <h2>${ this.HeaderTitle }</h2>
-    </header>
+    <!--
+      <header>
+        <h2>${ this.HeaderTitle }</h2>
+      </header>
+    -->
 
     <div class="wrapper">
 
