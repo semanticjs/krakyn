@@ -192,9 +192,17 @@ export abstract class BaseFunctions {
 
             if (elems[item].querySelector('.point') === null) {
                 var elemtsearchId_in: any = VariablesUtils.MainContainer.querySelector(`#${id}`);
-
                 var id_search = elems[item].classList[2].replace('node_out_', '');
+
+                // alert(`#${id_search}`);
+
                 var elemtsearchId: any = VariablesUtils.MainContainer.querySelector(`#${id_search}`);
+
+                if ( !elemtsearchId) {
+                    alert('no element found');
+                    return;
+                }
+
                 var elemtsearch = elemtsearchId.querySelectorAll('.' + elems[item].classList[3])[0]
 
                 var line_x: number = elemtsearch.offsetWidth / 2 + (elemtsearch.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;

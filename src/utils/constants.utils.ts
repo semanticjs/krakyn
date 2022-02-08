@@ -444,6 +444,25 @@ export class ConstantUtils {
   ],
   }
 
+  protected static replaceChars(
+    fullWord: string, 
+    chars: Array<{char: string, replacement: string, escapeChar?: boolean}>): string {
+
+    console.log('Before replace', fullWord);
+
+    for (const value of chars) {
+
+      if (value.char === '*') {
+        value.char = '/\*/';
+      }
+      fullWord = fullWord.replace(new RegExp(value.char, 'g'), value.replacement);
+    }
+
+    console.log('After replace', fullWord);
+
+    return fullWord;
+  }
+
   public static MapData(moduleName: string, data: any): any {
 
     return {
@@ -451,11 +470,30 @@ export class ConstantUtils {
       Data: data.Nodes!.map((node: any, index: number) => {
 
         const config = TestNapkinIDEConfig.NodeTypes![<string>node.Type];
-      
+        
+        // node.ID = this.replaceChars(node.ID, [
+        //   {char: '/', replacement: 'forwardslash'},
+        //   {char: '*', replacement: 'asterisk'}
+        // ]);
+
       /**
        * If NodeInID exists, then we know that NodeInID (node connecting from) 
        * has an output node
        */
+
+      
+      // data.Edges.map((edge: any) => {
+      //   edge.NodeInID = this.replaceChars(edge.NodeInID, [
+      //     {char: '/', replacement: 'forwardslash'},
+      //     {char: '*', replacement: 'asterisk'}
+      //   ]);
+
+      //   edge.NodeOutID = this.replaceChars(edge.NodeOutID, [
+      //     {char: '/', replacement: 'forwardslash'},
+      //     {char: '*', replacement: 'asterisk'}
+      //   ]);
+      // })
+
         const outputs = data.Edges?.filter(
           (edge: any) => edge.NodeInID === node.ID)
           .map((edge: any) => {

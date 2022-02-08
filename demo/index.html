@@ -11,9 +11,9 @@
 </head>
 <body>
   <!-- <i class="fab fa-facebook"></i> -->
-  <div id="demo"></div>
+  <div id="demo" style="height: 800px; width: 800px; background-color: blueviolet;"></div>
   
-<!--<script type="module">
+<script type="module">
     import { html, render } from 'lit';
     import {
       FlowTool,
@@ -36,16 +36,12 @@
     VariablesUtils.DataFlowModuleData =
     [
       ConstantUtils.MapData('OriginalData', ConstantUtils.ORIGINAL_TEST_DATA),
-      // ConstantUtils.MapData('ExternalTestData', ConstantUtils.EXTERNAL_DATA_TEST),
-      // ConstantUtils.MapData('DataTest', ConstantUtils.DATA_TEST),
       ConstantUtils.MapData('FullExternalDataTest', ConstantUtils.FULL_EXTERNAL_DATA)
     ];
 
     const TabMenuItems =
     [
       { Label: 'Original Data', Target: 'OriginalData' },
-//    { Label: 'Simple External Data Without Inputs', Target: 'ExternalTestData' },
-      // { Label: 'Simple External Data With Inputs', Target: 'DataTest' },
       { Label: 'Hardcoded Full External Data', Target: 'FullExternalDataTest', Class:'selected' }
     ];
 
@@ -66,6 +62,6 @@
       `,
       document.querySelector('#demo')
     );
-  </script>-->
+  </script>
 </body>
 </html>
