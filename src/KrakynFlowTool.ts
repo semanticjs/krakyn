@@ -536,6 +536,10 @@ export class KrakynFlowTool extends LitElement {
    * To create a `TemplateResult`, tag a JavaScript template literal
    * with the `html` helper function.
    */
+
+  //  <header>
+  //     <h2>${ this.HeaderTitle }</h2>
+  //   </header>
   render() {
     return html `
 
