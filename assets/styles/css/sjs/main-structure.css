@@ -63,10 +63,10 @@ header a {
 * Tab menu
 */
 .tab-menu {
-  position: absolute;
+  position: relative;
   height: 40px;
   display: block;
-  background: white;
+  background: rgb(255, 255, 255);
   width: 100%; }
 
 .tab-menu ul {
