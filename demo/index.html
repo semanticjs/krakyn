@@ -49,7 +49,7 @@
 
     VariablesUtils.NodeClass = 'fathym-node';
     VariablesUtils.ActiveModule = VariablesUtils.DataFlowModuleData[dataIndex].Module;
-
+//   some light-dom
     render(
       html`
         <krakyn-flow-tool
@@ -57,7 +57,7 @@
           .FlowData = ${ VariablesUtils.DataFlowModuleData[dataIndex] }
           .SideMenuItems = ${ DragItemsTemplates.FLOW_DRAG_ITEMS(DragDropUtils.Drag) }
           .TabMenuItems = ${ TabMenuItems }>
-          some light-dom
+        
         </krakyn-flow-tool>
       `,
       document.querySelector('#demo')

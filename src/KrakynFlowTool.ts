@@ -35,6 +35,10 @@ export class KrakynFlowTool extends LitElement {
   public set FlowData(val: DataFlowDataModel) {
     this._flowData = val;
 
+    /**
+     * Uncomment when deploying, otherwise
+     * keep it commented out for local testing
+     */
     // this.flowTool.Init(val);
   }
 
@@ -532,14 +536,12 @@ export class KrakynFlowTool extends LitElement {
    * To create a `TemplateResult`, tag a JavaScript template literal
    * with the `html` helper function.
    */
+
+  //  <header>
+  //     <h2>${ this.HeaderTitle }</h2>
+  //   </header>
   render() {
     return html `
-
-    
-
-    <header>
-      <h2>${ this.HeaderTitle }</h2>
-    </header>
 
     <div class="wrapper">
 
