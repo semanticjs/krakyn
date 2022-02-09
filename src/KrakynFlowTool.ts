@@ -37,9 +37,10 @@ export class KrakynFlowTool extends LitElement {
 
     // when testing locally comment this out
     
-    // when deployed to use in another project
-    // we need this
-    //this.flowTool.Init(val);
+    // when deployed to use in 
+    // another project uncomment this
+    
+    this.flowTool.Init(val);
   }
 
   public get FlowData(): DataFlowDataModel {
