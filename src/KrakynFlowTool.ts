@@ -40,7 +40,7 @@ export class KrakynFlowTool extends LitElement {
     // when deployed to use in 
     // another project uncomment this
     
-    this.flowTool.Init(val);
+    // this.flowTool.Init(val);
   }
 
   public get FlowData(): DataFlowDataModel {
@@ -106,7 +106,7 @@ export class KrakynFlowTool extends LitElement {
 
   }
 
-  protected addNodeToDrawFlow(name: string, x: number, y: number): any {
+  protected addNodeToCanvas(name: string, x: number, y: number): any {
 
     if (VariablesUtils.EditorMode === 'fixed') {
       return false;
@@ -502,7 +502,7 @@ export class KrakynFlowTool extends LitElement {
 
     switch(eventType) {
       case 'drop':
-        DragDropUtils.Drop(e, this.addNodeToDrawFlow.bind(this));
+        DragDropUtils.Drop(e, this.addNodeToCanvas.bind(this));
         e.preventDefault();
         break;
       case 'dragover':
