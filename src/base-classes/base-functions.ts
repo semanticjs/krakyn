@@ -199,7 +199,7 @@ export abstract class BaseFunctions {
                 var elemtsearchId: any = VariablesUtils.MainContainer.querySelector(`#${id_search}`);
 
                 if ( !elemtsearchId) {
-                    alert('no element found');
+                    // alert('no element found');
                     return;
                 }
 

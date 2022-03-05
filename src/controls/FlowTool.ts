@@ -317,7 +317,7 @@ export class FlowTool extends DataFlowBaseClass {
       /**
        * If no data, then ignore functionality
        */
-        if (!data || Object.keys(data.Data).length === 0) {
+        if (!data || data === null || Object.keys(data.Data).length === 0) {
           return;
         }
 
