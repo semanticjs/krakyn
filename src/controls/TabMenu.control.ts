@@ -65,7 +65,7 @@ export class TabMenuControl extends LitElement {
         `
        
 
-        <div class="tab-menu" is="dom-if" if="{{this.TabItems}}>
+        <div class="tab-menu">
             <ul>
                 ${ this.TabItems.map((item: ModuleMenuModel) => {
                     return html 
