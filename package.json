@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@semanticjs/common": "^0.48.0",
-    "@semanticjs/napkin-ide": "0.10.0",
+    "@semanticjs/napkin-ide": "0.12.16-node-id-bug",
     "lit": "^2.0.2"
   },
   "devDependencies": {
