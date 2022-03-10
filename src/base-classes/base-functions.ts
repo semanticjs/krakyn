@@ -423,7 +423,7 @@ export abstract class BaseFunctions {
                     return item.node === listclass[1].slice(13) && item.output === listclass[4]
                 });
                 this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs[listclass[3]].Connections.splice(index_out, 1);
-            
+            }
             elemsOut[i].remove();
 
             this.Dispatch('connectionRemoved', { output_id: listclass[2].slice(14), input_id: listclass[1].slice(13), output_class: listclass[3], input_class: listclass[4] });
@@ -438,7 +438,7 @@ export abstract class BaseFunctions {
                     return item.node === listclass[1].slice(13) && item.output === listclass[4]
                 });
                 this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs[listclass[3]].Connections.splice(index_out, 1);
-            } 
+            }
             var index_in = this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs[listclass[4]].Connections.findIndex(function (item: any, i: any) {
                 return item.node === listclass[2].slice(14) && item.input === listclass[3]
             });
