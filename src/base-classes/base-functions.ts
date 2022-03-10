@@ -451,7 +451,11 @@ export abstract class BaseFunctions {
     }
 
     protected hasOutputs(listclass: Array<any>): boolean {
-       return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)] && this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs.length > 0;
+
+        if (this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)]) {
+            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs.length > 0;
+        }
+       return  false;
     }
 
     protected removeNodeId(id: string): void {
