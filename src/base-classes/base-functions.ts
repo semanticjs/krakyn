@@ -386,7 +386,9 @@ export abstract class BaseFunctions {
     }
 
     protected removeConnection(): void {
+
         if (VariablesUtils.SelectedConnection != null) {
+
             var listclass = VariablesUtils.SelectedConnection.parentElement.classList;
             VariablesUtils.SelectedConnection.parentElement.remove();
             //console.log(listclass);
@@ -395,6 +397,7 @@ export abstract class BaseFunctions {
                 var index_out = this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs[listclass[3]].Connections.findIndex(function (item: any, i: any) {
                     return item.node === listclass[1].slice(13) && item.output === listclass[4]
                 });
+
                 this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs[listclass[3]].Connections.splice(index_out, 1);
             }
 
@@ -402,9 +405,11 @@ export abstract class BaseFunctions {
                 var index_in = this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs[listclass[4]].Connections.findIndex(function (item: any, i: any) {
                     return item.node === listclass[2].slice(14) && item.input === listclass[3]
                 });
+
                 this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs[listclass[4]].Connections.splice(index_in, 1);
                 this.Dispatch('connectionRemoved', { output_id: listclass[2].slice(14), input_id: listclass[1].slice(13), output_class: listclass[3], input_class: listclass[4] });
             }
+
             VariablesUtils.SelectedConnection = null;
         }
     }
@@ -414,6 +419,7 @@ export abstract class BaseFunctions {
         const idSearchOut = 'node_out_' + id;
 
         const elemsOut = VariablesUtils.MainContainer.querySelectorAll(`.${idSearchOut}`);
+
         for (var i = elemsOut.length - 1; i >= 0; i--) {
             var listclass = elemsOut[i].classList;
 
@@ -424,13 +430,14 @@ export abstract class BaseFunctions {
 
                 this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs[listclass[4]].Connections.splice(index_in, 1);
             }
-            
+
             if (this.hasOutputs(listclass)) {
                 var index_out = this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs[listclass[3]].Connections.findIndex(function (item: any, i: any) {
                     return item.node === listclass[1].slice(13) && item.output === listclass[4]
                 });
                 this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs[listclass[3]].Connections.splice(index_out, 1);
             }
+
             elemsOut[i].remove();
 
             this.Dispatch('connectionRemoved', { output_id: listclass[2].slice(14), input_id: listclass[1].slice(13), output_class: listclass[3], input_class: listclass[4] });
@@ -463,7 +470,8 @@ export abstract class BaseFunctions {
     protected hasOutputs(listclass: Array<any>): boolean {
 
         if (this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)]) {
-            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs.length > 0;
+            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs && 
+                   this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs.length > 0;
         }
        return  false;
     }
@@ -471,7 +479,8 @@ export abstract class BaseFunctions {
     protected hasInputs(listclass: Array<any>): boolean {
 
         if (this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)]) {
-            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs.length > 0;
+            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs && 
+                   this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs.length > 0;
         }
        return  false;
     }
