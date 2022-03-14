@@ -505,9 +505,19 @@ export abstract class BaseFunctions {
 
         // delete this.activeModule(VariablesUtils.ActiveModule).Data[id.slice(5)];
 
-        this.activeModule(VariablesUtils.ActiveModule).Data.filter((item: NodeModel) => {
-            return item.ID !== id.slice(5);
-        })
+        // this.activeModule(VariablesUtils.ActiveModule)
+        // .Data
+        // .filter((item: NodeModel) => {
+        //     return item.ID !== id.slice(5);
+        // })
+
+    
+        this.activeModule(VariablesUtils.ActiveModule).splice(
+            this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
+                (itm: NodeModel) => {
+                    return itm.ID === id.slice(5);
+            }), 1
+        )
 
         this.Dispatch('nodeRemoved', id.slice(5));
     }
