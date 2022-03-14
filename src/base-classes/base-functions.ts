@@ -495,8 +495,9 @@ export abstract class BaseFunctions {
                 remove.remove();
             }   
         }
-        const deleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex((id: number) => {
-            return id === id;
+        const deleteIndex: number = this.activeModule(VariablesUtils.ActiveModule)
+        .Data.findIndex((itm: any) => {
+            return itm.id === id;
         });
 
         delete this.activeModule(VariablesUtils.ActiveModule).Data[deleteIndex];
