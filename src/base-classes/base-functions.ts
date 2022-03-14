@@ -490,15 +490,22 @@ export abstract class BaseFunctions {
         var moduleName: any = this.getModuleFromNodeId(id.slice(5))
         if (VariablesUtils.ActiveModule === moduleName) {
 
-            const remove = VariablesUtils.MainContainer.querySelector(`#${id}`);
-            if (remove) {
-                remove.remove();
+            /**
+             * Remove node from canvas
+             */
+            const nodeToRemove = VariablesUtils.MainContainer.querySelector(`#${id}`);
+            if (nodeToRemove) {
+                nodeToRemove.remove();
             }   
         }
-        // const deleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
-        //     (itm: NodeModel) => {
-        //         return itm.ID === id.slice(5);
-        // });
+        
+        /**
+         * Delete node from array
+         */
+        const deleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
+            (itm: NodeModel) => {
+                return itm.ID === id.slice(5);
+        });
 
         // delete this.activeModule(VariablesUtils.ActiveModule).Data[deleteIndex];
 
@@ -512,12 +519,12 @@ export abstract class BaseFunctions {
         // })
 
     
-        this.activeModule(VariablesUtils.ActiveModule).splice(
-            this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
-                (itm: NodeModel) => {
-                    return itm.ID === id.slice(5);
-            }), 1
-        )
+        // this.activeModule(VariablesUtils.ActiveModule).splice(
+        //     this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
+        //         (itm: NodeModel) => {
+        //             return itm.ID === id.slice(5);
+        //     }), 1
+        // )
 
         this.Dispatch('nodeRemoved', id.slice(5));
     }
