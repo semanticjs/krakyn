@@ -377,7 +377,7 @@ export abstract class BaseFunctions {
         const editor: DataFlowDataModel = this.activeModule(VariablesUtils.ActiveModule);
 
         Object.keys(editor.Data).map((node, index2) => {
-            if (node == id) {
+            if (node === id) {
                 nameModule = editor.Module;
             }
         })
@@ -486,8 +486,17 @@ export abstract class BaseFunctions {
     }
 
     protected removeNodeId(id: string): void {
+
+        /**
+         * Delete node from array
+         */
+         const nodeToDeleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
+            (itm: NodeModel) => {
+                return itm.ID === id.slice(5);
+        });
+
         this.removeConnectionNodeId(id);
-        var moduleName: any = this.getModuleFromNodeId(id.slice(5))
+        var moduleName: any = this.getModuleFromNodeId(String(nodeToDeleteIndex))
         if (VariablesUtils.ActiveModule === moduleName) {
 
             /**
@@ -498,14 +507,6 @@ export abstract class BaseFunctions {
                 nodeToRemove.remove();
             }   
         }
-
-        /**
-         * Delete node from array
-         */
-        const nodeToDeleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
-            (itm: NodeModel) => {
-                return itm.ID === id.slice(5);
-        });
 
         delete this.activeModule(VariablesUtils.ActiveModule).Data[nodeToDeleteIndex];
 
@@ -526,7 +527,9 @@ export abstract class BaseFunctions {
         //     }), 1
         // )
 
-        this.Dispatch('nodeRemoved', id.slice(5));
+       // this.Dispatch('nodeRemoved', id.slice(5));
+
+       this.Dispatch('nodeRemoved', nodeToDeleteIndex);
     }
 
     protected removeReouteConnectionSelected(): void {
