@@ -495,14 +495,20 @@ export abstract class BaseFunctions {
                 remove.remove();
             }   
         }
-        const deleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
-            (itm: NodeModel) => {
-                return itm.ID === id.slice(5);
-        });
+        // const deleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
+        //     (itm: NodeModel) => {
+        //         return itm.ID === id.slice(5);
+        // });
 
-        delete this.activeModule(VariablesUtils.ActiveModule).Data[deleteIndex];
+        // delete this.activeModule(VariablesUtils.ActiveModule).Data[deleteIndex];
+
 
         // delete this.activeModule(VariablesUtils.ActiveModule).Data[id.slice(5)];
+
+        this.activeModule(VariablesUtils.ActiveModule).Data.filter((item: NodeModel) => {
+            return item.ID !== id.slice(5);
+        })
+
         this.Dispatch('nodeRemoved', id.slice(5));
     }
 
