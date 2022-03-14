@@ -498,16 +498,16 @@ export abstract class BaseFunctions {
                 nodeToRemove.remove();
             }   
         }
-        
+
         /**
          * Delete node from array
          */
-        const deleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
+        const nodeToDeleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
             (itm: NodeModel) => {
                 return itm.ID === id.slice(5);
         });
 
-        // delete this.activeModule(VariablesUtils.ActiveModule).Data[deleteIndex];
+        delete this.activeModule(VariablesUtils.ActiveModule).Data[nodeToDeleteIndex];
 
 
         // delete this.activeModule(VariablesUtils.ActiveModule).Data[id.slice(5)];
