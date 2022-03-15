@@ -63,18 +63,14 @@ export class TabMenuControl extends LitElement {
     public render(): TemplateResult {
         return html 
         `
-       
-
         <div class="tab-menu">
             <ul>
                 ${ this.TabItems.map((item: ModuleMenuModel) => {
                     return html 
                     `
-                    <li 
-                    class=${ item.Class }
-                    @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
-                        ${ item.Label }
-                    </li>
+                        <li 
+                       
+                        </li>
                     `
                 }) }
             </ul>
