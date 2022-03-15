@@ -48,7 +48,8 @@ export class TabMenuControl extends LitElement {
      * 
      * @returns tab menu items
      */
-    protected setupTabItems(): TemplateResult<1>[] {
+    // protected setupTabItems(): TemplateResult<1>[] {
+    protected setupTabItems(): any {
 
         /**
          * Initialize array
