@@ -20,11 +20,6 @@ export class TabMenuControl extends LitElement {
 
     constructor() {
         super();
-
-        /**
-         * Initialize array
-         */
-        this.TabItems = [];
     }
 
     /**
@@ -49,7 +44,17 @@ export class TabMenuControl extends LitElement {
         event.target.classList.add('selected');
     }
 
-    protected setupTabItems(): any {
+    /**
+     * 
+     * @returns tab menu items
+     */
+    protected setupTabItems(): TemplateResult<1>[] {
+
+        /**
+         * Initialize array
+         */
+         this.TabItems = [];
+
         return this.TabItems.map((item: ModuleMenuModel) => {
             return html 
             `
