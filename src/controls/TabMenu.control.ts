@@ -20,11 +20,6 @@ export class TabMenuControl extends LitElement {
 
     constructor() {
         super();
-
-        /**
-         * Initialize array
-         */
-        this.TabItems = [];
     }
 
     /**
@@ -51,6 +46,26 @@ export class TabMenuControl extends LitElement {
 
     /**
      * 
+     * @returns template for tab menu items
+     */
+    protected setupTabItems(): TemplateResult<1>[] {
+
+        if (this.TabItems) {
+            return this.TabItems.map((item: ModuleMenuModel) => {
+                return html 
+                `
+                    <li 
+                    class=${ item.Class }
+                    @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
+                        ${ item.Label }
+                    </li>
+                `
+            })
+        }
+    }
+
+    /**
+     * 
      * @param module new module to load
      * @param e 
      */
@@ -63,20 +78,9 @@ export class TabMenuControl extends LitElement {
     public render(): TemplateResult {
         return html 
         `
-       
-
         <div class="tab-menu">
             <ul>
-                ${ this.TabItems.map((item: ModuleMenuModel) => {
-                    return html 
-                    `
-                    <li 
-                    class=${ item.Class }
-                    @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
-                        ${ item.Label }
-                    </li>
-                    `
-                }) }
+                ${ this.setupTabItems() }
             </ul>
         </div>
         `

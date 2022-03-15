@@ -518,7 +518,9 @@ export abstract class BaseFunctions {
         .Data
         .findIndex(
             (itm: NodeModel) => {
-                return itm.ID === id.slice(5);
+                if (itm) {
+                    return itm.ID === id.slice(5);
+                }
             });
 
         this.removeConnectionNodeId(id);

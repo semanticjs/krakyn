@@ -36,7 +36,7 @@ export class KrakynFlowTool extends LitElement {
     this._flowData = val;
 
     // when testing locally comment this out
-   this.flowTool.Init(val);
+    this.flowTool.Init(val);
   }
 
   public get FlowData(): DataFlowDataModel {
@@ -78,6 +78,8 @@ export class KrakynFlowTool extends LitElement {
       * On module change, rerender the canvas with new module data
       * */
      // this.requestUpdate();
+
+     this.TabMenuItems = [];
     })
 
     /**
