@@ -49,6 +49,19 @@ export class TabMenuControl extends LitElement {
         event.target.classList.add('selected');
     }
 
+    protected setupTabItems(): void {
+        this.TabItems.map((item: ModuleMenuModel) => {
+            return html 
+            `
+                <li 
+                class=${ item.Class }
+                @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
+                    ${ item.Label }
+                </li>
+            `
+        })
+    }
+
     /**
      * 
      * @param module new module to load
@@ -65,15 +78,9 @@ export class TabMenuControl extends LitElement {
         `
         <div class="tab-menu">
             <ul>
-                ${ this.TabItems.map((item: ModuleMenuModel) => {
-                    return html 
-                    `
-                        <li 
-                        @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
-                            ${ item.Label }
-                        </li>
-                    `
-                }) }
+                ${ 
+                    this.setupTabItems()
+                }
             </ul>
         </div>
         `
