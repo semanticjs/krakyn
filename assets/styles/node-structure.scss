@@ -20,29 +20,6 @@
   position: relative;
   user-select: none;
 
-  // .input, .output { 
-  //   position: absolute;
-  //   left: 50%;
-  //   width: var(--node-size);
-  //   height: var(--node-size);
-  //   background: white;
-  //   border-radius: 50%;
-  //   border: 2px solid black;
-  //   cursor: crosshair;
-  //   z-index: 5000;
-  //   transform: translate(-50%, 0);
-  // }
-
-  // .input {
-  //   top: calc(5px - var(--node-size));
-  //   background-color: var(--node-input-color);
-  // }
-
-  // .output {
-  //   bottom: calc(5px - var(--node-size));
-  //   background-color: var(--node-output-color);
-  // }
-
   .fathym-node {
     display: flex;
     align-items: center;

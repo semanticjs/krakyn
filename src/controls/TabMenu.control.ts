@@ -31,6 +31,12 @@ export class TabMenuControl extends LitElement {
      * Add / remove styles on menu tab click
      **/
      protected menuTabSelected(event: any): void {
+
+        // add this for now, just to ignore it - shannon
+        if (!this.shadowRoot) {
+            return;
+        }
+
         const all = this.shadowRoot.querySelectorAll(".tab-menu ul li");
     
         /**

@@ -35,7 +35,8 @@ export class KrakynFlowTool extends LitElement {
   public set FlowData(val: DataFlowDataModel) {
     this._flowData = val;
 
-    this.flowTool.Init(val);
+    // when testing locally comment this out
+   this.flowTool.Init(val);
   }
 
   public get FlowData(): DataFlowDataModel {
@@ -101,7 +102,7 @@ export class KrakynFlowTool extends LitElement {
 
   }
 
-  protected addNodeToDrawFlow(name: string, x: number, y: number): any {
+  protected addNodeToCanvas(name: string, x: number, y: number): any {
 
     if (VariablesUtils.EditorMode === 'fixed') {
       return false;
@@ -497,7 +498,7 @@ export class KrakynFlowTool extends LitElement {
 
     switch(eventType) {
       case 'drop':
-        DragDropUtils.Drop(e, this.addNodeToDrawFlow.bind(this));
+        DragDropUtils.Drop(e, this.addNodeToCanvas.bind(this));
         e.preventDefault();
         break;
       case 'dragover':
@@ -532,14 +533,19 @@ export class KrakynFlowTool extends LitElement {
    * To create a `TemplateResult`, tag a JavaScript template literal
    * with the `html` helper function.
    */
+
+  //  <header>
+  //     <h2>${ this.HeaderTitle }</h2>
+  //   </header>
   render() {
     return html `
 
     
-
-    <header>
-      <h2>${ this.HeaderTitle }</h2>
-    </header>
+    <!--
+      <header>
+        <h2>${ this.HeaderTitle }</h2>
+      </header>
+    -->
 
     <div class="wrapper">
 
