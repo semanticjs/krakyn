@@ -49,8 +49,8 @@ export class TabMenuControl extends LitElement {
         event.target.classList.add('selected');
     }
 
-    protected setupTabItems(): void {
-        this.TabItems.map((item: ModuleMenuModel) => {
+    protected setupTabItems(): any {
+        return this.TabItems.map((item: ModuleMenuModel) => {
             return html 
             `
                 <li 
