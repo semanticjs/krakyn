@@ -46,15 +46,9 @@ export class TabMenuControl extends LitElement {
 
     /**
      * 
-     * @returns tab menu items
+     * @returns template for tab menu items
      */
-    // protected setupTabItems(): TemplateResult<1>[] {
-    protected setupTabItems(): any {
-
-        /**
-         * Initialize array
-         */
-         // this.TabItems = [];
+    protected setupTabItems(): TemplateResult<1>[] {
 
         if (this.TabItems) {
             return this.TabItems.map((item: ModuleMenuModel) => {
@@ -86,9 +80,7 @@ export class TabMenuControl extends LitElement {
         `
         <div class="tab-menu">
             <ul>
-                ${ 
-                    this.setupTabItems()
-                }
+                ${ this.setupTabItems() }
             </ul>
         </div>
         `
