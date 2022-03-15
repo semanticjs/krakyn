@@ -54,18 +54,20 @@ export class TabMenuControl extends LitElement {
         /**
          * Initialize array
          */
-         this.TabItems = [];
+         // this.TabItems = [];
 
-        return this.TabItems.map((item: ModuleMenuModel) => {
-            return html 
-            `
-                <li 
-                class=${ item.Class }
-                @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
-                    ${ item.Label }
-                </li>
-            `
-        })
+        if (this.TabItems) {
+            return this.TabItems.map((item: ModuleMenuModel) => {
+                return html 
+                `
+                    <li 
+                    class=${ item.Class }
+                    @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
+                        ${ item.Label }
+                    </li>
+                `
+            })
+        }
     }
 
     /**
