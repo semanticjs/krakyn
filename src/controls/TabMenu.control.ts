@@ -56,7 +56,9 @@ export class TabMenuControl extends LitElement {
                 `
                     <li 
                     class=${ item.Class }
-                    @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
+                    @click=${ (ev: Event) => { 
+                        this.tabItemClicked(`${ item.Target }`, ev); }
+                    }>
                         ${ item.Label }
                     </li>
                 `
