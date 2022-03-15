@@ -69,7 +69,9 @@ export class TabMenuControl extends LitElement {
                     return html 
                     `
                         <li 
-                       sdfds
+                        class=${ item.Class }
+                        @click=${ (ev: Event) => { this.tabItemClicked(`${ item.Target }`, ev); }}>
+                            ${ item.Label }
                         </li>
                     `
                 }) }

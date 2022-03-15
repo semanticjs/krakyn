@@ -78,6 +78,8 @@ export class KrakynFlowTool extends LitElement {
       * On module change, rerender the canvas with new module data
       * */
      // this.requestUpdate();
+
+     this.TabMenuItems = [];
     })
 
     /**
