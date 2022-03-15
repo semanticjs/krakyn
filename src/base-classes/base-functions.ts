@@ -22,9 +22,9 @@ export abstract class BaseFunctions {
             return e.Module === VariablesUtils.ActiveModule;
         })
     }
-   
+
     protected updateConnectionNodes(id: string): void {
-        
+
         const idSearch: string = 'node_in_' + id;
         const idSearchOut: string = 'node_out_' + id;
 
@@ -48,20 +48,20 @@ export abstract class BaseFunctions {
                 const elemtsearch: HTMLElement = elemtsearchId.querySelectorAll('.' + elemsOut[item].classList[4])[0]
                 const eX: number = elemtsearch.offsetWidth / 2 + (elemtsearch.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
                 const eY: number = elemtsearch.offsetHeight / 2 + (elemtsearch.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
-                
+
                 if (elemtsearchId_out) {
                     const elemtsearchOut: any = elemtsearchId_out.querySelectorAll('.' + elemsOut[item].classList[3])[0];
                     const line_x: number = elemtsearchOut.offsetWidth / 2 + (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
                     const line_y: number = elemtsearchOut.offsetHeight / 2 + (elemtsearchOut.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
                     const x: number = eX;
-                    const y : number= eY;
+                    const y: number = eY;
                     const lineCurve = DrawingUtils.CreateCurvature(line_x, line_y, x, y, VariablesUtils.Curvature, 'openclose');
 
                     elemsOut[item].children[0].setAttributeNS(null, 'd', lineCurve);
                 }
-                
+
             } else {
-                
+
                 const points: NodeListOf<Element> = elemsOut[item].querySelectorAll('.point');
                 let linecurve: string = '';
                 const reoute_fix: Array<any> = [];
@@ -198,7 +198,7 @@ export abstract class BaseFunctions {
 
                 var elemtsearchId: any = VariablesUtils.MainContainer.querySelector(`#${id_search}`);
 
-                if ( !elemtsearchId) {
+                if (!elemtsearchId) {
                     // alert('no element found');
                     return;
                 }
@@ -363,11 +363,17 @@ export abstract class BaseFunctions {
 
         var curvature = VariablesUtils.Curvature;
         var lineCurve = DrawingUtils.CreateCurvature(line_x, line_y, x, y, curvature, 'openclose');
-        
+
         path.setAttributeNS(null, 'd', lineCurve);
     }
 
-    protected getModuleFromNodeId(id: string): any {
+    /**
+     * 
+     * @param id node being deleted
+     * 
+     * @returns module name that's holding the node to be deleted
+     */
+    protected getModuleFromNodeId(id: string): string {
 
         let nameModule: string = '';
 
@@ -381,7 +387,7 @@ export abstract class BaseFunctions {
                 nameModule = editor.Module;
             }
         })
-        
+
         return nameModule;
     }
 
@@ -414,7 +420,13 @@ export abstract class BaseFunctions {
         }
     }
 
-    protected removeConnectionNodeId(id: any): void {
+    /**
+     * Delete connections lines from node
+     * being deleted
+     * 
+     * @param id of node to be deleted
+     */
+    protected removeConnectionNodeId(id: string): void {
         const idSearchIn = 'node_in_' + id;
         const idSearchOut = 'node_out_' + id;
 
@@ -467,69 +479,77 @@ export abstract class BaseFunctions {
         }
     }
 
-    protected hasOutputs(listclass: Array<any>): boolean {
+    /**
+     * 
+     * @param listclass style class list of node
+     * 
+     * @returns checks if the node has any outputs
+     */
+    protected hasOutputs(listclass: Array<string>): boolean {
 
         if (this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)]) {
-            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs && 
-                   this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs.length > 0;
+            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs &&
+                this.activeModule(VariablesUtils.ActiveModule).Data[listclass[2].slice(14)].Outputs.length > 0;
         }
-       return  false;
+        return false;
     }
 
+    /**
+     * 
+     * @param listclass style class list of node
+     * 
+     * @returns checks if the node has any inputs
+     */
     protected hasInputs(listclass: Array<any>): boolean {
 
         if (this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)]) {
-            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs && 
-                   this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs.length > 0;
+            return this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs &&
+                this.activeModule(VariablesUtils.ActiveModule).Data[listclass[1].slice(13)].Inputs.length > 0;
         }
-       return  false;
+        return false;
     }
 
     protected removeNodeId(id: string): void {
 
         /**
-         * Delete node from array
+         * Get index position of the node to delete
          */
-         const nodeToDeleteIndex: number = this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
+        const nodeToDeleteIndex: number = this.activeModule(VariablesUtils.ActiveModule)
+        .Data
+        .findIndex(
             (itm: NodeModel) => {
                 return itm.ID === id.slice(5);
-        });
+            });
 
         this.removeConnectionNodeId(id);
-        var moduleName: any = this.getModuleFromNodeId(String(nodeToDeleteIndex))
-        if (VariablesUtils.ActiveModule === moduleName) {
 
+        /**
+         * Return the current module, based of the id of 
+         * the node being deleted
+         */
+        const moduleName: any = this.getModuleFromNodeId(String(nodeToDeleteIndex))
+
+        if (VariablesUtils.ActiveModule === moduleName) {
             /**
              * Remove node from canvas
+             * Need to full id name, no slice function
              */
             const nodeToRemove = VariablesUtils.MainContainer.querySelector(`#${id}`);
             if (nodeToRemove) {
                 nodeToRemove.remove();
-            }   
+            }
         }
 
+        /**
+         * Delete node property from the datasource
+         */
         delete this.activeModule(VariablesUtils.ActiveModule).Data[nodeToDeleteIndex];
 
-
-        // delete this.activeModule(VariablesUtils.ActiveModule).Data[id.slice(5)];
-
-        // this.activeModule(VariablesUtils.ActiveModule)
-        // .Data
-        // .filter((item: NodeModel) => {
-        //     return item.ID !== id.slice(5);
-        // })
-
-    
-        // this.activeModule(VariablesUtils.ActiveModule).splice(
-        //     this.activeModule(VariablesUtils.ActiveModule).Data.findIndex(
-        //         (itm: NodeModel) => {
-        //             return itm.ID === id.slice(5);
-        //     }), 1
-        // )
-
-       // this.Dispatch('nodeRemoved', id.slice(5));
-
-       this.Dispatch('nodeRemoved', nodeToDeleteIndex);
+        /**
+         * Dispatch an event to notify anyone listening
+         * that the node has been deleted
+         */
+        this.Dispatch('nodeRemoved', nodeToDeleteIndex);
     }
 
     protected removeReouteConnectionSelected(): void {
@@ -584,7 +604,7 @@ export abstract class BaseFunctions {
     }
 
     public createReroutePoint(ele: any): void {
-        
+
         VariablesUtils.SelectedConnection.classList.remove("selected");
         const nodeUpdate = VariablesUtils.SelectedConnection.parentElement.classList[2].slice(9);
         const nodeUpdateIn = VariablesUtils.SelectedConnection.parentElement.classList[1].slice(13);
@@ -667,7 +687,7 @@ export abstract class BaseFunctions {
      * Check if nodes can connect to each other
      */
     protected canConnect(event: any, inputElement: Array<any>, outputElement: Array<any>): boolean {
-        
+
         const canConnect: boolean = inputElement[0].AllowedInputTypes.some((type: string) => {
             return type === outputElement[0].NodeType;
         });
@@ -679,8 +699,8 @@ export abstract class BaseFunctions {
             //  VariablesUtils.ConnectionElement.remove();
             this.Dispatch('connectionCancel', true);
         }
-       
-        
+
+
 
         return canConnect;
     }
