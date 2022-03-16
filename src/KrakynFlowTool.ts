@@ -40,7 +40,8 @@ export class KrakynFlowTool extends LitElement {
      when testing locally comment this out
      ****************************** 
      */
-    this.flowTool.Init(val);
+    // this.flowTool.Init(val);
+
   }
 
   public get FlowData(): DataFlowDataModel {
@@ -100,12 +101,20 @@ export class KrakynFlowTool extends LitElement {
     this.updateComplete.then((val: boolean) => {
       
       this.flowTool = new FlowTool(this.Canvas);
-      // this.flowTool.Init(this.eaCNapkinIDEFlowImporter.Import())
       this.flowTool.Init(this.FlowData); 
     })
 
   }
 
+  /**
+   * When dragging item from the side menu to the canvase, this is how we
+   * add the node to the screen
+   * 
+   * @param name 
+   * @param x 
+   * @param y 
+   * @returns 
+   */
   protected addNodeToCanvas(name: string, x: number, y: number): any {
 
     if (VariablesUtils.EditorMode === 'fixed') {
@@ -538,19 +547,13 @@ export class KrakynFlowTool extends LitElement {
    * with the `html` helper function.
    */
 
-  //  <header>
-  //     <h2>${ this.HeaderTitle }</h2>
-  //   </header>
   render() {
     return html `
 
-    
-    <!--
       <header>
         <h2>${ this.HeaderTitle }</h2>
       </header>
-    -->
-
+    
     <div class="wrapper">
 
       <!--

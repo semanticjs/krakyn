@@ -11,7 +11,7 @@
 </head>
 <body>
   <!-- <i class="fab fa-facebook"></i> -->
-  <!-- <div id="demo" style="height: 800px; width: 1400px;"></div>
+  <div id="demo" style="height: 800px; width: 1400px;"></div>
   
 <script type="module">
     import { html, render } from 'lit';
@@ -22,7 +22,7 @@
       EventsUtils,
       ConstantUtils,
       NodeTemplates,
-      DragItemsTemplates,
+      SideMenuItemTemplates,
       PositionUtils,
       DragDropUtils } from '../dist/src/index.js';
     import '../dist/src/krakyn-flow-tool.js';
@@ -56,12 +56,12 @@
         <krakyn-flow-tool
           .HeaderTitle = ${ title }
           .FlowData = ${ VariablesUtils.DataFlowModuleData[dataIndex] }
-          .SideMenuItems = ${ DragItemsTemplates.FLOW_DRAG_ITEMS(DragDropUtils.Drag) }
+          .SideMenuItems = ${ SideMenuItemTemplates.FLOW_DRAG_ITEMS(DragDropUtils.SideMenuDragEvent) }
           .TabMenuItems = ${ TabMenuItems }>
         </krakyn-flow-tool>
       `,
       document.querySelector('#demo')
     );
-  </script> -->
+  </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-export class DragItemsTemplates {
+export class SideMenuItemTemplates {
 
     public static FLOW_DRAG_ITEMS(callback?: any): Array<any> {
        return [
