@@ -1,9 +1,12 @@
+
+
 /**
 * Main container wrapper
 */
 .wrapper {
   width: 100%;
-  height: calc(100vh - 67px);
+  /* height: calc(100vh - 67px); */
+  height: 100%;
   display: flex; }
 
 /**
@@ -11,29 +14,44 @@
 */
 #drawflow {
   position: relative;
-  width: calc(100vw - 301px);
-  height: calc(100% - 50px);
-  top: 40px;
-  background: var(--canvas-background-color);
+  width: 100%;
+  height: 100%;
+}
+
+.col-right {
+  width: 100%;
+  height: 100%;
+  /**
+  * Checkerboard pattern
+  */
+  background-color: #bebebe;
+  background-image:
+    linear-gradient(45deg, #a8a8a8 25%, transparent 25%),
+    linear-gradient(-45deg, #a8a8a8 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #a8a8a8 75%),
+    linear-gradient(-45deg, transparent 75%, #a8a8a8 75%);
+  background-size:20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+
+
+  /* Grid pattern
   background-size: 25px 25px;
-  /*
-    * background grid lines
-    */
-  background-image: linear-gradient(to right, #f1f1f1 1px, transparent 1px), linear-gradient(to bottom, #f1f1f1 1px, transparent 1px); }
+  background-image: linear-gradient(to right, #f1f1f1 1px, transparent 1px), linear-gradient(to bottom, #f1f1f1 1px, transparent 1px); */
+}
 
 /**
 * Sidenav
 */
 .col {
-  overflow: auto;
-  width: 300px;
-  height: 100%;
+  /* overflow: auto; */
+  min-width: 175px;
+  /* height: 100%; */
   border-right: 1px solid var(--border-color); }
 
 /**
 * Header
 */
-header {
+/* header {
   height: 66px;
   border-bottom: 1px solid var(--border-color);
   padding-left: 20px; }
@@ -43,15 +61,17 @@ header h2 {
   line-height: 66px; }
 
 header a {
-  color: black; }
+  color: black; } */
 
 /**
 * Drag items from side nav
 */
 .drag-item {
+  min-width: 175px;
   line-height: 50px;
   border-bottom: 1px solid var(--border-color);
   padding-left: 20px;
+  padding-right: 20px;
   cursor: move;
   user-select: none; }
 
@@ -59,10 +79,10 @@ header a {
 * Tab menu
 */
 .tab-menu {
-  position: absolute;
+  position: relative;
   height: 40px;
   display: block;
-  background: white;
+  background: rgb(255, 255, 255);
   width: 100%; }
 
 .tab-menu ul {

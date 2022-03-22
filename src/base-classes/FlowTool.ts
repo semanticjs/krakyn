@@ -1,7 +1,7 @@
-import { IdsUtils } from './../utils/ids.utils.js';
-import { NodeModel } from './../models/nodes/node.model.js';
+import { IdsUtils } from '../utils/ids.utils.js';
+import { NodeModel } from '../models/nodes/node.model.js';
 import { VariablesUtils } from '../utils/variables.utils.js';
-import { DataFlowBaseClass } from '../base-classes/data-flow-base-class.js';
+import { DataFlowBaseClass } from './data-flow-base-class.js';
 import { DataFlowDataModel } from '../models/dataflow-data.model.js';
 import { ContainerEvent } from '../models/nodes/container-event.model.js';
 import { EventsUtils } from '../utils/events.utils.js';
@@ -24,77 +24,82 @@ export class FlowTool extends DataFlowBaseClass {
          VariablesUtils.Render = render;
          VariablesUtils.MainContainer = container;
  
-         this.eventListeners = [
-             {
-                 Event: 'mouseup', 
-                 Action: this.DragEnd.bind(this)
-             },
-             {
-                 Event: 'mousemove', 
-                 Action: this.Position.bind(this)
-             },
-             {
-                 Event: 'mousedown', 
-                 Action: this.Click.bind(this)
-             },
-             {
-                 Event: 'touchend', 
-                 Action: this.DragEnd.bind(this)
-             },
-             {
-                 Event: 'touchmove', 
-                 Action: this.Position.bind(this)
-             },
-             {
-                 Event: 'touchstart', 
-                 Action: this.Click.bind(this)
-             },
-             {
-                 Event: 'contextmenu', 
-                 Action: this.Contextmenu.bind(this)
-             },
-             {
-                 Event: 'keydown', 
-                 Action: this.KeyDown.bind(this)
-             },
-             {
-                 Event: 'wheel', 
-                 Action: this.Zoom_Enter.bind(this)
-             },
-             {
-                 Event: 'input', 
-                 Action: this.UpdateNodeValue.bind(this)
-             },
-             {
-                 Event: 'dblclick', 
-                 Action: this.DblClick.bind(this)
-             },
-             {
-                 Event: 'onpointerdown',
-                 Action: this.PointerDown.bind(this)
-             },
-             {
-                 Event: 'onpointermove',
-                 Action: this.PointerMove.bind(this)
-             },
-             {
-                 Event: 'onpointerup',
-                 Action: this.PointerUp.bind(this)
-             },
-             {
-                 Event: 'onpointercancel',
-                 Action: this.PointerUp.bind(this)
-             },
-             {
-                 Event: 'onpointerout',
-                 Action: this.PointerUp.bind(this)
-             },
-             {
-                 Event: 'onpointerleave',
-                 Action: this.PointerUp.bind(this)
-             }
-         ]
+         this.setEventListeners();
      }
+
+     protected setEventListeners(): void {
+      this.eventListeners = [
+        {
+            Event: 'mouseup', 
+            Action: this.DragEnd.bind(this)
+        },
+        {
+            Event: 'mousemove', 
+            Action: this.Position.bind(this)
+        },
+        {
+            Event: 'mousedown', 
+            Action: this.Click.bind(this)
+        },
+        {
+            Event: 'touchend', 
+            Action: this.DragEnd.bind(this)
+        },
+        {
+            Event: 'touchmove', 
+            Action: this.Position.bind(this)
+        },
+        {
+            Event: 'touchstart', 
+            Action: this.Click.bind(this)
+        },
+        {
+            Event: 'contextmenu', 
+            Action: this.Contextmenu.bind(this)
+        },
+        {
+            Event: 'keydown', 
+            Action: this.KeyDown.bind(this)
+        },
+        {
+            Event: 'wheel', 
+            Action: this.Zoom_Enter.bind(this)
+        },
+        {
+            Event: 'input', 
+            Action: this.UpdateNodeValue.bind(this)
+        },
+        {
+            Event: 'dblclick', 
+            Action: this.DblClick.bind(this)
+        },
+        {
+            Event: 'onpointerdown',
+            Action: this.PointerDown.bind(this)
+        },
+        {
+            Event: 'onpointermove',
+            Action: this.PointerMove.bind(this)
+        },
+        {
+            Event: 'onpointerup',
+            Action: this.PointerUp.bind(this)
+        },
+        {
+            Event: 'onpointercancel',
+            Action: this.PointerUp.bind(this)
+        },
+        {
+            Event: 'onpointerout',
+            Action: this.PointerUp.bind(this)
+        },
+        {
+            Event: 'onpointerleave',
+            Action: this.PointerUp.bind(this)
+        }
+    ]
+     }
+
     /**
       * Start creating nodes
       */
@@ -114,14 +119,28 @@ export class FlowTool extends DataFlowBaseClass {
        /**
         * Container that holds everything
         */
-       const precanvas: HTMLElement | null = document.getElementById('flow-canvas');
+       // const precanvas: HTMLElement | null = document.getElementById('flow-canvas');
+
 
        /**
         * if precanvas already exists, then remove it
         */
-       if (precanvas && precanvas.parentNode) {
-          precanvas.parentNode.removeChild(precanvas);
-       }
+      //  if (precanvas && precanvas.parentNode) {
+      //     precanvas.parentNode.removeChild(precanvas);
+      //  }
+
+      /**
+       * Don't have access to document.getElementById, so remove canvas this way
+       * 
+       * Probably will find a better way to do this, but for now...
+       */
+      const mainContainerChildren: HTMLCollection = VariablesUtils.MainContainer.children;
+      Array.from(mainContainerChildren).forEach((elm: Element) => {
+        if (elm.id === 'flow-canvas') {
+          VariablesUtils.MainContainer.removeChild(elm);
+          VariablesUtils.PreCanvas = null;
+        }
+      })
 
        VariablesUtils.PreCanvas = document.createElement('div');
        VariablesUtils.PreCanvas.setAttribute('id', 'flow-canvas');
@@ -129,7 +148,7 @@ export class FlowTool extends DataFlowBaseClass {
        VariablesUtils.MainContainer.appendChild(VariablesUtils.PreCanvas);
  
      /**
-      * add eventlisteners to the container
+      * add all eventlisteners to the container
       */
       EventsUtils.AddEventListeners(VariablesUtils.MainContainer, this.eventListeners);
  
@@ -141,28 +160,31 @@ export class FlowTool extends DataFlowBaseClass {
       */
      protected load(): void {
  
-      //  for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
-      const stringTest: string = 'Hello World!';
+      let data: any;
 
-      console.log('HELLOWORLD', stringTest);
+      if (this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
+        data = this.activeModule(VariablesUtils.ActiveModule).Data.Nodes;
+      } else {
+        data = this.activeModule(VariablesUtils.ActiveModule).Data;
+      }
 
-      for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
+      for (var key in data) {
 
         /**
          * Load nodes from config values
          */
-        this.nodeBaseClass.LoadNodesFromConfig(this.activeModule(VariablesUtils.ActiveModule).Data.Nodes[key], VariablesUtils.PreCanvas);
+        this.nodeBaseClass.LoadNodesFromConfig(data[key], VariablesUtils.PreCanvas);
       }
 
        if(VariablesUtils.Reroute) {
-        //  for (var key in this.activeModule(VariablesUtils.ActiveModule).Data) {
-        for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) { // testing 1-26-22 - shannon
-           this.addRerouteImport(this.activeModule(VariablesUtils.ActiveModule).Data.Nodes[key]);
+         for (var key in data) {
+           this.addRerouteImport(data[key].ID);
          }
        }
    
-       for (var key in this.activeModule(VariablesUtils.ActiveModule).Data.Nodes) {
-         this.updateConnectionNodes('node-'+key);
+       for (var key in data) {
+         // this.updateConnectionNodes('node-' + key);
+         this.updateConnectionNodes('node-' + data[key].ID);
        }
    
        const flowTool: any = this.activeModule(VariablesUtils.ActiveModule);
@@ -236,7 +258,7 @@ export class FlowTool extends DataFlowBaseClass {
           });
         });
      }
-     
+
     /**
      * When switching modules - clicking menu tab buttons
      * 
@@ -314,19 +336,36 @@ export class FlowTool extends DataFlowBaseClass {
     */
      public Init (data: DataFlowDataModel, notify: boolean = true): void {
 
+      let newData: any;
+
       /**
        * If no data, then ignore functionality
        */
-        if (!data || data === null || Object.keys(data.Data).length === 0) {
-          return;
-        }
+      if (!data) {
+        return;
+      }
+
+      if (data.Data && Object.keys(data.Data).length === 0) {
+        return;
+      }
+
+      if (data && !data.Data) {
+        newData = data;
+      } else if (data.Data) {
+        newData = data.Data;
+      }
+
+        // if (!data || Object.keys(data.Data).length === 0) {
+        //   return;
+        // }
 
          this.clear();
          this.start();
   
          const flowData: DataFlowDataModel = new DataFlowDataModel(
             {
-                Data: JSON.parse(JSON.stringify(data)).Data, 
+                // Data: JSON.parse(JSON.stringify(data)).Data, 
+                Data: JSON.parse(JSON.stringify(newData)), 
                 Module: data.Module
             }
          );

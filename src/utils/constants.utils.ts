@@ -2,42 +2,47 @@ import { DispatchedEventsModel } from './../models/events/dispatched-events.mode
 import { DataFlowDataModel } from '../models/dataflow-data.model.js';
 import { NodeTemplates } from '../templates/node-templates.js';
 import { NodeModel } from '../models/nodes/node.model.js';
-// import {
-//   TestNapkinIDEConfig,
-//   TestNapkinIDEFlow,
-//   NapkinIDENode,
-//   NapkinIDEEdge,
-// } from '@semanticjs/napkin-ide';
+import { EnterpriseAsCode } from '@semanticjs/common';
+
 
 export const TestNapkinIDEConfig: any = {
   'NodeTypes': {
     request: {
       AllowedOutputTypes: ['PROJECT'],
       ClassList: ['entry-node'],
-      HTMLTemplateID: 'request-template',
-      InputCountLimit: 1,
+      HTMLTemplateID: 'RequestTemplate',
+      InputCountLimit: 1
     },
     project: {
       AllowedInputTypes: ['REQUEST'],
-      HTMLTemplateID: 'project-template',
-      InputCountLimit: 1,
+      HTMLTemplateID: 'ProjectTemplate',
+      InputCountLimit: 1
     },
     'route-filter': {
       AllowedInputTypes: ['PROJECT'],
       AllowedOutputTypes: ['APPLICATION'],
-      HTMLTemplateID: 'route-template',
+      HTMLTemplateID: 'RouteTemplate',
     },
     application: {
-      AllowedInputTypes: ['ROUTE_FILTER'],
+      AllowedInputTypes: ['ROUTE_FILTER', 'PROJECT'],
       ClassList: ['exit-node'],
-      HTMLTemplateID: 'application-template',
+      HTMLTemplateID: 'ApplicationTemplate',
       OutputCountLimit: 0,
     },
   },
 };
 
-export const TestNapkinIDEFlow: any = {
-  Nodes: [
+
+export class ConstantUtils {
+
+  static count: number = 0;
+
+  protected static getProperty<T, K extends keyof T>(o: T, propertyName: K): T[K] {
+    return o[propertyName];
+  }
+
+  public static ORIGINAL_TEST_DATA: any = {
+   Nodes: [
     {
       ID: '1',
       Type: 'request',
@@ -50,7 +55,7 @@ export const TestNapkinIDEFlow: any = {
       Data: {
         Name: 'IoT Ensemble',
         Host: 'www.iot-ensemble.com',
-      },
+      }
     },
     {
       ID: '3',
@@ -63,12 +68,13 @@ export const TestNapkinIDEFlow: any = {
       ID: '4',
       Type: 'application',
       Data: {
+        Name: 'Application',
         Package: '@iot-ensemble/public-web',
         Version: 'latest',
       },
-    },
-  ],
-  Edges: [
+    }
+   ],
+   Edges: [
     {
       ID: '1',
       Outputs: {
@@ -109,6 +115,9 @@ export const TestNapkinIDEFlow: any = {
               input: 'output_1',
             },
           ],
+        },
+        input_2: {
+          Connections: [],
         }
       },
       Outputs: {
@@ -137,505 +146,444 @@ export const TestNapkinIDEFlow: any = {
       NodeInID: '2',
       NodeOutID: '3',
     }
+   ]
+  };
+
+  public static FULL_EXTERNAL_DATA: any = {
+    
+    
+    "Name": "shannon.bruns@fathym.com Enterprise",
+    "ID": "6e8f3051-6b07-430a-b987-c68692530131",
+    "Nodes": [
+        {
+            "ID": "sys-1",
+            "Type": "request",
+            "ClassList": [],
+            "Data": {}
+        },
+        {
+            "Type": "project",
+            "ID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc",
+            "Data": {
+                "Name": "Docusaurus - Documentation - Open Source - Project One",
+                "Hosts": [
+                    "b206e58771d7-shared.lowcodeunit.com"
+                ]
+            }
+        },
+        {
+            "Type": "application",
+            "ID": "application-a741de99-c800-4a53-8078-da6ba0b4dcae",
+            "Data": {
+                "Details": {
+                    "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
+                    "Name": "Docusaurus - Documentation - Open Source",
+                    "Priority": 5000,
+                    "PriorityShift": 0
+                },
+                "Processor": {
+                    "CacheControl": null,
+                    "ModifierLookups": null,
+                    "Priority": 0,
+                    "Type": "DFS",
+                    "BaseHref": "/",
+                    "DefaultFile": "index.html",
+                    "ID": "5d91e82e-b506-4bb6-9ca0-b2cd425ef4cc",
+                    "Label": "DFSProcessor",
+                    "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
+                    "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
+                }
+            }
+        },
+        {
+            "Type": "project",
+            "ID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7",
+            "Data": {
+                "Name": "Docusaurus - Documentation - Open Source",
+                "Hosts": [
+                    "114e5118f77b-shared.lowcodeunit.com"
+                ]
+            }
+        },
+        {
+            "Type": "application",
+            "ID": "application-0f69f553-337f-43cd-9a2e-8d552b38c242",
+            "Data": {
+                "Details": {
+                    "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
+                    "Name": "Docusaurus - Documentation - Open Source",
+                    "Priority": 5000,
+                    "PriorityShift": 0
+                },
+                "Processor": {
+                    "CacheControl": null,
+                    "ModifierLookups": null,
+                    "Priority": 0,
+                    "Type": "DFS",
+                    "BaseHref": "/",
+                    "DefaultFile": "index.html",
+                    "ID": "fae07c14-39b9-4388-8160-3023d72a9b98",
+                    "Label": "DFSProcessor",
+                    "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
+                    "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
+                }
+            }
+        },
+        {
+            "Type": "project",
+            "ID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0",
+            "Data": {
+                "Name": "Docusaurus - Documentation - Open Source",
+                "Hosts": [
+                    "e04ad1e695e9-shared.lowcodeunit.com"
+                ]
+            }
+        },
+        {
+            "Type": "application",
+            "ID": "application-b53ba6ed-1c7e-4483-aedc-4fdc05179c33",
+            "Data": {
+                "Details": {
+                    "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
+                    "Name": "Docusaurus - Documentation - Open Source",
+                    "Priority": 5000,
+                    "PriorityShift": 0
+                },
+                "Processor": {
+                    "CacheControl": null,
+                    "ModifierLookups": null,
+                    "Priority": 0,
+                    "Type": "DFS",
+                    "BaseHref": "/",
+                    "DefaultFile": "index.html",
+                    "ID": "bf7797b7-ac1e-4836-a449-f3ffb21c3cbb",
+                    "Label": "DFSProcessor",
+                    "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
+                    "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
+                }
+            }
+        },
+        {
+            "Type": "project",
+            "ID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4",
+            "Data": {
+                "Name": "Docusaurus - Documentation - Open Source",
+                "Hosts": [
+                    "9f2199a5afce-shared.lowcodeunit.com"
+                ]
+            }
+        },
+        {
+            "Type": "application",
+            "ID": "application-6a00c64d-701c-400e-8c6d-1337b11974dd",
+            "Data": {
+                "Details": {
+                    "Description": "A basic staritng point for sites and documentation built with Docusaurus.",
+                    "Name": "Docusaurus - Documentation - Open Source",
+                    "Priority": 5000,
+                    "PriorityShift": 0
+                },
+                "Processor": {
+                    "CacheControl": null,
+                    "ModifierLookups": null,
+                    "Priority": 0,
+                    "Type": "DFS",
+                    "BaseHref": "/",
+                    "DefaultFile": "index.html",
+                    "ID": "e5b8be68-91c6-4927-9cda-8264f018a3d2",
+                    "Label": "DFSProcessor",
+                    "Registry": "6e8f3051-6b07-430a-b987-c68692530131",
+                    "TenantLookup": "6e8f3051-6b07-430a-b987-c68692530131"
+                }
+            }
+        }
+    ],
+    "Edges": [
+        {
+            "ID": "sys-edge-2",
+            "NodeInID": "sys-1",
+            "NodeOutID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc"
+        },
+        {
+            "ID": "sys-edge-3",
+            "NodeInID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc",
+            "NodeOutID": "route-filter-path-ddddd"
+        },
+        {
+            "ID": "sys-edge-4",
+            "NodeInID": "route-filter-path-ddddd",
+            "NodeOutID": "application-a741de99-c800-4a53-8078-da6ba0b4dcae"
+        },
+        {
+            "ID": "sys-edge-5",
+            "NodeInID": "sys-1",
+            "NodeOutID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7"
+        },
+        {
+            "ID": "sys-edge-6",
+            "NodeInID": "project-b42fcac1-5cad-4359-be75-47b7d49dfba7",
+            "NodeOutID": "route-filter-path-ddddd"
+        },
+        {
+            "ID": "sys-edge-7",
+            "NodeInID": "route-filter-path-ddddd",
+            "NodeOutID": "application-0f69f553-337f-43cd-9a2e-8d552b38c242"
+        },
+        {
+            "ID": "sys-edge-8",
+            "NodeInID": "sys-1",
+            "NodeOutID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0"
+        },
+        {
+            "ID": "sys-edge-9",
+            "NodeInID": "project-7b7ffe01-5f24-4c5f-b45e-ef12b070b5c0",
+            "NodeOutID": "route-filter-path-ddddd"
+        },
+        {
+            "ID": "sys-edge-10",
+            "NodeInID": "route-filter-path-ddddd",
+            "NodeOutID": "application-b53ba6ed-1c7e-4483-aedc-4fdc05179c33"
+        },
+        {
+            "ID": "sys-edge-11",
+            "NodeInID": "sys-1",
+            "NodeOutID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4"
+        },
+        {
+            "ID": "sys-edge-12",
+            "NodeInID": "project-a3ba12d9-ce59-4202-8952-63340e45bba4",
+            "NodeOutID": "route-filter-path-ddddd"
+        },
+        {
+            "ID": "sys-edge-13",
+            "NodeInID": "route-filter-path-ddddd",
+            "NodeOutID": "application-6a00c64d-701c-400e-8c6d-1337b11974dd"
+        }
+    ]
+}
+  public static EXTERNAL_DATA_TEST: any = {
+    "Name": "shannon.bruns@fathym.com Enterprise",
+    "ID": "6e8f3051-6b07-430a-b987-c68692530131",
+    Nodes: [
+        {
+            "ID": "1",
+            "Type": "request",
+            "ClassList": [],
+            "Data": {}
+        },
+        {
+            "Type": "project",
+            "ID": "2",
+            "Data": {
+                "Name": "Docusaurus - Documentation - Open Source",
+                "Hosts": [
+                    "b206e58771d7-shared.lowcodeunit.com"
+                ]
+            }
+        }
+    ],
+    Edges: [
+        {
+            "ID": "sys-edge-2",
+            "NodeInID": "sys-1",
+            "NodeOutID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc"
+        },
+        {
+            "ID": "sys-edge-3",
+            "NodeInID": "project-1a9f69fb-50ce-46b9-a934-a5191a0959cc",
+            "NodeOutID": "route-filter-path-ddddd"
+        }
+    ]
+  }
+
+  public static DATA_TEST: any = {
+      
+  Nodes: [
+    {
+      ID: '11a', 
+      Type: 'request',
+      ClassList: ['persisted-class'],
+      Data: {},
+    },
+    {
+      ID: '2',
+      Type: 'project',
+      Data: {
+        Name: 'IoT Ensemble',
+        Host: 'www.iot-ensemble.com',
+      },
+    },
   ],
-};
-
-export class ConstantUtils {
-  public static TEST_MODULE: DataFlowDataModel = {
-    Module: 'NapkinIDE',
-    Data: [
-      {
-        ID: '1',
-        Name: 'one',
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        PosX: 50,
-        PosY: 100,
-        ClassList: [],
-        Outputs: {
-          output_1: {
-            Connections: [],
-          },
-          output_2: {
-            Connections: [],
-          },
-          output_3: {
-            Connections: [],
-          },
-        },
-        Data: {
-          Title: 'IoT Ensemble',
-          Name: 'Text Input',
-          Host: 'http://www.iot-ensemble.com',
-        },
-        HTML: `
-                        <div class="node-drop-shadow">
-                            <div class="gap flexbox-row flexbox-base request">
-                                <span style="text-align: center" df-Title></span>
-                                <input style="
-                                    padding: 0.2em; 
-                                    width: 75%; 
-                                    box-sizing:border-box" type=\"text\" df-Name>
-                                <a href="#" df-Host></a>
-                            </div>
-                        </div>
-                    `,
-        TypeNode: false,
+  Edges: [
+    {
+      ID: '11a',
+      Outputs: {
+        output_1: {
+          Connections: [],
+        }
+      }
+    },
+    {
+      ID: '2',
+      Inputs: {
+        input_1: {
+          Connections: [
+            {
+              node: '11a',
+              input: 'output_1',
+            },
+          ],
+        }
       },
-      {
-        ID: '2',
-        Name: 'two',
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        PosX: 250,
-        PosY: 100,
-        ClassList: [],
-        Data: {},
-        Inputs: {
-          input_1: {
-            Connections: [
-              {
-                node: '1',
-                input: 'output_1',
-              },
-            ],
-          },
-          input_2: {
-            Connections: [],
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [],
-          },
-        },
-        HTML: NodeTemplates.Project, // this calls an HTML string
-        TypeNode: false,
-      },
-      // {
-      //     ID: '3',
-      //     Name: 'three',
-      //     NumOfInputs: 0,
-      //     NumOfOutputs: 1,
-      //     PosX: 50,
-      //     PosY: 100,
-      //     ClassList: [],
-      //     Data: {},
-      //     HTML: document.getElementById('request').content,
-      //     TypeNode: true
-      // },
-    ],
-  };
+      Outputs: {
+        output_1: {
+          Connections: [],
+        }
+      }
+    }
+  ],
+  }
 
-  static count: number = 0;
+  protected static replaceChars(
+    fullWord: string, 
+    chars: Array<{char: string, replacement: string, escapeChar?: boolean}>): string {
 
-  public static NAPKIN_IDE_MODULE_DATA: DataFlowDataModel = {
-    Module: 'NapkinIDE',
-    Data: TestNapkinIDEFlow.Nodes!.map((node: any) => {
-      const config = TestNapkinIDEConfig.NodeTypes![<string>node.Type];
+    console.log('Before replace', fullWord);
 
-      const inputs = TestNapkinIDEFlow.Edges?.filter(
-        (edge: any) => edge.ID === node.ID
-      ).map((edge: any) => {
+    for (const value of chars) {
+
+      if (value.char === '*') {
+        value.char = '/\*/';
+      }
+      fullWord = fullWord.replace(new RegExp(value.char, 'g'), value.replacement);
+    }
+
+    console.log('After replace', fullWord);
+
+    return fullWord;
+  }
+
+  public static MapData(moduleName: string, data: any): any {
+
+    return {
+      Module: moduleName,
+      Data: data.Nodes!.map((node: any, index: number) => {
+
+        const config = TestNapkinIDEConfig.NodeTypes![<string>node.Type];
         
-        return edge.Inputs;
-      });
+        // node.ID = this.replaceChars(node.ID, [
+        //   {char: '/', replacement: 'forwardslash'},
+        //   {char: '*', replacement: 'asterisk'}
+        // ]);
 
-      const outputs = TestNapkinIDEFlow.Edges?.filter(
-        (edge: any) => edge.ID === node.ID
-      ).map((edge: any) => { 
+      /**
+       * If NodeInID exists, then we know that NodeInID (node connecting from) 
+       * has an output node
+       */
 
-        return edge.Outputs
-      });
+      
+      // data.Edges.map((edge: any) => {
+      //   edge.NodeInID = this.replaceChars(edge.NodeInID, [
+      //     {char: '/', replacement: 'forwardslash'},
+      //     {char: '*', replacement: 'asterisk'}
+      //   ]);
 
-      return <NodeModel> {
-        AllowedInputTypes: config.AllowedInputTypes,
-        AllowedOutputTypes: config.AllowedOutputTypes,
-        ClassList: node.ClassList,
-        Data: node.Data,
-        HTML: <string>document.getElementById(<string>config.HTMLTemplateID)?.innerHTML,
-        ID: `${++ConstantUtils.count}`,
-        Inputs: inputs[0],
-        NodeType: node.Type.toUpperCase(),
-        NumOfInputs: config.InputCountLimit,
-        NumOfOutputs: config.OutputCountLimit,
-        Outputs: outputs[0],
-        PosY: node.PositionY || ConstantUtils.count * 150,
-        PosX: node.PositionX || ConstantUtils.count * 100,
-        TypeNode: false,
-      };
-    }),
-  };
+      //   edge.NodeOutID = this.replaceChars(edge.NodeOutID, [
+      //     {char: '/', replacement: 'forwardslash'},
+      //     {char: '*', replacement: 'asterisk'}
+      //   ]);
+      // })
 
-  public static HOME_MODULE_DATA: DataFlowDataModel = {
-    Module: 'Home',
-    Data: [
-      {
-        ID: '1',
-        Name: 'welcome',
-        Data: {},
-        ClassList: ['welcome'],
-        HTML: '\n    <div>\n      <div class="title-box">👏 Welcome!!</div>\n      <div class="box">\n        <p>Simple flow library <b>demo</b>\n        <a href="https://github.com/jerosoler/Drawflow" target="_blank">Drawflow</a> by <b>Jero Soler</b></p><br>\n\n        <p>Multiple input / outputs<br>\n           Data sync nodes<br>\n           Import / export<br>\n           Modules support<br>\n           Simple use<br>\n           Type: Fixed or Edit<br>\n           Events: view console<br>\n           Pure Javascript<br>\n        </p>\n        <br>\n        <p><b><u>Shortkeys:</u></b></p>\n        <p>🎹 <b>Delete</b> for remove selected<br>\n        💠 Mouse Left Click == Move<br>\n        ❌ Mouse Right == Delete Option<br>\n        🔍 Ctrl + Wheel == Zoom<br>\n        📱 Mobile support<br>\n        ...</p>\n      </div>\n    </div>\n    ',
-        TypeNode: false,
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Inputs: [],
-        Outputs: [],
-        PosX: 50,
-        PosY: 50,
-      },
-      {
-        ID: '2',
-        Name: 'slack',
-        Data: {},
-        ClassList: ['slack'],
-        HTML: NodeTemplates.Slack,
-        TypeNode: false,
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Inputs: {
-          input_1: {
-            Connections: [{ node: '9', input: 'output_1' }],
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [],
-          },
-        },
-        PosX: 1028,
-        PosY: 87,
-      },
-      {
-        ID: '3',
-        Name: 'telegram',
-        Data: {
-          channel: 'channel_2',
-        },
-        ClassList: ['telegram'],
-        HTML: NodeTemplates.Telegram,
-        TypeNode: false,
-        Inputs: {
-          input_1: {
-            Connections: [{ node: '7', input: 'output_1' }],
-          },
-        },
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Outputs: {
-          output_1: {
-            Connections: [],
-          },
-        },
-        PosX: 1032,
-        PosY: 184,
-      },
-      {
-        ID: '4',
-        Name: 'email',
-        Data: {},
-        ClassList: ['email'],
-        HTML: NodeTemplates.Email,
-        TypeNode: false,
-        Inputs: {
-          input_1: {
-            Connections: [
-              { node: '5', input: 'output_1' }, // input from template
-            ],
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [],
-          },
-        },
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        PosX: 1033,
-        PosY: 439,
-      },
-      {
-        ID: '5',
-        Name: 'template',
-        Data: {
-          template: 'Write your template',
-        },
-        ClassList: ['template'],
-        HTML: NodeTemplates.Template,
-        TypeNode: false,
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Inputs: {
-          input_1: {
-            Connections: [
-              { node: '8', input: 'output_1' }, // input from template
-            ],
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [
-              { node: '4', output: 'input_1' }, // output to email
-              { node: '11', output: 'input_1' }, // output to log file
-            ],
-          },
-        },
-        PosX: 298,
-        PosY: 500,
-      },
-      {
-        ID: '6',
-        Name: 'github',
-        Data: {
-          name: 'https://github.com/jerosoler/Drawflow',
-        },
-        ClassList: ['github'],
-        HTML: NodeTemplates.Github,
-        TypeNode: false,
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Inputs: {
-          input_1: {
-            Connections: [],
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [{ node: '5', output: 'input_1' }],
-          },
-        },
-        PosX: 295,
-        PosY: 50,
-      },
-      {
-        ID: '7',
-        Name: 'facebook',
-        Data: {},
-        ClassList: ['facebook'],
-        HTML: NodeTemplates.Facebook,
-        TypeNode: false,
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Inputs: {
-          input_1: {
-            Connections: [],
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [
-              { node: '9', output: 'input_1' },
-              { node: '3', output: 'input_1' },
-              { node: '11', output: 'input_1' },
-            ],
-          },
-        },
-        PosX: 500,
-        PosY: 87,
-      },
-      {
-        ID: '8',
-        Name: 'diamondTest',
-        Data: {},
-        ClassList: [''],
-        HTML: '\n<div>\n<div>DDD</div>\n</div>\n',
-        TypeNode: false,
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Inputs: {
-          input_1: {
-            Connections: [{ node: '6', input: 'output_1' }], // input connection from github
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [],
-          }, // seems to need at least an empty output to show the output marker
-        },
-        PosX: 350,
-        PosY: 350,
-      },
-      {
-        ID: '9',
-        Name: 'circleTest',
-        Data: {},
-        ClassList: [''],
-        HTML: '\n<div>\n<div>circle</div>\n</div>\n',
-        TypeNode: false,
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Inputs: {
-          input_1: {
-            Connections: [{ node: '7', input: 'output_1' }],
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [{ node: '2', output: 'input_1' }],
-          },
-        },
-        PosX: 700,
-        PosY: 75,
-      },
-      {
-        ID: '11',
-        Name: 'log',
-        Data: {},
-        ClassList: ['log'],
-        HTML: NodeTemplates.Log,
-        TypeNode: false,
-        NumOfInputs: 0,
-        NumOfOutputs: 1,
-        Inputs: {
-          input_1: {
-            Connections: [
-              { node: '5', input: 'output_1' },
-              { node: '7', input: 'output_1' },
-            ],
-          },
-        },
-        Outputs: {
-          output_1: {
-            Connections: [],
-          },
-        },
+        const outputs = data.Edges?.filter(
+          (edge: any) => edge.NodeInID === node.ID)
+          .map((edge: any) => {
+        
+            if (!edge.Outputs) {
+              edge.Outputs = {
+                output_1: {
+                  Connections: [
+                    // {
+                    //   node: edge.NodeOutID,
+                    //   input: 'input_1',
+                    // }
+                  ]
+                },
+                // output_2: {
+                //   Connections: [
 
-        PosX: 1131,
-        PosY: 600,
-      },
-    ],
+                //   ]
+                // }
+              }
+            }
 
-    // public static OTHER_MODULE_DATA: DataFlowDataModel = {
-    //     Module: 'Other',
-    //     Data:
-    //             {
-    //                 "8":
-    //                 {
-    //                     "id": 8,
-    //                     "name": "personalized",
-    //                     "data": {},
-    //                     "class": "personalized",
-    //                     "html": "\n            <div>\n              Personalized\n            </div>\n            ",
-    //                     "typenode": false,
-    //                     "inputs":
-    //                     {
-    //                         "input_1":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "12", "input": "output_1" },
-    //                                     { "node": "12", "input": "output_2" },
-    //                                     { "node": "12", "input": "output_3" },
-    //                                     { "node": "12", "input": "output_4" }
-    //                                 ]
-    //                         }
-    //                     },
-    //                     "outputs":
-    //                     {
-    //                         "output_1":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "9", "output": "input_1" }
-    //                                 ]
-    //                         }
-    //                     },
-    //                     "pos_x": 764,
-    //                     "pos_y": 227
-    //                 },
-    //                 "9":
-    //                 {
-    //                     "id": 9,
-    //                     "name": "dbclick",
-    //                     "data":
-    //                     {
-    //                         "name": "Hello World!!"
-    //                     },
-    //                     "class": "dbclick",
-    //                     "html": "\n            <div>\n            <div class=\"title-box\"><i class=\"fas fa-mouse\"></i> Db Click</div>\n              <div class=\"box dbclickbox\" ondblclick=\"showpopup(event)\">\n                Db Click here\n                <div class=\"modal\" style=\"display:none\">\n                  <div class=\"modal-content\">\n                    <span class=\"close\" onclick=\"closemodal(event)\">&times;</span>\n                    Change your variable {name} !\n                    <input type=\"text\" df-name>\n                  </div>\n\n                </div>\n              </div>\n            </div>\n            ",
-    //                     "typenode": false,
-    //                     "inputs":
-    //                     {
-    //                         "input_1":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "8", "input": "output_1" }
-    //                                 ]
-    //                         }
-    //                     }, "outputs":
-    //                     {
-    //                         "output_1":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "12", "output": "input_2" }
-    //                                 ]
-    //                         }
-    //                     },
-    //                     "pos_x": 209,
-    //                     "pos_y": 38
-    //                 },
-    //                 "12":
-    //                 {
-    //                     "id": 12,
-    //                     "name": "multiple",
-    //                     "data": {},
-    //                     "class": "multiple",
-    //                     "html": "\n            <div>\n              <div class=\"box\">\n                Multiple!\n              </div>\n            </div>\n            ",
-    //                     "typenode": false,
-    //                     "inputs":
-    //                     {
-    //                         "input_1":
-    //                         {
-    //                             "connections": []
-    //                         },
-    //                         "input_2":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "9", "input": "output_1" }
-    //                                 ]
-    //                         },
-    //                         "input_3": {
-    //                             "connections": []
-    //                         }
-    //                     },
-    //                     "outputs":
-    //                     {
-    //                         "output_1":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "8", "output": "input_1" }
-    //                                 ]
-    //                         }, "output_2":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "8", "output": "input_1" }
-    //                                 ]
-    //                         },
-    //                         "output_3":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "8", "output": "input_1" }
-    //                                 ]
-    //                         },
-    //                         "output_4":
-    //                         {
-    //                             "connections":
-    //                                 [
-    //                                     { "node": "8", "output": "input_1" }
-    //                                 ]
-    //                         }
-    //                     },
-    //                     "pos_x": 179,
-    //                     "pos_y": 272
-    //                 }
-    //             }
-  };
+          return edge.Outputs;
+        });
+
+        const inputs = data.Edges?.filter(
+          (edge: any) => edge.NodeOutID === node.ID)
+          .map((edge: any) => {
+        
+            if (!edge.Inputs) {
+              edge.Inputs = {
+                input_1: {
+                  Connections: [
+                    {
+                      node: edge.NodeInID,
+                      input: 'output_1',
+                    }
+                  ]
+                },
+                // output_2: {
+                //   Connections: [
+
+                //   ]
+                // }
+              }
+            }
+
+          return edge.Inputs;
+        });
+
+        return ConstantUtils.newModel(config, node, inputs, outputs, index);
+      })
+    }
+  }
+
+  /**
+   * Return a new model
+   *
+   * @param config
+   * @param node
+   * @param inputs
+   * @param outputs
+   * @returns
+   */
+  protected static newModel(
+    config: any, 
+    node: any, 
+    inputs: any, 
+    outputs: any,
+    index: number
+    ): NodeModel {
+
+    return <NodeModel>{
+      AllowedInputTypes: config.AllowedInputTypes,
+      AllowedOutputTypes: config.AllowedOutputTypes,
+      ClassList: node.ClassList,
+      Data: node.Data,
+      HTML: this.getProperty(NodeTemplates, config.HTMLTemplateID),
+      // ID: `${++ConstantUtils.count}`,
+      ID: node.ID,
+      Inputs: inputs[0],
+      NodeType: node.Type.toUpperCase(),
+      NumOfInputs: config.InputCountLimit,
+      NumOfOutputs: config.OutputCountLimit,
+      Outputs: outputs[0],
+      PosY: node.PositionY || (index + 1) * 50,
+      PosX: node.PositionX || (index + 1) * 75,
+      TypeNode: false,
+    };
+  }
 
   public static DISPATCHED_EVENTS: Array<DispatchedEventsModel> = [
     { Event: 'mouseMove', Message: 'Mouse position', Params: ['x', 'y'] },

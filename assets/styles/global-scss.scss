@@ -4,12 +4,13 @@
 * Global Styles
 */
 
+// @import url('./css/app.css');
 @import url('https://fonts.googleapis.com/css2?family=Rokkitt:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
-// @import './main-structure.scss';
-// @import './node-path.scss';
-// @import './node-shapes.scss';
-// @import './node-structure.scss';
+@import './main-structure.scss';
+@import './node-path.scss';
+@import './node-shapes.scss';
+@import './node-structure.scss';
 // @import url('./css/app.css');
 
 /*  Global Variables  */
@@ -32,7 +33,7 @@
     --node-request: #DA0063;
     --node-project: #652CB3;
     --node-filter: #12CDD4;
-    --node-application: #222222;
+    --node-application: #7a7a7a;
     --node-modifier: #2DC6F0;
     --node-join: #11A1AC;
     --node-split: #11A1AC;
@@ -63,6 +64,7 @@
     1201px and more —  Extra large screens, TV
     */
 }
+
 .flexbox-base {
   display: flex;
   justify-content: center;
@@ -95,7 +97,7 @@ html, body {
   background-color: var(--background-color);
 }
 
-.flexbox-row {
+.flexbox-column {
   flex-direction: column;
 }
 

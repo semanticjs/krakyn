@@ -1,8 +1,8 @@
 {
-  "name": "roll-up-test",
-  "description": "Webcomponent roll-up-test following open-wc recommendations",
+  "name": "@semanticjs/krakyn",
+  "description": "Webcomponent Krakyn Flow Tool following open-wc recommendations",
   "license": "MIT",
-  "author": "roll-up-test",
+  "author": "Krakyn",
   "version": "0.0.0",
   "entryfile": "./demo/index.html",
   "sasscompressed": true,
@@ -16,13 +16,15 @@
   "scripts": {
     "analyze": "cem analyze --litelement",
     "start": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"wds\"",
-    "start:build": "npm run build && es-dev-server --root-dir dist --app-index index.html --compatibility none --open",
+    "build:start": "npm run build && es-dev-server --root-dir dist --app-index index.html --compatibility none --open",
     "build": "rimraf dist && tsc && npm run analyze -- --exclude dist && rollup -c rollup.config.js",
     "deploy": "npm version patch && npm run deploy:all",
     "deploy:all": "npm run build && npm publish --access public",
     "prepublish": "tsc && npm run analyze -- --exclude dist"
   },
   "dependencies": {
+    "@semanticjs/common": "^0.48.0",
+    "@semanticjs/napkin-ide": "0.12.16-node-id-bug",
     "lit": "^2.0.2"
   },
   "devDependencies": {
@@ -39,7 +41,7 @@
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-postcss": "^4.0.1", 
+    "rollup-plugin-postcss": "^4.0.1",
     "rollup-plugin-postcss-modules": "^2.0.2",
     "rollup-plugin-scss": "^3.0.0",
     "rollup-plugin-styles": "^3.14.1",
@@ -48,5 +50,8 @@
     "tslib": "^2.3.1",
     "typescript": "^4.4.4"
   },
-  "customElements": "custom-elements.json"
+  "customElements": "custom-elements.json",
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
+  }
 }

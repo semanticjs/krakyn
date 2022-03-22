@@ -1,16 +1,21 @@
 <!doctype html>
 <html lang="en-GB">
- 
+
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" href="../assets/styles/global-scss.min.css">
+  <link rel="stylesheet" href="../assets/styles/css/app.css">
+  <script src="https://kit.fontawesome.com/0b7385f8de.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-  <div id="demo"></div>
-  <script type="module">
+  <!-- <i class="fab fa-facebook"></i> -->
+  <!-- <div id="demo" style="height: 800px; width: 1400px;"></div>
+  
+<script type="module">
     import { html, render } from 'lit';
-    import { 
+    import {
       FlowTool,
       MenuTemplatesUtils,
       VariablesUtils,
@@ -20,28 +25,43 @@
       DragItemsTemplates,
       PositionUtils,
       DragDropUtils } from '../dist/src/index.js';
-    import '../dist/src/roll-up-test.js';
+    import '../dist/src/krakyn-flow-tool.js';
 
     /**
      * Array for storing module data
     */
-    const DefaultData = ConstantUtils.NAPKIN_IDE_MODULE_DATA;
-    const title = 'Hello World!';
+
+    const dataIndex = 1;
+
+    VariablesUtils.DataFlowModuleData =
+    [
+      ConstantUtils.MapData('OriginalData', ConstantUtils.ORIGINAL_TEST_DATA),
+      ConstantUtils.MapData('FullExternalDataTest', ConstantUtils.FULL_EXTERNAL_DATA)
+    ];
+
+    const TabMenuItems =
+    [
+      { Label: 'Original Data', Target: 'OriginalData' },
+      { Label: 'Hardcoded Full External Data', Target: 'FullExternalDataTest', Class:'selected' }
+    ];
+
+    const title = 'Flow Tool';
 
     VariablesUtils.NodeClass = 'fathym-node';
-  
+    VariablesUtils.ActiveModule = VariablesUtils.DataFlowModuleData[dataIndex].Module;
+//   some light-dom
+
     render(
       html`
-        <roll-up-test 
-          HeaderTitle = "Data Flow Tools"
-          .FlowData = ${ DefaultData } 
-          .SideMenuItems = ${ DragItemsTemplates.FLOW_DRAG_ITEMS(DragDropUtils.Test) }
-          .title = ${ title }>
-          some light-dom
-        </roll-up-test>
+        <krakyn-flow-tool
+          .HeaderTitle = ${ title }
+          .FlowData = ${ VariablesUtils.DataFlowModuleData[dataIndex] }
+          .SideMenuItems = ${ DragItemsTemplates.FLOW_DRAG_ITEMS(DragDropUtils.Drag) }
+          .TabMenuItems = ${ TabMenuItems }>
+        </krakyn-flow-tool>
       `,
       document.querySelector('#demo')
     );
-  </script>
+  </script> -->
 </body>
 </html>
