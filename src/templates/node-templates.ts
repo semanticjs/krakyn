@@ -17,7 +17,6 @@ export class NodeTemplates {
                     <div class="gap flexbox-column request">
                         <span df-ID></span>
                         <span df-Name></span>
-                        <input type="text" df-Host>
                         <a href="#" df-Host></a>
                     </div>
                 </div>
