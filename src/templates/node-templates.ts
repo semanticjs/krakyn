@@ -28,7 +28,7 @@ export class NodeTemplates {
         `
             <div class="node-drop-shadow">
                 <div class="filter">
-                    <span>Filter</span>
+                    <span df-Route>Filter</span>
                 </div>
             </div>
         `;

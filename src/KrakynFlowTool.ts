@@ -183,7 +183,9 @@ export class KrakynFlowTool extends LitElement {
             PosX: posX,
             PosY: posY,
             ClassList: [],
-            Data: {},
+            Data: {
+              Route: '/'
+            },
             HTML: NodeTemplates.RouteTemplate,
             TypeNode: false
           }
