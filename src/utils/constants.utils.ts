@@ -579,8 +579,8 @@ export class ConstantUtils {
       NumOfInputs: config.InputCountLimit,
       NumOfOutputs: config.OutputCountLimit,
       Outputs: outputs[0],
-      PosY: node.PositionY || (index + 1) * 50,
-      PosX: node.PositionX || (index + 1) * 75,
+      PosY: node.PositionY,// || (index + 1) * 50,
+      PosX: node.PositionX,// || (index + 1) * 75,
       TypeNode: false,
     };
   }
