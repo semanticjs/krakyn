@@ -247,7 +247,7 @@ export class VariablesUtils {
      * Minimum zoom level
      */
     // public static ZoomMin: number = 0.5;
-    public static ZoomMin: number = 0;
+    public static ZoomMin: number = 0.1;
 
     /**
      * ?
