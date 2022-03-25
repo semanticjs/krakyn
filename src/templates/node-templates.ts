@@ -18,7 +18,8 @@ export class NodeTemplates {
                     <div class="gap flexbox-column project">
                         <span df-ID></span>
                         <span df-Name></span>
-                        <button df-Link></button>   
+                        <button df-Link mat-raised-button color="primary"></button>
+                        <a href="#" df-Host></a>
                     </div>
                 </div>
             </div>
