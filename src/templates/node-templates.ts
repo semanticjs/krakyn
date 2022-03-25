@@ -12,9 +12,9 @@ export class NodeTemplates {
 
     public static ProjectTemplate: string = 
         `
-            <div id="request">
+            <div id="project">
                 <div class="node-drop-shadow">
-                    <div class="gap flexbox-column request">
+                    <div class="gap flexbox-column project">
                         <span df-ID></span>
                         <span df-Name></span>
                         <a href="#" df-Host></a>
