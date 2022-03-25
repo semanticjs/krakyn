@@ -5,7 +5,6 @@ export class NodeTemplates {
             <div class="node-drop-shadow">
                 <div class="request">
                     <span df-ID></span>
-                    <div><button>sdfsdf</div>
                     <span>Request</span>
                 </div>
             </div>
