@@ -9,7 +9,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'request',
                Label: ' Request',
-               IconClassList: ['far', 'fa-thumbs-up']
+               IconClassList: ['request-icon']
            },
            {
                ClassList: ['drag-item'],
@@ -18,7 +18,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'project',
                Label: ' Project',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['project-icon']
            },
            {
                ClassList: ['drag-item'],
@@ -27,7 +27,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'filter',
                Label: ' Route Filter',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['filter-icon']
            },
            {
                ClassList: ['drag-item'],
@@ -36,7 +36,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'application',
                Label: ' Application',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['application-icon']
            },
            {
                ClassList: ['drag-item'],
@@ -45,7 +45,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'modifier',
                Label: ' DFS Modifier',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['modifier-icon']
            },
            {
                ClassList: ['drag-item'],
@@ -54,7 +54,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'join',
                Label: ' Join',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['join-icon']
            },
            {
                ClassList: ['drag-item'],
@@ -63,7 +63,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'split',
                Label: ' Split',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['split-icon']
            },
            {
                ClassList: ['drag-item'],
@@ -72,7 +72,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'decision',
                Label: ' Decision',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['decision-icon']
            },
            {
                ClassList: ['drag-item'],
@@ -81,7 +81,7 @@ export class SideMenuItemTemplates {
                DragAction: callback,
                Id: 'event',
                Label: ' Event',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['event-icon']
            }
        ]
     }

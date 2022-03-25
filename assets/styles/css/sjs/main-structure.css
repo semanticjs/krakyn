@@ -67,13 +67,17 @@ header a {
 * Drag items from side nav
 */
 .drag-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   min-width: 175px;
   line-height: 50px;
   border-bottom: 1px solid var(--border-color);
   padding-left: 20px;
   padding-right: 20px;
   cursor: move;
-  user-select: none; }
+  user-select: none; 
+}
 
 /**
 * Tab menu
