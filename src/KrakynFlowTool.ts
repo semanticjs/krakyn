@@ -165,7 +165,8 @@ export class KrakynFlowTool extends LitElement {
             ClassList: [],
             Data: {
               Name: 'Google',
-              Host: 'www.google.com'
+              Host: 'www.google.com',
+              ButtonClick: 'My Button'
             },
             HTML: NodeTemplates.ProjectTemplate,
             TypeNode: false
@@ -539,7 +540,6 @@ export class KrakynFlowTool extends LitElement {
       // console.log(`${propName} changed. oldValue: ${oldValue}`);
     });
   }
-
 
   /**
    * Return a lit-html `TemplateResult`.

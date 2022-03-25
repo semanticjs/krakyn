@@ -238,10 +238,10 @@ export class NodeBaseClass extends BaseFunctions {
          */
         Object.entries(dataNode.Data).forEach((key: [string, any], index: number) => {
 
-            if (typeof key[1] === 'object') {
-                insertObjectkeys(null, key[0], key[0]);
+            // if (typeof key[1] === 'object') {
+            //     insertObjectkeys(null, key[0], key[0]);
 
-            } else {
+            // } else {
 
                 /**
                  * Look for all elements that have the attribute of 'df-' + key name
@@ -249,6 +249,7 @@ export class NodeBaseClass extends BaseFunctions {
                 const elems: any = content.querySelectorAll('[df-' + key[0] + ']');
 
                 for (let i = 0; i < elems.length; i++) {
+                 
                     /**
                      * Set the value from the data object to the element,
                      * in this case we are setting the elements value property
@@ -266,19 +267,34 @@ export class NodeBaseClass extends BaseFunctions {
                         elems[i].innerHTML = key[1];
                     }
 
+                    /**
+                     * So, look for button attribute, then
+                     * set a click event on it
+                     */
+                    if (elems[i].closest('button')) {
+                      elems[i].innerHTML = key[1].Label;
+                      elems[i].addEventListener('click', () => {
+                        window.open(key[1].URL, key[1].Target);
+                      });
+
+                      console.log('found a button!!!!!', key[1]);
+                    }
+
                     if (elems[i].closest('span')) {
                         elems[i].innerHTML = key[1];
                     }
                 }
-            }
+            // }
         })
 
         function insertObjectkeys(object: any, name: any, completname: any) {
+
             if (object === null) {
                 var object = dataNode.Data[name];
             } else {
                 var object = object[name]
             }
+            
             if (object !== null) {
                 Object.entries(object).forEach(function (key, value) {
                     if (typeof key[1] === 'object') {
@@ -415,7 +431,7 @@ export class NodeBaseClass extends BaseFunctions {
                 if (elems[i].closest('a')) {
                   elems[i].href = key[1];
                   elems[i].innerHTML = key[1];
-              }
+                }
 
               if (elems[i].closest('span')) {
                   elems[i].innerHTML = key[1];

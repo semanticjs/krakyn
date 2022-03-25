@@ -240,12 +240,14 @@ export class VariablesUtils {
     /**
      * Maximum zoom level
      */
-    public static ZoomMax: number = 1.6;
+    // public static ZoomMax: number = 1.6;
+    public static ZoomMax: number = 10;
 
     /**
      * Minimum zoom level
      */
-    public static ZoomMin: number = 0.5;
+    // public static ZoomMin: number = 0.5;
+    public static ZoomMin: number = 0;
 
     /**
      * ?
