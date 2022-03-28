@@ -1,11 +1,11 @@
 export class SideMenuItemTemplates {
 
-    public static FLOW_DRAG_ITEMS(callback?: any): Array<any> {
+    public static FLOW_DRAG_ITEMS(draggable: boolean = true, callback?: any): Array<any> {
        return [
            {
                ClassList: ['drag-item'],
                DataNode: 'request',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'request',
                Label: ' Request',
@@ -14,7 +14,7 @@ export class SideMenuItemTemplates {
            {
                ClassList: ['drag-item'],
                DataNode: 'project',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'project',
                Label: ' Project',
@@ -23,7 +23,7 @@ export class SideMenuItemTemplates {
            {
                ClassList: ['drag-item'],
                DataNode: 'filter',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'filter',
                Label: ' Route Filter',
@@ -32,7 +32,7 @@ export class SideMenuItemTemplates {
            {
                ClassList: ['drag-item'],
                DataNode: 'application',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'application',
                Label: ' Application',
@@ -41,7 +41,7 @@ export class SideMenuItemTemplates {
            {
                ClassList: ['drag-item'],
                DataNode: 'modifier',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'modifier',
                Label: ' DFS Modifier',
@@ -50,7 +50,7 @@ export class SideMenuItemTemplates {
            {
                ClassList: ['drag-item'],
                DataNode: 'join',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'join',
                Label: ' Join',
@@ -59,7 +59,7 @@ export class SideMenuItemTemplates {
            {
                ClassList: ['drag-item'],
                DataNode: 'split',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'split',
                Label: ' Split',
@@ -68,7 +68,7 @@ export class SideMenuItemTemplates {
            {
                ClassList: ['drag-item'],
                DataNode: 'decision',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'decision',
                Label: ' Decision',
@@ -77,7 +77,7 @@ export class SideMenuItemTemplates {
            {
                ClassList: ['drag-item'],
                DataNode: 'event',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'event',
                Label: ' Event',
