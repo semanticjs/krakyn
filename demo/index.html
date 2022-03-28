@@ -56,7 +56,7 @@
         <krakyn-flow-tool
           .HeaderTitle = ${ title }
           .FlowData = ${ VariablesUtils.DataFlowModuleData[dataIndex] }
-          .SideMenuItems = ${ SideMenuItemTemplates.FLOW_DRAG_ITEMS(DragDropUtils.SideMenuDragEvent) }
+          .SideMenuItems = ${ SideMenuItemTemplates.FLOW_DRAG_ITEMS(true, DragDropUtils.SideMenuDragEvent) }
           .TabMenuItems = ${ TabMenuItems }>
         </krakyn-flow-tool>
       `,
