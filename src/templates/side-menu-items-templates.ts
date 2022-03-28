@@ -1,6 +1,13 @@
 export class SideMenuItemTemplates {
 
-    public static FLOW_DRAG_ITEMS(draggable: boolean = true, callback?: any): Array<any> {
+    /**
+     * 
+     * @param draggable enable/disable drag functionality
+     * 
+     * @param callback callback function on drag action
+     * @returns 
+     */
+    public static FLOW_DRAG_ITEMS(draggable: boolean, callback?: any): Array<any> {
        return [
            {
                ClassList: ['drag-item'],
