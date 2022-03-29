@@ -276,8 +276,6 @@ export class NodeBaseClass extends BaseFunctions {
                       elems[i].addEventListener('click', () => {
                         window.open(key[1].URL, key[1].Target);
                       });
-
-                      console.log('found a button!!!!!', key[1]);
                     }
 
                     if (elems[i].closest('span')) {

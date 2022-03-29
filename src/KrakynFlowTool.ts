@@ -100,6 +100,7 @@ export class KrakynFlowTool extends LitElement {
     this.updateComplete.then((val: boolean) => {
       
       this.flowTool = new FlowTool(this.Canvas);
+      debugger;
       this.flowTool.Init(this.FlowData); 
     })
 
