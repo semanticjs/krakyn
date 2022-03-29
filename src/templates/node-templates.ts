@@ -22,7 +22,8 @@ export class NodeTemplates {
                             style="cursor: pointer" 
                             df-Link 
                             mat-raised-button 
-                        color="primary"></button>
+                            color="primary">
+                        </button>
                     </div>
                 </div>
             </div>
@@ -33,6 +34,13 @@ export class NodeTemplates {
             <div class="node-drop-shadow">
                 <div class="filter">
                     <span df-Route>Filter</span>
+                    <button 
+                            class="launch-btn-test"
+                            style="cursor: pointer" 
+                            df-Link 
+                            mat-raised-button 
+                            color="primary">
+                    </button>
                 </div>
             </div>
         `;
@@ -45,6 +53,13 @@ export class NodeTemplates {
                     <span df-Details.Description></span>
                     <span df-Processor></span>
                     <span df-Version></span>
+                    <button 
+                            class="launch-btn-test"
+                            style="cursor: pointer" 
+                            df-Link 
+                            mat-raised-button 
+                            color="primary">
+                    </button>
                 </div>
             </div>
         `;
