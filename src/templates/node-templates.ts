@@ -33,14 +33,10 @@ export class NodeTemplates {
         `
             <div class="node-drop-shadow">
                 <div class="filter">
-                    <span df-Route>Filter</span>
-                    <button 
-                            class="launch-btn-test"
-                            style="cursor: pointer" 
-                            df-Link 
-                            mat-raised-button 
-                            color="primary">
-                    </button>
+                    <a href="#" df-Link>
+                        <span df-Route>
+                        </span>
+                    </a>
                 </div>
             </div>
         `;
