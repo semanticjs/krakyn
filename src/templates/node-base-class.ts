@@ -263,11 +263,12 @@ export class NodeBaseClass extends BaseFunctions {
                      * the link and anchor value accordingly
                      */
                     if (elems[i].closest('a')) {
-                        elems[i].href = key[1];
-                        elems[i].innerHTML = key[1];
-                        elems[i].addEventListener('click', () => {
-                        window.open(key[1].URL, key[1].Target);
-                      });
+                        elems[i].href = key[1].URL;
+                        elems[i].target = key[1].Target;
+                        elems[i].innerHTML = key[1].Label;
+                      //   elems[i].addEventListener('click', () => {
+                      //   window.open(key[1].URL, key[1].Target);
+                      // });
                     }
 
                     /**
