@@ -28,12 +28,11 @@ export class NodeTemplates {
                 </div>
             </div>
         `;
-// <a href="# df-Link></a>
+// <a style="display:block" href="#" df-Link></a>
     public static RouteTemplate: string = 
         `
             <div class="node-drop-shadow">
                 <div class="filter">
-                    <a style="display:block" href="#" df-Link></a>
                     <button 
                             class="launch-btn-test"
                             style="cursor: pointer" 
