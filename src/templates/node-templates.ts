@@ -20,7 +20,7 @@ export class NodeTemplates {
                         <button 
                             class="launch-btn-test"
                             style="cursor: pointer" 
-                            df-Link 
+                            df-Button 
                             mat-raised-button 
                             color="primary">
                         </button>
@@ -37,7 +37,7 @@ export class NodeTemplates {
                     <button 
                             class="launch-btn-test"
                             style="cursor: pointer" 
-                            df-Link 
+                            df-Button 
                             mat-raised-button 
                             color="primary">
                             <span df-Route>Filter</span>
@@ -57,7 +57,7 @@ export class NodeTemplates {
                     <button 
                             class="launch-btn-test"
                             style="cursor: pointer" 
-                            df-Link 
+                            df-Button 
                             mat-raised-button 
                             color="primary">
                     </button>
