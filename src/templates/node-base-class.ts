@@ -264,7 +264,11 @@ export class NodeBaseClass extends BaseFunctions {
                      */
                     if (elems[i].closest('a')) {
                         elems[i].href = key[1];
-                        elems[i].innerHTML = key[1];
+                        elems[i].innerHTML = key[1].Label;
+                        // elems[i].innerHTML = key[1];
+                        elems[i].addEventListener('click', () => {
+                          window.open(key[1].URL, key[1].Target);
+                        });
                     }
 
                     /**
