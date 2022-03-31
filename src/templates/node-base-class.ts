@@ -266,9 +266,6 @@ export class NodeBaseClass extends BaseFunctions {
                         elems[i].href = key[1].URL;
                         elems[i].target = key[1].Target;
                         elems[i].innerHTML = key[1].Label;
-                      //   elems[i].addEventListener('click', () => {
-                      //   window.open(key[1].URL, key[1].Target);
-                      // });
                     }
 
                     /**

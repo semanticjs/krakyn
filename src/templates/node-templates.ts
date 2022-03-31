@@ -33,7 +33,7 @@ export class NodeTemplates {
         `
             <div class="node-drop-shadow">
                 <div class="filter">
-                    <a href="#" df-Host></a>
+                    <a style="display:block" href="#" df-Link></a>
                     <button 
                             class="launch-btn-test"
                             style="cursor: pointer" 
