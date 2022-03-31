@@ -28,20 +28,20 @@ export class NodeTemplates {
                 </div>
             </div>
         `;
-
-// <button 
-// class="launch-btn-test"
-// style="cursor: pointer" 
-// df-Button 
-// mat-raised-button 
-// color="primary">
-// <span df-Route>Filter</span>
-// </button>
+// <a href="# df-Link></a>
     public static RouteTemplate: string = 
         `
             <div class="node-drop-shadow">
                 <div class="filter">
-                  <a href="# df-Link></a>
+                  
+                    <button 
+                            class="launch-btn-test"
+                            style="cursor: pointer" 
+                            df-Button 
+                            mat-raised-button 
+                            color="primary">
+                            <span df-Route>Filter</span>
+                    </button>
                 </div>
             </div>
         `;
