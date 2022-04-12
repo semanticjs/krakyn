@@ -34,6 +34,7 @@
 .col-right {
   width: 100%;
   height: 100%;
+  background-color: #f2f2f2;
   /**
   * Checkerboard pattern #a8a8a8
   */
@@ -49,7 +50,7 @@
 
   /* Grid pattern */
   background-size: 100px 100px;
-  background-image: linear-gradient(to right, #f1f1f1 1px, transparent 1px), linear-gradient(to bottom, #f1f1f1 1px, transparent 1px);
+  background-image: linear-gradient(to right, #e4e4e4 1px, transparent 1px), linear-gradient(to bottom, #e4e4e4 1px, transparent 1px);
 }
 
 /**
