@@ -402,11 +402,20 @@ export class DataFlowBaseClass extends BaseFunctions {
    * @returns ?
    */
   public Click(event: any): any {
-    console.log("CLICK");
+    console.log("CLICK", event.target);
 
     const target: Element = event.target;
 
     this.Dispatch("click", event);
+
+    if(target === document.getElementById('zoom-in-btn')){
+      this.Zoom_In();
+      return;
+    } 
+    else if(target === document.getElementById('zoom-out-btn')){
+      this.Zoom_Out();
+      return;
+        }
 
     if (VariablesUtils.EditorMode === "fixed") {
       //return false;

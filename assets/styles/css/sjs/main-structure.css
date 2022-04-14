@@ -31,6 +31,46 @@
         linear-gradient(to bottom, grey 1px, white 1px); */
 }
 
+.zoom-container{
+  height: 124px;;
+  width: 60px;
+  background-color: rgba(74,145,142, 30%);
+  margin: 10px;
+  padding: 10px;
+  align-content: center;
+  border-radius: 5px;
+  z-index: 1;
+  display: flex;
+
+}
+
+.zoom-box{
+  text-align: center;
+  margin: 5px;
+  color: #282D35;
+}
+
+.zoom-btn-container{
+  display: grid;
+}
+
+.zoom-btn{
+  font-size: 30px;
+  width: 40px;
+  border: none;
+  border-radius: 5px;
+  color: #4A918E;
+  background-color: #F1F4F6;
+}
+/* account for zoom out btn size */
+#zoom-in-btn{
+  height: 38px;
+}
+/* acount for the minus icon offset*/
+#zoom-out-btn{
+  padding-bottom: 3px;
+}
+
 .col-right {
   width: 100%;
   height: 100%;

@@ -741,17 +741,21 @@ export abstract class BaseFunctions {
         VariablesUtils.CanvasY = (VariablesUtils.CanvasY / VariablesUtils.ZoomLastValue) * VariablesUtils.Zoom;
         VariablesUtils.ZoomLastValue = VariablesUtils.Zoom;
         VariablesUtils.PreCanvas.style.transform = "translate(" + VariablesUtils.CanvasX + "px, " + VariablesUtils.CanvasY + "px) scale(" + VariablesUtils.Zoom + ")";
+        document.getElementById('zoom-level').innerHTML =  Math.round(parseFloat((VariablesUtils.Zoom/VariablesUtils.ZoomMax).toFixed(2))*100).toString() + '%';
     }
 
     public Zoom_In(): void {
         if (VariablesUtils.Zoom < VariablesUtils.ZoomMax) {
             VariablesUtils.Zoom += VariablesUtils.ZoomValue;
+            // console.log("ZOOM IN: ", VariablesUtils.Zoom);
             this.Zoom_Refresh();
         }
     }
     public Zoom_Out(): void {
         if (VariablesUtils.Zoom > VariablesUtils.ZoomMin) {
             VariablesUtils.Zoom -= VariablesUtils.ZoomValue;
+            // console.log("ZOOM OUT: ", VariablesUtils.Zoom);
+
             this.Zoom_Refresh();
         }
     }

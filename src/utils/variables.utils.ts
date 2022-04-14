@@ -230,7 +230,12 @@ export class VariablesUtils {
     /**
      * Zoom level
      */
-    public static Zoom: number = 1;
+    public static Zoom: number = 1;     
+
+    /**
+     * Main Zoom container to display in top right corner of canvas
+     */
+    public static ZoomContainer: HTMLElement | any;
 
     /**
      * ?
@@ -241,7 +246,7 @@ export class VariablesUtils {
      * Maximum zoom level
      */
     // public static ZoomMax: number = 1.6;
-    public static ZoomMax: number = 10;
+    public static ZoomMax: number = 9.6;
 
     /**
      * Minimum zoom level
@@ -250,9 +255,9 @@ export class VariablesUtils {
     public static ZoomMin: number = 0.2;
 
     /**
-     * ?
+     * Zoom interval increase or decreases by this amount each time it is zoomed
      */
-    public static ZoomValue: number = 0.1;
+    public static ZoomValue: number = 0.2;
 
     constructor() {
         
