@@ -148,14 +148,14 @@ export class FlowTool extends DataFlowBaseClass {
     VariablesUtils.PreCanvas.classList.add("drawflow");
     VariablesUtils.MainContainer.appendChild(VariablesUtils.PreCanvas);
 
+    console.log("Creating zoom container");
+
     VariablesUtils.ZoomContainer = document.createElement('div');
     VariablesUtils.ZoomContainer.setAttribute('id', 'zoom-area');
     VariablesUtils.ZoomContainer.classList.add('zoom-container');
 
     VariablesUtils.ZoomContainer.innerHTML= 
     `
-        
-
         <div class="zoom-btn-container">
 
           <button class="zoom-btn" id="zoom-in-btn"> + </button>
@@ -249,13 +249,13 @@ export class FlowTool extends DataFlowBaseClass {
     return this.nodeBaseClass.AddNode(val);
   }
 
-  public ZoomIn(): void {
-      console.log("zoom in clicked");
-  }
+//   public ZoomIn(): void {
+//       console.log("zoom in clicked");
+//   }
 
-  public ZoomOut(): void {
-    console.log("zoom out clicked");
-}
+//   public ZoomOut(): void {
+//     console.log("zoom out clicked");
+// }
 
   protected addRerouteImport(dataNode: any): void {
     const reroute_width = VariablesUtils.RerouteWidth;

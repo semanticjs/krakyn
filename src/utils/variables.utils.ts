@@ -246,13 +246,13 @@ export class VariablesUtils {
      * Maximum zoom level
      */
     // public static ZoomMax: number = 1.6;
-    public static ZoomMax: number = 9.6;
+    public static ZoomMax: number = 9;
 
     /**
      * Minimum zoom level
      */
     // public static ZoomMin: number = 0.5;
-    public static ZoomMin: number = 0.2;
+    public static ZoomMin: number = 0.3;
 
     /**
      * Zoom interval increase or decreases by this amount each time it is zoomed
