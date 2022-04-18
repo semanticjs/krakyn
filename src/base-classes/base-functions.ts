@@ -51,10 +51,14 @@ export abstract class BaseFunctions {
 
                 if (elemtsearchId_out) {
                     const elemtsearchOut: any = elemtsearchId_out.querySelectorAll('.' + elemsOut[item].classList[3])[0];
+                    console.log("x offset: ", (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom);
+                    console.log("y offset: ", (elemtsearchOut.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom);
                     const line_x: number = elemtsearchOut.offsetWidth / 2 + (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
                     const line_y: number = elemtsearchOut.offsetHeight / 2 + (elemtsearchOut.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
                     const x: number = eX;
                     const y: number = eY;
+                    console.log("line_x: ", line_x);
+                    console.log("x: ", x);
                     const lineCurve = DrawingUtils.CreateCurvature(line_x, line_y, x, y, VariablesUtils.Curvature, 'openclose');
 
                     elemsOut[item].children[0].setAttributeNS(null, 'd', lineCurve);
@@ -358,6 +362,9 @@ export abstract class BaseFunctions {
         var line_x = VariablesUtils.SelectedElement.offsetWidth / 2 + (VariablesUtils.SelectedElement.getBoundingClientRect().x - precanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
         var line_y = VariablesUtils.SelectedElement.offsetHeight / 2 + (VariablesUtils.SelectedElement.getBoundingClientRect().y - precanvas.getBoundingClientRect().y) * precanvasHeightZoom;
 
+        console.log("line x = ", line_x);
+        console.log("line y = ", line_y);
+        
         var x = eX * (VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom)) - (VariablesUtils.PreCanvas.getBoundingClientRect().x * (VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom)));
         var y = eY * (VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom)) - (VariablesUtils.PreCanvas.getBoundingClientRect().y * (VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom)));
 
