@@ -53,6 +53,7 @@ export abstract class BaseFunctions {
                 const eY: number = elemtsearch.offsetHeight / 2 + (elemtsearch.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
                 console.log("elemtsearch.offsetWidth: ", elemtsearch.offsetWidth / 2);
                 console.log("+ ", (elemtsearch.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom);
+                console.log("index: ", index);
                 if (elemtsearchId_out) {
                     const elemtsearchOut: any = elemtsearchId_out.querySelectorAll('.' + elemsOut[item].classList[3])[0];
                     // console.log("elemtsearchOut.getBoundingClientRect().x: ", elemtsearchOut.getBoundingClientRect().x);
@@ -753,7 +754,7 @@ export abstract class BaseFunctions {
         VariablesUtils.CanvasY = (VariablesUtils.CanvasY / VariablesUtils.ZoomLastValue) * VariablesUtils.Zoom;
         VariablesUtils.ZoomLastValue = VariablesUtils.Zoom;
         VariablesUtils.PreCanvas.style.transform = "translate(" + VariablesUtils.CanvasX + "px, " + VariablesUtils.CanvasY + "px) scale(" + VariablesUtils.Zoom + ")";
-        document.getElementById('zoom-level').innerHTML =  Math.round(parseFloat((VariablesUtils.Zoom/VariablesUtils.ZoomMax).toFixed(2))*100).toString() + '%';
+        // document.getElementById('zoom-level').innerHTML =  Math.round(parseFloat((VariablesUtils.Zoom/VariablesUtils.ZoomMax).toFixed(2))*100).toString() + '%';
     }
 
     public Zoom_In(): void {
