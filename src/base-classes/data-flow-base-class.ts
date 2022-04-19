@@ -271,7 +271,8 @@ export class DataFlowBaseClass extends BaseFunctions {
       ).Data.filter((obj: NodeModel) => {
         return obj.ID === VariablesUtils.SelectedElement.id.slice(5);
       });
-
+      console.log("VariablesUtils.SelectedElement.offsetLeft: ", VariablesUtils.SelectedElement.offsetLeft)
+      console.log("selectedElement.PosX: ", selectedElement.PosX);
       selectedElement.PosX = VariablesUtils.SelectedElement.offsetLeft - x;
       selectedElement.PosY = VariablesUtils.SelectedElement.offsetTop - y;
 

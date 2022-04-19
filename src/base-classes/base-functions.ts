@@ -51,13 +51,13 @@ export abstract class BaseFunctions {
                 const elemtsearch: HTMLElement = elemtsearchId.querySelectorAll('.' + elemsOut[item].classList[4])[0]
                 const eX: number = elemtsearch.offsetWidth / 2 + (elemtsearch.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
                 const eY: number = elemtsearch.offsetHeight / 2 + (elemtsearch.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
-
+                console.log("elemtsearch.offsetWidth: ", elemtsearch.offsetWidth / 2);
+                console.log("+ ", (elemtsearch.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom);
                 if (elemtsearchId_out) {
                     const elemtsearchOut: any = elemtsearchId_out.querySelectorAll('.' + elemsOut[item].classList[3])[0];
-                    console.log("elemtsearchOut.getBoundingClientRect().x: ", elemtsearchOut.getBoundingClientRect().x);
-                    console.log("VariablesUtils.PreCanvas.getBoundingClientRect().x: ", VariablesUtils.PreCanvas.getBoundingClientRect().x)
+                    // console.log("elemtsearchOut.getBoundingClientRect().x: ", elemtsearchOut.getBoundingClientRect().x);
+                    // console.log("VariablesUtils.PreCanvas.getBoundingClientRect().x: ", VariablesUtils.PreCanvas.getBoundingClientRect().x)
                     console.log("x offset: ", (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom);
-                    console.log("y offset: ", (elemtsearchOut.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom);
                     const line_x: number = elemtsearchOut.offsetWidth / 2 + (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
                     const line_y: number = elemtsearchOut.offsetHeight / 2 + (elemtsearchOut.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
                     const x: number = eX;
