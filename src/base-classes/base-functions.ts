@@ -1,7 +1,6 @@
 import { VariablesUtils } from '../utils/variables.utils.js';
 import { DrawingUtils } from '../utils/drawing.utils.js';
 import { DataFlowDataModel } from '../models/dataflow-data.model.js';
-import { ConstantUtils } from '../utils/constants.utils.js';
 import { NodeModel } from '../models/nodes/node.model.js';
 
 export abstract class BaseFunctions {
@@ -28,12 +27,15 @@ export abstract class BaseFunctions {
         const idSearch: string = 'node_in_' + id;
         const idSearchOut: string = 'node_out_' + id;
 
-        // let precanvasWitdhZoom = VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom);
-        // precanvasWitdhZoom = precanvasWitdhZoom || 0;
-        let precanvasWitdhZoom = 1;
-        let precanvasHeightZoom = 1;
-        // let precanvasHeightZoom = VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom);
-        // precanvasHeightZoom = precanvasHeightZoom || 0;
+        let precanvasWitdhZoom = VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom);
+        precanvasWitdhZoom = precanvasWitdhZoom || 0;
+        console.log("zoom: ", VariablesUtils.Zoom);
+        console.log("client width: ", VariablesUtils.PreCanvas.clientWidth);
+        console.log("precanvasWitdhZoom: ", precanvasWitdhZoom);
+        // let precanvasWitdhZoom = 1;
+        // let precanvasHeightZoom = 1;
+        let precanvasHeightZoom = VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom);
+        precanvasHeightZoom = precanvasHeightZoom || 0;
 
         const elemsOut: NodeListOf<HTMLElement> = VariablesUtils.MainContainer.querySelectorAll(`.${idSearchOut}`);
         const elemtsearchId_out: HTMLElement | null = VariablesUtils.MainContainer.querySelector(`#${id}`);
@@ -52,6 +54,8 @@ export abstract class BaseFunctions {
 
                 if (elemtsearchId_out) {
                     const elemtsearchOut: any = elemtsearchId_out.querySelectorAll('.' + elemsOut[item].classList[3])[0];
+                    console.log("elemtsearchOut.getBoundingClientRect().x: ", elemtsearchOut.getBoundingClientRect().x);
+                    console.log("VariablesUtils.PreCanvas.getBoundingClientRect().x: ", VariablesUtils.PreCanvas.getBoundingClientRect().x)
                     console.log("x offset: ", (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom);
                     console.log("y offset: ", (elemtsearchOut.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom);
                     const line_x: number = elemtsearchOut.offsetWidth / 2 + (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
