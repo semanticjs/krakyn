@@ -28,11 +28,12 @@ export abstract class BaseFunctions {
         const idSearch: string = 'node_in_' + id;
         const idSearchOut: string = 'node_out_' + id;
 
-        let precanvasWitdhZoom = VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom);
-        precanvasWitdhZoom = precanvasWitdhZoom || 0;
-
-        let precanvasHeightZoom = VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom);
-        precanvasHeightZoom = precanvasHeightZoom || 0;
+        // let precanvasWitdhZoom = VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom);
+        // precanvasWitdhZoom = precanvasWitdhZoom || 0;
+        let precanvasWitdhZoom = 1;
+        let precanvasHeightZoom = 1;
+        // let precanvasHeightZoom = VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom);
+        // precanvasHeightZoom = precanvasHeightZoom || 0;
 
         const elemsOut: NodeListOf<HTMLElement> = VariablesUtils.MainContainer.querySelectorAll(`.${idSearchOut}`);
         const elemtsearchId_out: HTMLElement | null = VariablesUtils.MainContainer.querySelector(`#${id}`);
