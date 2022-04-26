@@ -754,7 +754,7 @@ export abstract class BaseFunctions {
         VariablesUtils.CanvasY = (VariablesUtils.CanvasY / VariablesUtils.ZoomLastValue) * VariablesUtils.Zoom;
         VariablesUtils.ZoomLastValue = VariablesUtils.Zoom;
         VariablesUtils.PreCanvas.style.transform = "translate(" + VariablesUtils.CanvasX + "px, " + VariablesUtils.CanvasY + "px) scale(" + VariablesUtils.Zoom + ")";
-        // document.getElementById('zoom-level').innerHTML =  Math.round(parseFloat((VariablesUtils.Zoom/VariablesUtils.ZoomMax).toFixed(2))*100).toString() + '%';
+        document.getElementById('zoom-level').innerHTML =  Math.round(parseFloat((VariablesUtils.Zoom/VariablesUtils.ZoomMax).toFixed(2))*100).toString() + '%';
     }
 
     public Zoom_In(): void {

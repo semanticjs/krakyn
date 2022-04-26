@@ -150,29 +150,29 @@ export class FlowTool extends DataFlowBaseClass {
 
     console.log("Creating zoom container");
 
-    // VariablesUtils.ZoomContainer = document.createElement('div');
-    // VariablesUtils.ZoomContainer.setAttribute('id', 'zoom-area');
-    // VariablesUtils.ZoomContainer.classList.add('zoom-container');
+    VariablesUtils.ZoomContainer = document.createElement('div');
+    VariablesUtils.ZoomContainer.setAttribute('id', 'zoom-area');
+    VariablesUtils.ZoomContainer.classList.add('zoom-container');
 
-    // VariablesUtils.ZoomContainer.innerHTML= 
-    // `
-    //     <div class="zoom-btn-container">
+    VariablesUtils.ZoomContainer.innerHTML= 
+    `
+        <div class="zoom-btn-container">
 
-    //       <button class="zoom-btn" id="zoom-in-btn"> + </button>
+          <button class="zoom-btn" id="zoom-in-btn"> + </button>
 
-    //       <div 
-    //         class="zoom-box" id="zoom-level"
-    //         >
-    //             ${ Math.round(parseFloat((VariablesUtils.Zoom/VariablesUtils.ZoomMax).toFixed(2))*100).toString() }%
-    //       </div>
+          <div 
+            class="zoom-box" id="zoom-level"
+            >
+                ${ Math.round(parseFloat((VariablesUtils.Zoom/VariablesUtils.ZoomMax).toFixed(2))*100).toString() }%
+          </div>
 
-    //       <button class="zoom-btn" id="zoom-out-btn"> - </button>
+          <button class="zoom-btn" id="zoom-out-btn"> - </button>
           
-    //     </div>
-    // `;
+        </div>
+    `;
 
 
-    // VariablesUtils.MainContainer.appendChild(VariablesUtils.ZoomContainer);
+    VariablesUtils.MainContainer.appendChild(VariablesUtils.ZoomContainer);
 
     /**
      * add all eventlisteners to the container
