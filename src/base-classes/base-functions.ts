@@ -29,9 +29,9 @@ export abstract class BaseFunctions {
 
         let precanvasWitdhZoom = VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom);
         precanvasWitdhZoom = precanvasWitdhZoom || 0;
-        console.log("zoom: ", VariablesUtils.Zoom);
-        console.log("client width: ", VariablesUtils.PreCanvas.clientWidth);
-        console.log("precanvasWitdhZoom: ", precanvasWitdhZoom);
+        // console.log("zoom: ", VariablesUtils.Zoom);
+        // console.log("client width: ", VariablesUtils.PreCanvas.clientWidth);
+        // console.log("precanvasWitdhZoom: ", precanvasWitdhZoom);
         // let precanvasWitdhZoom = 1;
         // let precanvasHeightZoom = 1;
         let precanvasHeightZoom = VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom);
