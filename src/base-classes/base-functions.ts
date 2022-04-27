@@ -23,7 +23,7 @@ export abstract class BaseFunctions {
     }
 
     protected updateConnectionNodes(id: string): void {
-        console.log("update connection nodes: ", id)
+        // console.log("update connection nodes: ", id)
         const idSearch: string = 'node_in_' + id;
         const idSearchOut: string = 'node_out_' + id;
 
@@ -34,13 +34,11 @@ export abstract class BaseFunctions {
 
         const elemsOut: NodeListOf<HTMLElement> = VariablesUtils.MainContainer.querySelectorAll(`.${idSearchOut}`);
         const elemtsearchId_out: HTMLElement | null = VariablesUtils.MainContainer.querySelector(`#${id}`);
-        console.log("HELLO WTF")
         Object.keys(elemsOut).map((item: any, index: number) => {
-            // console.log("point in: ",elemsIn[item].querySelector('.point'))
-            console.log("point out: ",elemsOut[item].querySelector('.point'))
+            // console.log("point out: ",elemsOut[item].querySelector('.point'))
 
             if (elemsOut[item].querySelector('.point') === null) {
-                console.log("elemtsearchId_out: ", elemtsearchId_out)
+                // console.log("elemtsearchId_out: ", elemtsearchId_out)
                 const id_search = elemsOut[item].classList[1].replace('node_in_', '');
                 const elemtsearchId: any = VariablesUtils.MainContainer.querySelector(`#${id_search}`);
                 const elemtsearch: HTMLElement = elemtsearchId.querySelectorAll('.' + elemsOut[item].classList[4])[0]
@@ -61,12 +59,11 @@ export abstract class BaseFunctions {
                     // console.log("line_x: ", line_x);
                     // console.log("x: ", x);
                     const lineCurve = DrawingUtils.CreateCurvature(line_x, line_y, x, y, VariablesUtils.Curvature, 'openclose');
-                    console.log("line curve: ", lineCurve)
+                    // console.log("line curve: ", lineCurve)
                     elemsOut[item].children[0].setAttributeNS(null, 'd', lineCurve);
                 }
 
             } else {
-                console.log("fixing curve??")
                 const points: NodeListOf<Element> = elemsOut[item].querySelectorAll('.point');
                 let linecurve: string = '';
                 const reoute_fix: Array<any> = [];
@@ -192,11 +189,11 @@ export abstract class BaseFunctions {
             }
         })
 
-        console.log("HERE?")
+//this is where the line between the nodes is changed
 
         const elems = VariablesUtils.MainContainer.querySelectorAll(`.${idSearch}`);
         Object.keys(elems).map(function (item: any, index) {
-            console.log("elems: ", elems[item].querySelector('.point'));
+            // console.log("elems: ", elems[item].querySelector('.point'));
 
             if (elems[item].querySelector('.point') === null) {
                 var elemtsearchId_in: any = VariablesUtils.MainContainer.querySelector(`#${id}`);
@@ -221,7 +218,7 @@ export abstract class BaseFunctions {
                 var y = elemtsearchId_in.offsetHeight / 2 + (elemtsearchId_in.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
 
                 const lineCurve = DrawingUtils.CreateCurvature(line_x, line_y, x, y, VariablesUtils.Curvature, 'openclose');
-                console.log("child line curve edited: ", lineCurve)
+                // console.log("child line curve edited: ", lineCurve)
                 elems[item].children[0].setAttributeNS(null, 'd', lineCurve);
 
             } else {
@@ -356,7 +353,7 @@ export abstract class BaseFunctions {
     }
 
     protected updateConnection(eX: any, eY: any): void {
-        console.log("update connection: ", eX ,eY)
+        // console.log("update connection: ", eX ,eY)
         const precanvas = VariablesUtils.PreCanvas;
         const zoom = VariablesUtils.Zoom;
         let precanvasWitdhZoom = precanvas.clientWidth / (precanvas.clientWidth * zoom);
@@ -565,7 +562,7 @@ export abstract class BaseFunctions {
     }
 
     protected removeReouteConnectionSelected(): void {
-        console.log("remove reoute connection selected")
+        // console.log("remove reoute connection selected")
         this.Dispatch('connectionUnselected', true);
         if (VariablesUtils.RerouteFixCurvature) {
             VariablesUtils.SelectedConnection.parentElement.querySelectorAll(".main-path").forEach((item: any, i: any) => {
@@ -587,7 +584,7 @@ export abstract class BaseFunctions {
     }
 
     public removeReroutePoint(ele: any): void {
-        console.log("removeReroutePOint")
+        // console.log("removeReroutePOint")
         const nodeUpdate = ele.parentElement.classList[2].slice(9)
         const nodeUpdateIn = ele.parentElement.classList[1].slice(13);
         const output_class = ele.parentElement.classList[3];
@@ -618,7 +615,7 @@ export abstract class BaseFunctions {
     }
 
     public createReroutePoint(ele: any): void {
-        console.log("create reRoute point")
+        // console.log("create reRoute point")
         VariablesUtils.SelectedConnection.classList.remove("selected");
         const nodeUpdate = VariablesUtils.SelectedConnection.parentElement.classList[2].slice(9);
         const nodeUpdateIn = VariablesUtils.SelectedConnection.parentElement.classList[1].slice(13);
@@ -636,12 +633,12 @@ export abstract class BaseFunctions {
 
         let position_add_array_point = 0;
         if (VariablesUtils.RerouteFixCurvature) {
-            console.log("creating path")
+            // console.log("creating path")
             const numberPoints = ele.parentElement.querySelectorAll(".main-path").length;
             var path = document.createElementNS('http://www.w3.org/2000/svg', "path");
             path.classList.add("main-path");
             path.setAttributeNS(null, 'd', '');
-            console.log("creating path: ", path)
+            // console.log("creating path: ", path)
 
 
             ele.parentElement.insertBefore(path, ele.parentElement.children[numberPoints]);
@@ -667,7 +664,7 @@ export abstract class BaseFunctions {
         }
 
         if (VariablesUtils.RerouteFixCurvature) {
-            console.log("p point: ",position_add_array_point)
+            // console.log("p point: ",position_add_array_point)
             if (position_add_array_point > 0) {
                 this.activeModule(VariablesUtils.ActiveModule).Data[nodeId].outputs[output_class].Connections[searchConnection].points.splice(position_add_array_point, 0, { pos_x: pos_x, pos_y: pos_y });
             } else {

@@ -327,7 +327,7 @@ export class DataFlowBaseClass extends BaseFunctions {
         ).indexOf(VariablesUtils.SelectedElement) - 1;
 
       if (VariablesUtils.RerouteFixCurvature) {
-        console.log("position reroute fix curve")
+        // console.log("position reroute fix curve")
         const numberMainPath =
           VariablesUtils.SelectedElement.parentElement.querySelectorAll(
             ".main-path"
@@ -357,7 +357,7 @@ export class DataFlowBaseClass extends BaseFunctions {
 
       const parentSelected =
         VariablesUtils.SelectedElement.parentElement.classList[2].slice(9);
-        console.log('parent: ', parentSelected)
+        // console.log('parent: ', parentSelected)
 
       this.updateConnectionNodes(parentSelected);
     }
