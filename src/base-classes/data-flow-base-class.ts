@@ -271,8 +271,8 @@ export class DataFlowBaseClass extends BaseFunctions {
       ).Data.filter((obj: NodeModel) => {
         return obj.ID === VariablesUtils.SelectedElement.id.slice(5);
       });
-      console.log("VariablesUtils.SelectedElement.offsetLeft: ", VariablesUtils.SelectedElement.offsetLeft)
-      console.log("selectedElement.PosX: ", selectedElement.PosX);
+      // console.log("VariablesUtils.SelectedElement.offsetLeft: ", VariablesUtils.SelectedElement.offsetLeft)
+      // console.log("selectedElement.PosX: ", selectedElement.PosX);
       selectedElement.PosX = VariablesUtils.SelectedElement.offsetLeft - x;
       selectedElement.PosY = VariablesUtils.SelectedElement.offsetTop - y;
 
@@ -327,6 +327,7 @@ export class DataFlowBaseClass extends BaseFunctions {
         ).indexOf(VariablesUtils.SelectedElement) - 1;
 
       if (VariablesUtils.RerouteFixCurvature) {
+        console.log("position reroute fix curve")
         const numberMainPath =
           VariablesUtils.SelectedElement.parentElement.querySelectorAll(
             ".main-path"
@@ -356,6 +357,7 @@ export class DataFlowBaseClass extends BaseFunctions {
 
       const parentSelected =
         VariablesUtils.SelectedElement.parentElement.classList[2].slice(9);
+        console.log('parent: ', parentSelected)
 
       this.updateConnectionNodes(parentSelected);
     }

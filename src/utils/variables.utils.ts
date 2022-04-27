@@ -31,9 +31,9 @@ export class VariablesUtils {
     public static ConnectionElement: HTMLElement | any; 
 
     /**
-     * How much curve is in the connection line
+     * How much curve is in the connection line was 0.2
      */
-    public static Curvature: number = 0.2;
+    public static Curvature: number = 0;
 
     /**
      * List of data flow module data
