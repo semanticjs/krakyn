@@ -216,7 +216,7 @@
 
 /* Modal */
 .modal {
-  display: none;
+  /* display: none; */
   position: fixed;
   z-index: 7;
   left: 0;

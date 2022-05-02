@@ -1,4 +1,3 @@
-import { IdsUtils } from './../utils/ids.utils.js';
 import { NodeModel } from './../models/nodes/node.model.js';
 import { VariablesUtils } from '../utils/variables.utils.js';
 import { DataFlowBaseClass } from '../base-classes/data-flow-base-class.js';
@@ -16,6 +15,8 @@ export class FlowTool extends DataFlowBaseClass {
      protected nodeBaseClass: NodeBaseClass;
 
      constructor(container: HTMLElement, render: any = null, parent: any = null) {
+
+      console.log("Does this even get hit???")
  
          super();
 
@@ -127,6 +128,13 @@ export class FlowTool extends DataFlowBaseClass {
        VariablesUtils.PreCanvas.setAttribute('id', 'flow-canvas');
        VariablesUtils.PreCanvas.classList.add('drawflow');
        VariablesUtils.MainContainer.appendChild(VariablesUtils.PreCanvas);
+
+       VariablesUtils.ZoomContainer = document.createElement('div');
+       VariablesUtils.ZoomContainer.setAttribute('id', 'zoom-box');
+       VariablesUtils.ZoomContainer.classList.add('zoom-container');
+       VariablesUtils.PreCanvas.appendChild(VariablesUtils.ZoomContainer);
+
+       console.log("Help me!!! ", VariablesUtils.PreCanvas)
  
      /**
       * add eventlisteners to the container

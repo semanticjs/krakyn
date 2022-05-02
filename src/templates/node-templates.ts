@@ -12,23 +12,35 @@ export class NodeTemplates {
 
     public static ProjectTemplate: string = 
         `
-            <div id="request">
+            <div id="project">
                 <div class="node-drop-shadow">
-                    <div class="gap flexbox-column request">
+                    <div class="gap flexbox-column project">
                         <span df-ID></span>
                         <span df-Name></span>
-                        <input type="text" df-Host>
-                        <a href="#" df-Host></a>
+                        <button 
+                            class="launch-btn-test"
+                            style="cursor: pointer" 
+                            df-Button 
+                            mat-raised-button 
+                            color="primary">
+                        </button>
                     </div>
                 </div>
             </div>
         `;
-
+// <a style="display:block" href="#" df-Link></a>
     public static RouteTemplate: string = 
         `
             <div class="node-drop-shadow">
                 <div class="filter">
-                    <span>Filter</span>
+                    <button 
+                            class="launch-btn-test"
+                            style="cursor: pointer" 
+                            df-Button 
+                            mat-raised-button 
+                            color="primary">
+                            <span df-Route>Filter</span>
+                    </button>
                 </div>
             </div>
         `;
@@ -41,6 +53,13 @@ export class NodeTemplates {
                     <span df-Details.Description></span>
                     <span df-Processor></span>
                     <span df-Version></span>
+                    <button 
+                            class="launch-btn-test"
+                            style="cursor: pointer" 
+                            df-Button 
+                            mat-raised-button 
+                            color="primary">
+                    </button>
                 </div>
             </div>
         `;
@@ -212,7 +231,7 @@ export class NodeTemplates {
                 <div class="title-box"><i class="fas fa-mouse"></i> Db Click</div>
                 <div class="box dbclickbox" ondblclick="showPopup(event)">
                     Db Click here
-                    <div class="modal" style="display:none">
+                    <div class="modal" >
                     <div class="modal-content">
                         <span class="close" onclick="closeModal(event)">&times;</span>
                         Change your variable {name} !

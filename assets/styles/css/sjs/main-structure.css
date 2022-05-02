@@ -1,5 +1,3 @@
-
-
 /**
 * Main container wrapper
 */
@@ -13,30 +11,86 @@
 * Main canvas where we drag nodes to
 */
 #drawflow {
-  position: relative;
+  /* position: relative;
   width: 100%;
-  height: 100%;
+  height: 100%; */
+  display: flex;
+    position: relative;
+    /* width: calc(100vw - 301px); */
+    height: calc(100% - 50px);
+    /* top: 40px; */
+    background-size: 25px 25px;
+    
+    /*
+    * background grid lines
+    */
+    /* background-image:
+        linear-gradient(to right, grey 1px, white 1px),
+        linear-gradient(to bottom, grey 1px, white 1px); */
+}
+
+.zoom-container{
+  height: 124px;;
+  width: 60px;
+  background-color: rgba(74,145,142, 30%);
+  margin: 10px;
+  padding: 10px;
+  align-content: center;
+  border-radius: 5px;
+  z-index: 1;
+  display: flex;
+
+}
+
+.zoom-box{
+  text-align: center;
+  margin: 5px;
+  color: #282D35;
+}
+
+.zoom-btn-container{
+  display: grid;
+}
+
+.zoom-btn{
+  font-size: 30px;
+  width: 40px;
+  border: none;
+  border-radius: 5px;
+  color: #4A918E;
+  background-color: #F1F4F6;
+}
+/* account for zoom out btn size */
+#zoom-in-btn{
+  height: 38px;
+}
+/* acount for the minus icon offset*/
+#zoom-out-btn{
+  padding-bottom: 3px;
 }
 
 .col-right {
   width: 100%;
   height: 100%;
+  /* background-color: #f2f2f2; */
+  background-color: #DFEFF2;
   /**
-  * Checkerboard pattern
+  * Checkerboard pattern #a8a8a8
   */
-  background-color: #bebebe;
+  /* background-color: #bebebe;
   background-image:
-    linear-gradient(45deg, #a8a8a8 25%, transparent 25%),
-    linear-gradient(-45deg, #a8a8a8 25%, transparent 25%),
-    linear-gradient(45deg, transparent 75%, #a8a8a8 75%),
-    linear-gradient(-45deg, transparent 75%, #a8a8a8 75%);
-  background-size:20px 20px;
-  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    linear-gradient(45deg, white 25%, transparent 25%),
+    linear-gradient(-45deg, white 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, white 75%),
+    linear-gradient(-45deg, transparent 75%, white 75%);
+  background-size: 100px 100px;
+  background-position: 0 0, 0 50px, 50px -50px, -50px 0px; */
 
 
-  /* Grid pattern
-  background-size: 25px 25px;
-  background-image: linear-gradient(to right, #f1f1f1 1px, transparent 1px), linear-gradient(to bottom, #f1f1f1 1px, transparent 1px); */
+  /* Grid pattern */
+  background-size: 100px 100px;
+  /* #e4e4e4 */
+  background-image: linear-gradient(to right, #cad9d4 1px, transparent 1px), linear-gradient(to bottom, #cad9d4 1px, transparent 1px);
 }
 
 /**
@@ -67,13 +121,17 @@ header a {
 * Drag items from side nav
 */
 .drag-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   min-width: 175px;
   line-height: 50px;
   border-bottom: 1px solid var(--border-color);
   padding-left: 20px;
   padding-right: 20px;
   cursor: move;
-  user-select: none; }
+  user-select: none; 
+}
 
 /**
 * Tab menu

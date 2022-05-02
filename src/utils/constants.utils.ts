@@ -55,6 +55,11 @@ export class ConstantUtils {
       Data: {
         Name: 'IoT Ensemble',
         Host: 'www.iot-ensemble.com',
+        Link: {
+          Label: 'Button Click Test',
+          URL: 'https://www.fathym.com',
+          Target: '_blank'
+        }
       }
     },
     {
@@ -396,53 +401,53 @@ export class ConstantUtils {
     ]
   }
 
-  public static DATA_TEST: any = {
+  // public static DATA_TEST: any = {
       
-  Nodes: [
-    {
-      ID: '11a', 
-      Type: 'request',
-      ClassList: ['persisted-class'],
-      Data: {},
-    },
-    {
-      ID: '2',
-      Type: 'project',
-      Data: {
-        Name: 'IoT Ensemble',
-        Host: 'www.iot-ensemble.com',
-      },
-    },
-  ],
-  Edges: [
-    {
-      ID: '11a',
-      Outputs: {
-        output_1: {
-          Connections: [],
-        }
-      }
-    },
-    {
-      ID: '2',
-      Inputs: {
-        input_1: {
-          Connections: [
-            {
-              node: '11a',
-              input: 'output_1',
-            },
-          ],
-        }
-      },
-      Outputs: {
-        output_1: {
-          Connections: [],
-        }
-      }
-    }
-  ],
-  }
+  // Nodes: [
+  //   {
+  //     ID: '11a', 
+  //     Type: 'request',
+  //     ClassList: ['persisted-class'],
+  //     Data: {},
+  //   },
+  //   {
+  //     ID: '2',
+  //     Type: 'project',
+  //     Data: {
+  //       Name: 'IoT Ensemble',
+  //       Host: 'www.iot-ensemble.com',
+  //     },
+  //   },
+  // ],
+  // Edges: [
+  //   {
+  //     ID: '11a',
+  //     Outputs: {
+  //       output_1: {
+  //         Connections: [],
+  //       }
+  //     }
+  //   },
+  //   {
+  //     ID: '2',
+  //     Inputs: {
+  //       input_1: {
+  //         Connections: [
+  //           {
+  //             node: '11a',
+  //             input: 'output_1',
+  //           },
+  //         ],
+  //       }
+  //     },
+  //     Outputs: {
+  //       output_1: {
+  //         Connections: [],
+  //       }
+  //     }
+  //   }
+  // ],
+  // }
 
   protected static replaceChars(
     fullWord: string, 
@@ -579,8 +584,8 @@ export class ConstantUtils {
       NumOfInputs: config.InputCountLimit,
       NumOfOutputs: config.OutputCountLimit,
       Outputs: outputs[0],
-      PosY: node.PositionY || (index + 1) * 50,
-      PosX: node.PositionX || (index + 1) * 75,
+      PosY: node.PositionY,// || (index + 1) * 50,
+      PosX: node.PositionX,// || (index + 1) * 75,
       TypeNode: false,
     };
   }

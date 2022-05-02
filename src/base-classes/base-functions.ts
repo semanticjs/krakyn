@@ -1,7 +1,6 @@
 import { VariablesUtils } from '../utils/variables.utils.js';
 import { DrawingUtils } from '../utils/drawing.utils.js';
 import { DataFlowDataModel } from '../models/dataflow-data.model.js';
-import { ConstantUtils } from '../utils/constants.utils.js';
 import { NodeModel } from '../models/nodes/node.model.js';
 
 export abstract class BaseFunctions {
@@ -24,44 +23,47 @@ export abstract class BaseFunctions {
     }
 
     protected updateConnectionNodes(id: string): void {
-
+        // console.log("update connection nodes: ", id)
         const idSearch: string = 'node_in_' + id;
         const idSearchOut: string = 'node_out_' + id;
 
         let precanvasWitdhZoom = VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom);
         precanvasWitdhZoom = precanvasWitdhZoom || 0;
-
         let precanvasHeightZoom = VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom);
         precanvasHeightZoom = precanvasHeightZoom || 0;
 
         const elemsOut: NodeListOf<HTMLElement> = VariablesUtils.MainContainer.querySelectorAll(`.${idSearchOut}`);
         const elemtsearchId_out: HTMLElement | null = VariablesUtils.MainContainer.querySelector(`#${id}`);
-
         Object.keys(elemsOut).map((item: any, index: number) => {
+            // console.log("point out: ",elemsOut[item].querySelector('.point'))
 
             if (elemsOut[item].querySelector('.point') === null) {
-
-                // var elemtsearchId_out: any = VariablesUtils.MainContainer.querySelector(`#${id}`);
-
+                // console.log("elemtsearchId_out: ", elemtsearchId_out)
                 const id_search = elemsOut[item].classList[1].replace('node_in_', '');
                 const elemtsearchId: any = VariablesUtils.MainContainer.querySelector(`#${id_search}`);
                 const elemtsearch: HTMLElement = elemtsearchId.querySelectorAll('.' + elemsOut[item].classList[4])[0]
                 const eX: number = elemtsearch.offsetWidth / 2 + (elemtsearch.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
                 const eY: number = elemtsearch.offsetHeight / 2 + (elemtsearch.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
-
+                // console.log("elemtsearch.offsetWidth: ", elemtsearch.offsetWidth / 2);
+                // console.log("+ ", (elemtsearch.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom);
+                // console.log("index: ", index);
                 if (elemtsearchId_out) {
                     const elemtsearchOut: any = elemtsearchId_out.querySelectorAll('.' + elemsOut[item].classList[3])[0];
+                    // console.log("elemtsearchOut.getBoundingClientRect().x: ", elemtsearchOut.getBoundingClientRect().x);
+                    // console.log("VariablesUtils.PreCanvas.getBoundingClientRect().x: ", VariablesUtils.PreCanvas.getBoundingClientRect().x)
+                    // console.log("x offset: ", (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom);
                     const line_x: number = elemtsearchOut.offsetWidth / 2 + (elemtsearchOut.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
                     const line_y: number = elemtsearchOut.offsetHeight / 2 + (elemtsearchOut.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
                     const x: number = eX;
                     const y: number = eY;
+                    // console.log("line_x: ", line_x);
+                    // console.log("x: ", x);
                     const lineCurve = DrawingUtils.CreateCurvature(line_x, line_y, x, y, VariablesUtils.Curvature, 'openclose');
-
+                    // console.log("line curve: ", lineCurve)
                     elemsOut[item].children[0].setAttributeNS(null, 'd', lineCurve);
                 }
 
             } else {
-
                 const points: NodeListOf<Element> = elemsOut[item].querySelectorAll('.point');
                 let linecurve: string = '';
                 const reoute_fix: Array<any> = [];
@@ -187,8 +189,11 @@ export abstract class BaseFunctions {
             }
         })
 
+//this is where the line between the nodes is changed
+
         const elems = VariablesUtils.MainContainer.querySelectorAll(`.${idSearch}`);
         Object.keys(elems).map(function (item: any, index) {
+            // console.log("elems: ", elems[item].querySelector('.point'));
 
             if (elems[item].querySelector('.point') === null) {
                 var elemtsearchId_in: any = VariablesUtils.MainContainer.querySelector(`#${id}`);
@@ -203,7 +208,7 @@ export abstract class BaseFunctions {
                     return;
                 }
 
-                var elemtsearch = elemtsearchId.querySelectorAll('.' + elems[item].classList[3])[0]
+                var elemtsearch = elemtsearchId.querySelectorAll('.' + elems[item].classList[3])[0];
 
                 var line_x: number = elemtsearch.offsetWidth / 2 + (elemtsearch.getBoundingClientRect().x - VariablesUtils.PreCanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
                 var line_y: number = elemtsearch.offsetHeight / 2 + (elemtsearch.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
@@ -213,6 +218,7 @@ export abstract class BaseFunctions {
                 var y = elemtsearchId_in.offsetHeight / 2 + (elemtsearchId_in.getBoundingClientRect().y - VariablesUtils.PreCanvas.getBoundingClientRect().y) * precanvasHeightZoom;
 
                 const lineCurve = DrawingUtils.CreateCurvature(line_x, line_y, x, y, VariablesUtils.Curvature, 'openclose');
+                // console.log("child line curve edited: ", lineCurve)
                 elems[item].children[0].setAttributeNS(null, 'd', lineCurve);
 
             } else {
@@ -347,6 +353,7 @@ export abstract class BaseFunctions {
     }
 
     protected updateConnection(eX: any, eY: any): void {
+        // console.log("update connection: ", eX ,eY)
         const precanvas = VariablesUtils.PreCanvas;
         const zoom = VariablesUtils.Zoom;
         let precanvasWitdhZoom = precanvas.clientWidth / (precanvas.clientWidth * zoom);
@@ -357,7 +364,7 @@ export abstract class BaseFunctions {
 
         var line_x = VariablesUtils.SelectedElement.offsetWidth / 2 + (VariablesUtils.SelectedElement.getBoundingClientRect().x - precanvas.getBoundingClientRect().x) * precanvasWitdhZoom;
         var line_y = VariablesUtils.SelectedElement.offsetHeight / 2 + (VariablesUtils.SelectedElement.getBoundingClientRect().y - precanvas.getBoundingClientRect().y) * precanvasHeightZoom;
-
+        
         var x = eX * (VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom)) - (VariablesUtils.PreCanvas.getBoundingClientRect().x * (VariablesUtils.PreCanvas.clientWidth / (VariablesUtils.PreCanvas.clientWidth * VariablesUtils.Zoom)));
         var y = eY * (VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom)) - (VariablesUtils.PreCanvas.getBoundingClientRect().y * (VariablesUtils.PreCanvas.clientHeight / (VariablesUtils.PreCanvas.clientHeight * VariablesUtils.Zoom)));
 
@@ -555,6 +562,7 @@ export abstract class BaseFunctions {
     }
 
     protected removeReouteConnectionSelected(): void {
+        // console.log("remove reoute connection selected")
         this.Dispatch('connectionUnselected', true);
         if (VariablesUtils.RerouteFixCurvature) {
             VariablesUtils.SelectedConnection.parentElement.querySelectorAll(".main-path").forEach((item: any, i: any) => {
@@ -576,6 +584,7 @@ export abstract class BaseFunctions {
     }
 
     public removeReroutePoint(ele: any): void {
+        // console.log("removeReroutePOint")
         const nodeUpdate = ele.parentElement.classList[2].slice(9)
         const nodeUpdateIn = ele.parentElement.classList[1].slice(13);
         const output_class = ele.parentElement.classList[3];
@@ -606,7 +615,7 @@ export abstract class BaseFunctions {
     }
 
     public createReroutePoint(ele: any): void {
-
+        // console.log("create reRoute point")
         VariablesUtils.SelectedConnection.classList.remove("selected");
         const nodeUpdate = VariablesUtils.SelectedConnection.parentElement.classList[2].slice(9);
         const nodeUpdateIn = VariablesUtils.SelectedConnection.parentElement.classList[1].slice(13);
@@ -624,11 +633,13 @@ export abstract class BaseFunctions {
 
         let position_add_array_point = 0;
         if (VariablesUtils.RerouteFixCurvature) {
-
+            // console.log("creating path")
             const numberPoints = ele.parentElement.querySelectorAll(".main-path").length;
             var path = document.createElementNS('http://www.w3.org/2000/svg', "path");
             path.classList.add("main-path");
             path.setAttributeNS(null, 'd', '');
+            // console.log("creating path: ", path)
+
 
             ele.parentElement.insertBefore(path, ele.parentElement.children[numberPoints]);
             if (numberPoints === 1) {
@@ -653,7 +664,7 @@ export abstract class BaseFunctions {
         }
 
         if (VariablesUtils.RerouteFixCurvature) {
-            // console.log(position_add_array_point)
+            // console.log("p point: ",position_add_array_point)
             if (position_add_array_point > 0) {
                 this.activeModule(VariablesUtils.ActiveModule).Data[nodeId].outputs[output_class].Connections[searchConnection].points.splice(position_add_array_point, 0, { pos_x: pos_x, pos_y: pos_y });
             } else {
@@ -715,6 +726,7 @@ export abstract class BaseFunctions {
      * @returns 
      */
     public Dispatch(event: any, details: any): any {
+        // console.log("Dispatch: ", event, details);
         // Check if this event not exists
         if (VariablesUtils.Events[event] === undefined) {
             // console.error(`This event: ${event} does not exist`);
@@ -741,6 +753,7 @@ export abstract class BaseFunctions {
         VariablesUtils.CanvasY = (VariablesUtils.CanvasY / VariablesUtils.ZoomLastValue) * VariablesUtils.Zoom;
         VariablesUtils.ZoomLastValue = VariablesUtils.Zoom;
         VariablesUtils.PreCanvas.style.transform = "translate(" + VariablesUtils.CanvasX + "px, " + VariablesUtils.CanvasY + "px) scale(" + VariablesUtils.Zoom + ")";
+        document.getElementById('zoom-level').innerHTML =  Math.round(parseFloat((VariablesUtils.Zoom/VariablesUtils.ZoomMax).toFixed(2))*100).toString() + '%';
     }
 
     public Zoom_In(): void {
@@ -752,6 +765,7 @@ export abstract class BaseFunctions {
     public Zoom_Out(): void {
         if (VariablesUtils.Zoom > VariablesUtils.ZoomMin) {
             VariablesUtils.Zoom -= VariablesUtils.ZoomValue;
+
             this.Zoom_Refresh();
         }
     }
