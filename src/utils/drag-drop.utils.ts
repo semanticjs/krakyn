@@ -17,10 +17,13 @@ export class DragDropUtils {
      * 
      * @param e DragEvent
      */
-    public static Drag(e: any): void {
+    public static SideMenuDragEvent(e: any): void {
         const target: HTMLElement = <HTMLElement>e.target;
         const closest: HTMLElement = <HTMLElement>target.closest('.drag-item');
 
+        /**
+         * Mobile action
+         */
         if (e.type === 'touchstart') {
             if (closest) {
                 VariablesUtils.MobileItemSelected = closest.getAttribute('data-node');

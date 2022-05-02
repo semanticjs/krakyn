@@ -5,7 +5,7 @@
 */
 
 /**
-* Base functionality
+* Base styling for nodes
 */
 .base {
     display: flex;
@@ -15,6 +15,24 @@
     color: white;
     // -webkit-transition: background-color 3s; /* For Safari 3.0 to 6.0 */
     // transition: background-color 3s; /* For modern browsers */
+}
+
+/**
+* Base styling for icons
+*/
+.icon-base {
+    margin-right: 5px;
+}
+
+/**
+* Create shaped icon
+*/
+@mixin shape-icon($clip-path, $background-color, $height, $width) {
+    @extend .icon-base;
+    height: #{$height};
+    width: #{$width};
+    clip-path: #{$clip-path};
+    background-color: #{$background-color};
 }
 
 .gap > * {
@@ -33,11 +51,27 @@
     background-color: var(--node-request);
 }
 
+.request-icon {
+    @include shape-icon(
+        inset(0% 0% 0% 0% round 5px), 
+        var(--node-request), 
+        7px, 
+        20px )
+}
+
 .project {
     @extend .basic-node;
     @extend .base;
     color: white;
     background-color: var(--node-project);
+}
+
+.project-icon {
+    @include shape-icon(
+        inset(0% 0% 0% 0% round 5px), 
+        var(--node-project), 
+        7px, 
+        20px )
 }
 
 .filter {
@@ -46,16 +80,40 @@
     background-color: var(--node-filter);
 }
 
+.filter-icon {
+    @include shape-icon(
+        inset(0% 0% 0% 0% round 5px), 
+        var(--node-filter), 
+        7px, 
+        20px )
+}
+
 .application {
     @extend .basic-node;
     @extend .base;
     background-color: var(--node-application);
 }
 
+.application-icon {
+    @include shape-icon(
+        inset(0% 0% 0% 0% round 5px), 
+        var(--node-application), 
+        7px, 
+        20px )
+}
+
 .modifier {
     @extend .basic-node;
     @extend .base;
     background-color: var(--node-modifier);
+}
+
+.modifier-icon {
+    @include shape-icon(
+        inset(0% 0% 0% 0% round 5px), 
+        var(--node-modifier), 
+        7px, 
+        20px )
 }
 
 /**
@@ -69,6 +127,14 @@
     clip-path: polygon(0 25%, 25% 25%, 25% 0, 75% 0, 75% 25%, 100% 25%, 100% 75%, 75% 75%, 75% 100%, 25% 100%, 25% 75%, 0 75%);
 }
 
+.join-icon {
+    @include shape-icon(
+        polygon(0 25%, 25% 25%, 25% 0, 75% 0, 75% 25%, 100% 25%, 100% 75%, 75% 75%, 75% 100%, 25% 100%, 25% 75%, 0 75%), 
+        var(--node-join), 
+        20px, 
+        20px )
+}
+
 /**
 * X shape
 */
@@ -80,15 +146,16 @@
     background-color: var(--node-split);
 }
 
+.split-icon {
+    @include shape-icon(
+        polygon(25% 0, 0 25%, 25% 50%, 0 75%, 25% 100%, 50% 75%, 75% 100%, 100% 75%, 75% 50%, 100% 25%, 75% 0, 49% 25%), 
+        var(--node-split), 
+        20px, 
+        20px )
+}
+
 /**
 * Diamond shape
-*
-* There are multiple ways to generate a diamond 
-* shape, using a mask allows the input and output 
-* markers to be vertical without some crazy 
-* repositioning - however, using the mask hides
-* part of the inputs/outputs, because those items
-* sit inside of the shape and not outside of it
 */
 .decision {
     @extend .base;
@@ -98,7 +165,13 @@
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
-
+.decision-icon {
+    @include shape-icon(
+        polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%), 
+        var(--node-decision), 
+        20px, 
+        20px )
+}
 
 /**
 * Circle shape
@@ -109,4 +182,12 @@
     background-color: var(--node-event);
     width: 60px;
     height: 60px;
+}
+
+.event-icon {
+    @include shape-icon(
+        circle(50%), 
+        var(--node-event), 
+        20px, 
+        20px )
 }

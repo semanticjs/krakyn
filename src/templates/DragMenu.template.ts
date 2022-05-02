@@ -53,7 +53,7 @@ export class DragMenuItems extends LitElement {
     render() {
         return html 
         `
-        <div>
+        <div class="node-drop-shadow">
             <slot></slot>
         </div>
         `

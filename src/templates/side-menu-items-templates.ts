@@ -1,87 +1,94 @@
-export class DragItemsTemplates {
+export class SideMenuItemTemplates {
 
-    public static FLOW_DRAG_ITEMS(callback?: any): Array<any> {
+    /**
+     * 
+     * @param draggable enable/disable drag functionality
+     * 
+     * @param callback callback function on drag action
+     * @returns 
+     */
+    public static FLOW_DRAG_ITEMS(draggable: boolean, callback?: any): Array<any> {
        return [
            {
                ClassList: ['drag-item'],
                DataNode: 'request',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'request',
                Label: ' Request',
-               IconClassList: ['far', 'fa-thumbs-up']
+               IconClassList: ['request-icon']
            },
            {
                ClassList: ['drag-item'],
                DataNode: 'project',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'project',
                Label: ' Project',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['project-icon']
            },
            {
                ClassList: ['drag-item'],
                DataNode: 'filter',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'filter',
                Label: ' Route Filter',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['filter-icon']
            },
            {
                ClassList: ['drag-item'],
                DataNode: 'application',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'application',
                Label: ' Application',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['application-icon']
            },
            {
                ClassList: ['drag-item'],
                DataNode: 'modifier',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'modifier',
                Label: ' DFS Modifier',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['modifier-icon']
            },
            {
                ClassList: ['drag-item'],
                DataNode: 'join',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'join',
                Label: ' Join',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['join-icon']
            },
            {
                ClassList: ['drag-item'],
                DataNode: 'split',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'split',
                Label: ' Split',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['split-icon']
            },
            {
                ClassList: ['drag-item'],
                DataNode: 'decision',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'decision',
                Label: ' Decision',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['decision-icon']
            },
            {
                ClassList: ['drag-item'],
                DataNode: 'event',
-               Draggable: true,
+               Draggable: draggable,
                DragAction: callback,
                Id: 'event',
                Label: ' Event',
-               IconClassList: ['fab', 'fa-facebook']
+               IconClassList: ['event-icon']
            }
        ]
     }
