@@ -99,7 +99,7 @@ export class FlowTool extends DataFlowBaseClass {
   }
 
   /**
-   * Start creating nodes
+   * Start creating nodes called whenever the user changes tabs
    */
   protected start(): void {
     /**
@@ -141,14 +141,20 @@ export class FlowTool extends DataFlowBaseClass {
         VariablesUtils.MainContainer.removeChild(elm);
         VariablesUtils.PreCanvas = null;
       }
+      if (elm.id === "zoom-area") {
+        VariablesUtils.MainContainer.removeChild(elm);
+        VariablesUtils.ZoomContainer = null;
+      }
     });
+
+    //Create canvas for nodes to live on
 
     VariablesUtils.PreCanvas = document.createElement("div");
     VariablesUtils.PreCanvas.setAttribute("id", "flow-canvas");
     VariablesUtils.PreCanvas.classList.add("drawflow");
     VariablesUtils.MainContainer.appendChild(VariablesUtils.PreCanvas);
 
-    // console.log("Creating zoom container");
+    //Create zoom container
 
     VariablesUtils.ZoomContainer = document.createElement('div');
     VariablesUtils.ZoomContainer.setAttribute('id', 'zoom-area');
@@ -170,7 +176,6 @@ export class FlowTool extends DataFlowBaseClass {
           
         </div>
     `;
-
 
     VariablesUtils.MainContainer.appendChild(VariablesUtils.ZoomContainer);
 

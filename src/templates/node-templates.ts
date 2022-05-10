@@ -51,7 +51,7 @@ export class NodeTemplates {
                 <div class="gap flexbox-column application">
                     <span df-Name></span>
                     <span df-Details.Description></span>
-                    <span df-Processor.Type></span>
+                    <!-- <span df-Processor></span> -->
                     <span df-Version></span>
                     <button 
                             class="launch-btn-test"
