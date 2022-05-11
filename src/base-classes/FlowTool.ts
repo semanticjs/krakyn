@@ -72,34 +72,38 @@ export class FlowTool extends DataFlowBaseClass {
         Action: this.DblClick.bind(this),
       },
       {
-        Event: "onpointerdown",
+        Event: "pointerenter",
+        Action: this.PointerEnter.bind(this),
+      },
+      {
+        Event: "pointerdown",
         Action: this.PointerDown.bind(this),
       },
       {
-        Event: "onpointermove",
+        Event: "pointermove",
         Action: this.PointerMove.bind(this),
       },
       {
-        Event: "onpointerup",
+        Event: "pointerup",
         Action: this.PointerUp.bind(this),
       },
       {
-        Event: "onpointercancel",
+        Event: "pointercancel",
         Action: this.PointerUp.bind(this),
       },
       {
-        Event: "onpointerout",
+        Event: "pointerout",
         Action: this.PointerUp.bind(this),
       },
       {
-        Event: "onpointerleave",
+        Event: "pointerleave",
         Action: this.PointerUp.bind(this),
       },
     ];
   }
 
   /**
-   * Start creating nodes
+   * Start creating nodes called whenever the user changes tabs
    */
   protected start(): void {
     /**
@@ -116,6 +120,7 @@ export class FlowTool extends DataFlowBaseClass {
      */
     VariablesUtils.MainContainer.classList.add("parent-drawflow");
     VariablesUtils.MainContainer.tabIndex = 0;
+    VariablesUtils.EVCache = new Array();
 
     /**
      * Container that holds everything
@@ -141,14 +146,20 @@ export class FlowTool extends DataFlowBaseClass {
         VariablesUtils.MainContainer.removeChild(elm);
         VariablesUtils.PreCanvas = null;
       }
+      if (elm.id === "zoom-area") {
+        VariablesUtils.MainContainer.removeChild(elm);
+        VariablesUtils.ZoomContainer = null;
+      }
     });
+
+    //Create canvas for nodes to live on
 
     VariablesUtils.PreCanvas = document.createElement("div");
     VariablesUtils.PreCanvas.setAttribute("id", "flow-canvas");
     VariablesUtils.PreCanvas.classList.add("drawflow");
     VariablesUtils.MainContainer.appendChild(VariablesUtils.PreCanvas);
 
-    // console.log("Creating zoom container");
+    //Create zoom container
 
     VariablesUtils.ZoomContainer = document.createElement('div');
     VariablesUtils.ZoomContainer.setAttribute('id', 'zoom-area');
@@ -170,7 +181,6 @@ export class FlowTool extends DataFlowBaseClass {
           
         </div>
     `;
-
 
     VariablesUtils.MainContainer.appendChild(VariablesUtils.ZoomContainer);
 

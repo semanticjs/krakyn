@@ -129,10 +129,11 @@ export class FlowTool extends DataFlowBaseClass {
        VariablesUtils.PreCanvas.classList.add('drawflow');
        VariablesUtils.MainContainer.appendChild(VariablesUtils.PreCanvas);
 
-       VariablesUtils.ZoomContainer = document.createElement('div');
-       VariablesUtils.ZoomContainer.setAttribute('id', 'zoom-box');
-       VariablesUtils.ZoomContainer.classList.add('zoom-container');
-       VariablesUtils.PreCanvas.appendChild(VariablesUtils.ZoomContainer);
+      //  VariablesUtils.ZoomContainer = document.createElement('div');
+      //  VariablesUtils.ZoomContainer.setAttribute('id', 'zoom-box');
+      //  VariablesUtils.ZoomContainer.classList.add('zoom-container');
+      //  VariablesUtils.PreCanvas.appendChild(VariablesUtils.ZoomContainer);
+       
 
        console.log("Help me!!! ", VariablesUtils.PreCanvas)
  

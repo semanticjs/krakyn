@@ -729,16 +729,19 @@ export abstract class BaseFunctions {
         // console.log("Dispatch: ", event, details);
         // Check if this event not exists
         if (VariablesUtils.Events[event] === undefined) {
-            // console.error(`This event: ${event} does not exist`);
+            console.error(`This event: ${event} does not exist`);
+
             return false;
         }
         VariablesUtils.Events[event].listeners.forEach((listener: any) => {
             listener(details);
         });
+        this.Remove_Event(event);
     }
 
     public Remove_Event(ev: any): void {
         // Remove this event from the target's cache
+        // console.log("remove event: ", ev)
         for (var i = 0; i < VariablesUtils.EVCache.length; i++) {
             if (VariablesUtils.EVCache[i].pointerId == ev.pointerId) {
                 VariablesUtils.EVCache.splice(i, 1);

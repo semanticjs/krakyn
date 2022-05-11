@@ -296,7 +296,14 @@ export class NodeBaseClass extends BaseFunctions {
           }
 
           if (elems[i].closest("span")) {
-            elems[i].innerHTML = key[1];
+            // console.log("key 1: ", key[1]);
+            // console.log("type: ", typeof key[1]);
+            // if(typeof key[1] === "object"){
+            //   elems[i].innerHTML = JSON.stringify(key[1]);
+            // }
+            // else{
+              elems[i].innerHTML = key[1];
+            // }
           }
         }
         // }
@@ -304,6 +311,7 @@ export class NodeBaseClass extends BaseFunctions {
     );
 
     function insertObjectkeys(object: any, name: any, completname: any) {
+      console.log("object: ", object)
       if (object === null) {
         var object = dataNode.Data[name];
       } else {
@@ -313,6 +321,7 @@ export class NodeBaseClass extends BaseFunctions {
       if (object !== null) {
         Object.entries(object).forEach(function (key, value) {
           if (typeof key[1] === "object") {
+            console.log("type is object: ", object);
             insertObjectkeys(object, key[0], completname + "-" + key[0]);
           } else {
             var elems: any = content.querySelectorAll(
