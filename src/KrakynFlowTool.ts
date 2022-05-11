@@ -435,7 +435,9 @@ export class KrakynFlowTool extends LitElement {
   }
 
   protected dragEvent(eventType: string, e: any): void {
-    console.log("DragEvent");
+    console.log("DragEvent: ", e);
+
+    // if(e.srcElement.id !== e.toElement.id){
 
     switch (eventType) {
       case "drop":
@@ -447,6 +449,10 @@ export class KrakynFlowTool extends LitElement {
         e.preventDefault();
         break;
     }
+  // }
+  // else{
+  //   console.log("wtf")
+  // }
   }
 
   /**
@@ -476,7 +482,7 @@ export class KrakynFlowTool extends LitElement {
     return html`
 
       <header>
-        <h2>${this.HeaderTitle}</h2>
+        <h2 id="header-title">${this.HeaderTitle}</h2>
       </header>
 
     <div class="wrapper">
