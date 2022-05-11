@@ -13,6 +13,7 @@ export class DataFlowBaseClass extends BaseFunctions {
    * @param event Event
    */
   public DragEnd(event: DragEvent): void {
+    // console.log("mouse relased")
     let e_pos_x: number;
     let e_pos_y: number;
     let ele_last: any;
@@ -220,21 +221,48 @@ export class DataFlowBaseClass extends BaseFunctions {
    * @param e event
    */
   public Position(event: any): void {
+    // console.log('position being called:',event.type );
+    // console.log("posY: ", event.clientY)
+    // console.log("posX: ", event.clientX)
+
     if (event.type === "touchmove") {
       var e_pos_x = event.touches[0].clientX;
       var e_pos_y = event.touches[0].clientY;
-    } else {
+    } 
+    // else if(event.type === "wheel"){
+    //   console.log("canvasX", VariablesUtils.CanvasX);
+    //   console.log("canvasY", VariablesUtils.CanvasY);
+
+    //   var e_pos_x = event.deltaX + event.clientX;
+    //   var e_pos_y = event.deltaY + event.clientY;
+    //   VariablesUtils.EditorIsSelected = true;
+    // }
+    else {
       var e_pos_x = event.clientX;
       var e_pos_y = event.clientY;
     }
 
+    // console.log("e_pos_y: ", e_pos_y)
+    // console.log("e_pos_x: ", e_pos_x)
+
     if (VariablesUtils.Connection) {
       this.updateConnection(e_pos_x, e_pos_y);
     }
+    // console.log("editor selected: ", VariablesUtils.EditorIsSelected)
 
     if (VariablesUtils.EditorIsSelected) {
+      let x;
+      let y;
+      // if(event.type === "wheel"){
+      //   VariablesUtils.CanvasX = VariablesUtils.CanvasX + -(VariablesUtils.PosX - e_pos_x);
+      //   VariablesUtils.CanvasY = VariablesUtils.CanvasY + -(VariablesUtils.PosY - e_pos_y);
+      //   x = VariablesUtils.CanvasX;
+      //   y = VariablesUtils.CanvasY;
+      // }
+      // else{
       x = VariablesUtils.CanvasX + -(VariablesUtils.PosX - e_pos_x);
       y = VariablesUtils.CanvasY + -(VariablesUtils.PosY - e_pos_y);
+      // }
       this.Dispatch("translate", { x: x, y: y });
       VariablesUtils.PreCanvas.style.transform =
         "translate(" +
@@ -362,7 +390,7 @@ export class DataFlowBaseClass extends BaseFunctions {
       this.updateConnectionNodes(parentSelected);
     }
 
-    if (event.type === "touchmove") {
+    if (event.type === "touchmove" || event.type === "wheel") {
       VariablesUtils.MouseX = e_pos_x;
       VariablesUtils.MouseY = e_pos_y;
     }
@@ -406,6 +434,7 @@ export class DataFlowBaseClass extends BaseFunctions {
    */
   public Click(event: any): any {
     console.log("CLICK", event.target);
+    console.log("Click event: ", event);
 
     const target: Element = event.target;
 
@@ -710,6 +739,7 @@ export class DataFlowBaseClass extends BaseFunctions {
    * @param delta mouse wheel stuff
    */
   public Zoom_Enter(event: any, delta: any): void {
+    console.log("wheel event: ", event);
     if (event.ctrlKey) {
       event.preventDefault();
       if (event.deltaY > 0) {
@@ -719,6 +749,10 @@ export class DataFlowBaseClass extends BaseFunctions {
         // Zoom In
         this.Zoom_In();
       }
+    }
+    else{
+      // console.log("trying to pan");
+      this.Position(event);
     }
   }
 
@@ -769,6 +803,15 @@ export class DataFlowBaseClass extends BaseFunctions {
     }
   }
 
+  public PointerEnter(event: any): void{
+    // console.log("pointer enter: ", event);
+    // if(event.srcElement.id === "drawflow"){
+      // console.log('entered drawflow');
+      // VariablesUtils.EditorIsSelected = true;
+      // this.Position(event);
+    // }
+  }
+
   /* Mobile zoom */
 
   /**
@@ -776,6 +819,7 @@ export class DataFlowBaseClass extends BaseFunctions {
    * @param event event
    */
   public PointerDown(event: any): void {
+    // console.log("pointer down")
     VariablesUtils.EVCache.push(event);
   }
 
@@ -785,26 +829,36 @@ export class DataFlowBaseClass extends BaseFunctions {
    * @param e event
    */
   public PointerMove(event: any): void {
+    // console.log("pointer move being called")
     for (var i = 0; i < VariablesUtils.EVCache.length; i++) {
-      if (event.pointerId == VariablesUtils.EVCache[i].pointerId) {
+      if (event.pointerId === VariablesUtils.EVCache[i].pointerId) {
         VariablesUtils.EVCache[i] = event;
         break;
       }
     }
+    //tab zoom bug
+// console.log("EVCache: ", VariablesUtils.EVCache);
 
-    if (VariablesUtils.EVCache.length == 2) {
+    if (VariablesUtils.EVCache.length === 2) {
+      // console.log("EVCache: ", VariablesUtils.EVCache.toString());
+
       // Calculate the distance between the two pointers
       var curDiff = Math.abs(
         VariablesUtils.EVCache[0].clientX - VariablesUtils.EVCache[1].clientX
       );
+      // console.log("curDiff: ",curDiff)
+
+      // console.log("prevDiff: ",VariablesUtils.PrevDiff)
 
       if (VariablesUtils.PrevDiff > 100) {
         if (curDiff > VariablesUtils.PrevDiff) {
           // The distance between the two pointers has increased
-
+            // console.log("happening here in")
           this.Zoom_In();
         }
         if (curDiff < VariablesUtils.PrevDiff) {
+          // console.log("happening here out")
+
           // The distance between the two pointers has decreased
           this.Zoom_Out();
         }
@@ -819,9 +873,16 @@ export class DataFlowBaseClass extends BaseFunctions {
    * @param event event
    */
   public PointerUp(event: any): void {
+    // console.log("pointer left: ", event)
     this.Remove_Event(event);
     if (VariablesUtils.EVCache.length < 2) {
       VariablesUtils.PrevDiff = -1;
+    }
+    // console.log("element: ", event.srcElement);
+    if(event.srcElement.id === 'drawflow'){
+      // console.log("left drawflow")
+      this.DragEnd(event);
+      
     }
   }
 }

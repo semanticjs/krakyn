@@ -72,27 +72,31 @@ export class FlowTool extends DataFlowBaseClass {
         Action: this.DblClick.bind(this),
       },
       {
-        Event: "onpointerdown",
+        Event: "pointerenter",
+        Action: this.PointerEnter.bind(this),
+      },
+      {
+        Event: "pointerdown",
         Action: this.PointerDown.bind(this),
       },
       {
-        Event: "onpointermove",
+        Event: "pointermove",
         Action: this.PointerMove.bind(this),
       },
       {
-        Event: "onpointerup",
+        Event: "pointerup",
         Action: this.PointerUp.bind(this),
       },
       {
-        Event: "onpointercancel",
+        Event: "pointercancel",
         Action: this.PointerUp.bind(this),
       },
       {
-        Event: "onpointerout",
+        Event: "pointerout",
         Action: this.PointerUp.bind(this),
       },
       {
-        Event: "onpointerleave",
+        Event: "pointerleave",
         Action: this.PointerUp.bind(this),
       },
     ];
@@ -116,6 +120,7 @@ export class FlowTool extends DataFlowBaseClass {
      */
     VariablesUtils.MainContainer.classList.add("parent-drawflow");
     VariablesUtils.MainContainer.tabIndex = 0;
+    VariablesUtils.EVCache = new Array();
 
     /**
      * Container that holds everything
