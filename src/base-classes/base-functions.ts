@@ -729,7 +729,7 @@ export abstract class BaseFunctions {
         // console.log("Dispatch: ", event, details);
         // Check if this event not exists
         if (VariablesUtils.Events[event] === undefined) {
-            console.error(`This event: ${event} does not exist`);
+            // console.error(`This event: ${event} does not exist`);
 
             return false;
         }
